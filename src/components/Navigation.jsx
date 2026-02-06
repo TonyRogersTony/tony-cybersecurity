@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from './utils';
 import { content } from './content';
 
 export default function Navigation() {
@@ -18,7 +20,10 @@ export default function Navigation() {
 
   const menuItems = content.navigation.items;
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href, isPage) => {
+    if (isPage) {
+      return; // Let Link component handle navigation
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -46,24 +51,45 @@ export default function Navigation() {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-1">
               {menuItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
-                  style={{
-                    color: 'var(--text-secondary)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'color-mix(in srgb, var(--accent-primary) 10%, transparent)';
-                    e.target.style.color = 'var(--accent-primary)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.color = 'var(--text-secondary)';
-                  }}
-                >
-                  {item.label}
-                </button>
+                item.isPage ? (
+                  <Link key={item.href} to={createPageUrl(item.href.replace('/', ''))}>
+                    <button
+                      className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                      style={{
+                        color: 'var(--text-secondary)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = 'color-mix(in srgb, var(--accent-primary) 10%, transparent)';
+                        e.target.style.color = 'var(--accent-primary)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = 'transparent';
+                        e.target.style.color = 'var(--text-secondary)';
+                      }}
+                    >
+                      {item.label}
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href, item.isPage)}
+                    className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                    style={{
+                      color: 'var(--text-secondary)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = 'color-mix(in srgb, var(--accent-primary) 10%, transparent)';
+                      e.target.style.color = 'var(--accent-primary)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = 'transparent';
+                      e.target.style.color = 'var(--text-secondary)';
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
             </div>
 
@@ -96,18 +122,33 @@ export default function Navigation() {
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col gap-2">
               {menuItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-3 rounded-lg text-left font-medium transition-all duration-300"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'color-mix(in srgb, var(--accent-primary) 5%, transparent)',
-                    borderLeft: '3px solid var(--accent-primary)'
-                  }}
-                >
-                  {item.label}
-                </button>
+                item.isPage ? (
+                  <Link key={item.href} to={createPageUrl(item.href.replace('/', ''))} onClick={() => setIsMobileMenuOpen(false)}>
+                    <button
+                      className="w-full px-4 py-3 rounded-lg text-left font-medium transition-all duration-300"
+                      style={{
+                        color: 'var(--text-primary)',
+                        backgroundColor: 'color-mix(in srgb, var(--accent-primary) 5%, transparent)',
+                        borderLeft: '3px solid var(--accent-primary)'
+                      }}
+                    >
+                      {item.label}
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href, item.isPage)}
+                    className="px-4 py-3 rounded-lg text-left font-medium transition-all duration-300"
+                    style={{
+                      color: 'var(--text-primary)',
+                      backgroundColor: 'color-mix(in srgb, var(--accent-primary) 5%, transparent)',
+                      borderLeft: '3px solid var(--accent-primary)'
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
             </div>
           </div>
