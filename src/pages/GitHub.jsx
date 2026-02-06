@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, GitFork, Eye, Github as GithubIcon, ExternalLink, Code2, TrendingUp } from 'lucide-react';
+import { Star, GitFork, Eye, Github as GithubIcon, ExternalLink, Code2, TrendingUp, RefreshCw } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -14,26 +14,27 @@ export default function GitHub() {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const fetchGitHubData = async () => {
+    setLoading(true);
+    try {
+      const [userRes, reposRes] = await Promise.all([
+        fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+        fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=stars&order=desc&per_page=12`)
+      ]);
+
+      const user = await userRes.json();
+      const reposData = await reposRes.json();
+
+      setUserData(user);
+      setRepos(reposData.filter(repo => !repo.fork));
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching GitHub data:', error);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        const [userRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=stars&order=desc&per_page=12`)
-        ]);
-
-        const user = await userRes.json();
-        const reposData = await reposRes.json();
-
-        setUserData(user);
-        setRepos(reposData.filter(repo => !repo.fork));
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching GitHub data:', error);
-        setLoading(false);
-      }
-    };
-
     fetchGitHubData();
   }, []);
 
@@ -152,9 +153,26 @@ export default function GitHub() {
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-12">
-                  <Code2 className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
-                  <h2 className="text-4xl font-bold">Top Repositories</h2>
+                <div className="flex items-center justify-between mb-12">
+                  <div className="flex items-center gap-3">
+                    <Code2 className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
+                    <h2 className="text-4xl font-bold">Top Repositories</h2>
+                  </div>
+                  <motion.button
+                    onClick={fetchGitHubData}
+                    disabled={loading}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all disabled:opacity-50"
+                    style={{ 
+                      backgroundColor: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)',
+                      color: 'var(--accent-light)',
+                      border: '1px solid var(--border-color)'
+                    }}
+                  >
+                    <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                    <span className="text-sm font-medium">Refresh</span>
+                  </motion.button>
                 </div>
               </ScrollReveal>
 
