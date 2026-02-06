@@ -3,6 +3,7 @@ import { Building2, Calendar, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { content } from '../content';
 import SectionHeader from '../SectionHeader';
+import ScrollReveal from '../ScrollReveal';
 
 export default function ExperienceSection() {
   const { experience } = content;
@@ -93,11 +94,14 @@ export default function ExperienceSection() {
     <section id="experience" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title={experience.title} titleHighlight={experience.titleHighlight} />
+          <ScrollReveal>
+            <SectionHeader title={experience.title} titleHighlight={experience.titleHighlight} />
+          </ScrollReveal>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <Card key={index} className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderLeftColor: 'var(--accent-primary)', borderWidth: '1px', borderLeftWidth: '4px', borderStyle: 'solid' }}>
+              <ScrollReveal key={index} delay={0.1 * index} direction="left">
+                <Card className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderLeftColor: 'var(--accent-primary)', borderWidth: '1px', borderLeftWidth: '4px', borderStyle: 'solid' }}>
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="mb-4 md:mb-0">
                     <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{exp.role}</h3>
@@ -129,11 +133,13 @@ export default function ExperienceSection() {
                   ))}
                 </ul>
               </Card>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Early Career Summary */}
-          <Card className="mt-8 p-6 md:p-8" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
+          <ScrollReveal delay={0.5} direction="up">
+            <Card className="mt-8 p-6 md:p-8" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
             <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>{experience.earlyCareer.title}</h3>
             <div className="grid md:grid-cols-2 gap-4" style={{ color: 'var(--text-secondary)' }}>
               {experience.earlyCareer.items.map((item, idx) => (
@@ -145,6 +151,7 @@ export default function ExperienceSection() {
               ))}
             </div>
           </Card>
+          </ScrollReveal>
         </div>
       </div>
     </section>

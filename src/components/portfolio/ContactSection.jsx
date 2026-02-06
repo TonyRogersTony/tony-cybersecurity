@@ -9,6 +9,7 @@ import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import { content } from '../content';
 import SectionHeader from '../SectionHeader';
+import ScrollReveal from '../ScrollReveal';
 
 export default function ContactSection() {
   const { contact } = content;
@@ -52,11 +53,14 @@ export default function ContactSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title={contact.title} titleHighlight={contact.titleHighlight} />
+          <ScrollReveal>
+            <SectionHeader title={contact.title} titleHighlight={contact.titleHighlight} />
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
-            <aside>
+            <ScrollReveal delay={0.2} direction="left">
+              <aside>
               <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{contact.intro.title}</h3>
               <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {contact.intro.description}
@@ -76,9 +80,11 @@ export default function ContactSection() {
                 </Card>
               </address>
             </aside>
+            </ScrollReveal>
 
             {/* Contact Form */}
-            <Card className="p-6" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
+            <ScrollReveal delay={0.4} direction="right">
+              <Card className="p-6" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
               <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
                 <div>
                   <Input
@@ -159,6 +165,7 @@ export default function ContactSection() {
                 </Button>
               </form>
             </Card>
+            </ScrollReveal>
           </div>
         </div>
       </div>

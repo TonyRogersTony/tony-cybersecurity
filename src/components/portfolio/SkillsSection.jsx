@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { content } from '../content';
 import SectionHeader from '../SectionHeader';
+import ScrollReveal from '../ScrollReveal';
 
 export default function SkillsSection() {
   const { skills } = content;
@@ -33,10 +34,13 @@ export default function SkillsSection() {
     <section id="skills" className="py-20" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title={skills.title} titleHighlight={skills.titleHighlight} />
+          <ScrollReveal>
+            <SectionHeader title={skills.title} titleHighlight={skills.titleHighlight} />
+          </ScrollReveal>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <ScrollReveal delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
             {skills.filters.map((filter) => (
               <button
                 key={filter.value}
