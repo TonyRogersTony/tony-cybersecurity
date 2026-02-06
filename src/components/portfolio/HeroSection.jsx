@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, ArrowDown } from 'lucide-react';
+import { MapPin, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -174,14 +174,6 @@ export default function HeroSection({ onContactClick }) {
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
               <span>London, UK</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-              <a href="tel:+447834963875" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-tertiary)' }}>+44 7834 963875</a>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-              <a href="mailto:biohackerjoe@gmail.com" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-tertiary)' }}>biohackerjoe@gmail.com</a>
             </div>
           </motion.div>
 

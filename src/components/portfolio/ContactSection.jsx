@@ -66,34 +66,6 @@ export default function ContactSection() {
                 <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-400">Email</p>
-                      <a href="mailto:biohackerjoe@gmail.com" className="text-white hover:text-purple-300 transition-colors">
-                        biohackerjoe@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-400">Phone</p>
-                      <a href="tel:+447834963875" className="text-white hover:text-purple-300 transition-colors">
-                        +44 7834 963875
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
