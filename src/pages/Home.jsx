@@ -10,7 +10,6 @@ import CertificationsSection from '../components/portfolio/CertificationsSection
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import SEO from '../components/SEO';
-import NewsletterSubscribe from '../components/NewsletterSubscribe';
 import { content } from '../components/content';
 
 export default function Home() {
@@ -47,13 +46,6 @@ export default function Home() {
           <CertificationsSection />
           <TestimonialsSection />
           <ContactSection />
-          
-          {/* Newsletter Section */}
-          <section className="py-16" style={{ backgroundColor: 'var(--bg-secondary)' }}>
-            <div className="container mx-auto px-6 max-w-2xl">
-              <NewsletterSubscribe />
-            </div>
-          </section>
           
           <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
             <div className="container mx-auto px-6 text-center">
