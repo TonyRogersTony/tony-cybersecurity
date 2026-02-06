@@ -50,15 +50,6 @@ export default function Navigation() {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Logo/Name */}
-            <button 
-              onClick={() => scrollToSection('#hero')}
-              className="text-xl font-bold transition-colors"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              Joe Bains
-            </button>
-
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-1">
               {menuItems.map((item) => (
