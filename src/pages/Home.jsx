@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import HeroSection from '../components/portfolio/HeroSection';
 import AboutSection from '../components/portfolio/AboutSection';
 import SkillsSection from '../components/portfolio/SkillsSection';
+import PortfolioSection from '../components/portfolio/PortfolioSection';
 import ExperienceSection from '../components/portfolio/ExperienceSection';
 import CertificationsSection from '../components/portfolio/CertificationsSection';
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
@@ -32,6 +33,7 @@ export default function Home() {
       <HeroSection onContactClick={scrollToContact} />
       <AboutSection />
       <SkillsSection />
+      <PortfolioSection />
       <ExperienceSection />
       <CertificationsSection />
       <TestimonialsSection />
