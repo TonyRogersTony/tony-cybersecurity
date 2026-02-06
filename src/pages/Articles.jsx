@@ -8,6 +8,7 @@ import { Plus, Search } from 'lucide-react';
 import ArticleCard from '../components/blog/ArticleCard';
 import ArticleForm from '../components/blog/ArticleForm';
 import CategoryGrid from '../components/blog/CategoryGrid';
+import NewsletterSubscribe from '../components/NewsletterSubscribe';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 
@@ -135,6 +136,11 @@ export default function Articles() {
           >
             Thoughts on technology, leadership, and industry trends
           </motion.p>
+        </div>
+
+        {/* Newsletter */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <NewsletterSubscribe />
         </div>
 
         {/* Category Grid */}
