@@ -30,7 +30,7 @@ export default function HeroSection({ onContactClick }) {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ color: 'var(--text-primary)', backgroundColor: 'var(--bg-primary)' }}>
+    <header id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ color: 'var(--text-primary)', backgroundColor: 'var(--bg-primary)' }}>
       {/* Animated background elements with mouse tracking */}
       <div className="absolute inset-0 opacity-20">
         <motion.div 
