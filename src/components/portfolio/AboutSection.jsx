@@ -2,6 +2,7 @@ import React from 'react';
 import { Briefcase, Award, Globe } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function AboutSection() {
   const { about } = content;
@@ -21,10 +22,7 @@ export default function AboutSection() {
     <section id="about" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-            {about.title} <span className="text-purple-400">{about.titleHighlight}</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
+          <SectionHeader title={about.title} titleHighlight={about.titleHighlight} />
 
           <div className="backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 mb-12" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
             {about.paragraphs.map((para, idx) => (

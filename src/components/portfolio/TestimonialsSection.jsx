@@ -3,6 +3,7 @@ import { Quote, X } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function TestimonialsSection() {
   const { testimonials } = content;

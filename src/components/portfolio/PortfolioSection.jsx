@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function PortfolioSection() {
   const { portfolio } = content;

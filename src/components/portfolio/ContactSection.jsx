@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/card';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function ContactSection() {
   const { contact } = content;
@@ -51,10 +52,7 @@ export default function ContactSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            {contact.title} <span style={{ color: 'var(--accent-primary)' }}>{contact.titleHighlight}</span>
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
+          <SectionHeader title={contact.title} titleHighlight={contact.titleHighlight} />
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}

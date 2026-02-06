@@ -2,6 +2,7 @@ import React from 'react';
 import { Building2, Calendar, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function ExperienceSection() {
   const { experience } = content;

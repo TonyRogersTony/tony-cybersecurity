@@ -3,6 +3,7 @@ import { Award, GraduationCap, BookOpen, Mic } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function CertificationsSection() {
   const { certifications } = content;
