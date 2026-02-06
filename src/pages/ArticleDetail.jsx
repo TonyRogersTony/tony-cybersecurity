@@ -12,10 +12,13 @@ import { createPageUrl } from '../utils';
 import CommentSection from '../components/blog/CommentSection';
 import ArticleSEO from '../components/blog/ArticleSEO';
 import SocialShare from '../components/blog/SocialShare';
+import ArticleReadingControls from '../components/blog/ArticleReadingControls';
 
 export default function ArticleDetail() {
   const urlParams = new URLSearchParams(window.location.search);
   const articleId = urlParams.get('id');
+  const [fontSize, setFontSize] = React.useState('medium');
+  const [readingMode, setReadingMode] = React.useState('light');
 
   const { data: article, isLoading, error } = useQuery({
     queryKey: ['article', articleId],
@@ -49,10 +52,32 @@ export default function ArticleDetail() {
 
   const publishedDate = article.published_date ? new Date(article.published_date) : new Date(article.created_date);
 
+  const fontSizeClasses = {
+    small: 'text-base',
+    medium: 'text-lg',
+    large: 'text-xl',
+    xlarge: 'text-2xl'
+  };
+
+  const readingModeStyles = readingMode === 'dark' ? {
+    backgroundColor: '#1a1a1a',
+    color: '#e5e5e5'
+  } : {
+    backgroundColor: 'var(--bg-secondary)',
+    color: 'var(--text-primary)'
+  };
+
   return (
-    <div className="min-h-screen py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <div className="min-h-screen py-20" style={readingModeStyles}>
       <ArticleSEO article={article} />
       <article className="container mx-auto px-6 max-w-4xl">
+        {/* Reading Controls */}
+        <ArticleReadingControls 
+          articleId={articleId}
+          onFontSizeChange={setFontSize}
+          onReadingModeChange={setReadingMode}
+        />
+
         {/* Back button */}
         <Link to={createPageUrl('Articles')}>
           <Button variant="ghost" className="mb-8">
@@ -148,21 +173,21 @@ export default function ArticleDetail() {
 
         {/* Article Content */}
         <motion.div
-          className="prose prose-lg max-w-none"
-          style={{ color: 'var(--text-primary)' }}
+          className={`prose max-w-none ${fontSizeClasses[fontSize]}`}
+          style={{ color: readingMode === 'dark' ? '#e5e5e5' : 'var(--text-primary)' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
           <ReactMarkdown
             components={{
-              h1: ({ children }) => <h1 className="text-3xl font-bold mt-8 mb-4" style={{ color: 'var(--text-primary)' }}>{children}</h1>,
-              h2: ({ children }) => <h2 className="text-2xl font-bold mt-6 mb-3" style={{ color: 'var(--text-primary)' }}>{children}</h2>,
-              h3: ({ children }) => <h3 className="text-xl font-bold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>{children}</h3>,
-              p: ({ children }) => <p className="mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{children}</p>,
-              ul: ({ children }) => <ul className="list-disc ml-6 mb-4 space-y-2" style={{ color: 'var(--text-secondary)' }}>{children}</ul>,
-              ol: ({ children }) => <ol className="list-decimal ml-6 mb-4 space-y-2" style={{ color: 'var(--text-secondary)' }}>{children}</ol>,
-              li: ({ children }) => <li style={{ color: 'var(--text-secondary)' }}>{children}</li>,
+              h1: ({ children }) => <h1 className="text-3xl font-bold mt-8 mb-4" style={{ color: readingMode === 'dark' ? '#ffffff' : 'var(--text-primary)' }}>{children}</h1>,
+              h2: ({ children }) => <h2 className="text-2xl font-bold mt-6 mb-3" style={{ color: readingMode === 'dark' ? '#ffffff' : 'var(--text-primary)' }}>{children}</h2>,
+              h3: ({ children }) => <h3 className="text-xl font-bold mt-4 mb-2" style={{ color: readingMode === 'dark' ? '#ffffff' : 'var(--text-primary)' }}>{children}</h3>,
+              p: ({ children }) => <p className="mb-4 leading-relaxed" style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</p>,
+              ul: ({ children }) => <ul className="list-disc ml-6 mb-4 space-y-2" style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal ml-6 mb-4 space-y-2" style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</ol>,
+              li: ({ children }) => <li style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</li>,
               code: ({ inline, children }) => inline ? (
                 <code className="px-1.5 py-0.5 rounded text-sm" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--accent-primary)' }}>
                   {children}
