@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { content } from '../content';
 
 export default function HeroSection({ onContactClick }) {
+  const { hero } = content;
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
 
@@ -105,7 +107,7 @@ export default function HeroSection({ onContactClick }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Joe Bains
+              {hero.name}
             </motion.h1>
             
             <motion.div 
@@ -117,8 +119,8 @@ export default function HeroSection({ onContactClick }) {
               <div className="relative">
                 <div className="absolute inset-0 rounded-full blur-2xl" style={{ backgroundColor: 'var(--glow-1)', opacity: 0.3 }}></div>
                 <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg" 
-                  alt="Joe Bains"
+                  src={hero.profileImage} 
+                  alt={hero.name}
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-lg border-4 relative z-10"
                   style={{ borderColor: 'var(--accent-primary)' }}
                 />
@@ -140,7 +142,7 @@ export default function HeroSection({ onContactClick }) {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
-            <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
+            <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>{hero.status}</span>
           </motion.div>
 
           <motion.div 
@@ -150,7 +152,7 @@ export default function HeroSection({ onContactClick }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Senior Implementation Engineer | Technical Solutions Specialist
+            {hero.title}
           </motion.div>
 
           <motion.div 
@@ -160,7 +162,7 @@ export default function HeroSection({ onContactClick }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Linux Administrator • DBA • Linux Trainer
+            {hero.subtitle}
           </motion.div>
 
           <motion.p 
@@ -170,7 +172,7 @@ export default function HeroSection({ onContactClick }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            15+ years of expertise in technical solutions delivery across telecommunications, healthcare, and enterprise environments.
+            {hero.description}
           </motion.p>
 
           {/* Contact info */}
@@ -183,7 +185,7 @@ export default function HeroSection({ onContactClick }) {
           >
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-              <span>London, UK</span>
+              <span>{hero.location}</span>
             </div>
           </motion.div>
 
@@ -206,7 +208,7 @@ export default function HeroSection({ onContactClick }) {
                   background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
                 }}
               >
-                Get in Touch
+                {hero.buttons.contact}
               </Button>
             </motion.div>
             <motion.div
@@ -223,7 +225,7 @@ export default function HeroSection({ onContactClick }) {
                   color: 'var(--accent-light)',
                 }}
               >
-                View Portfolio
+                {hero.buttons.portfolio}
               </Button>
             </motion.div>
           </motion.div>
@@ -242,7 +244,7 @@ export default function HeroSection({ onContactClick }) {
 
       {/* Professional status badge */}
       <div className="absolute bottom-8 right-8 text-sm hidden md:block" style={{ color: 'var(--text-tertiary)' }}>
-        British Citizen • Full UK Driving Licence • Former SC-Cleared
+        {hero.footer}
       </div>
     </section>
   );

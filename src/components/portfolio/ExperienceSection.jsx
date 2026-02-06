@@ -1,9 +1,13 @@
 import React from 'react';
 import { Building2, Calendar, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { content } from '../content';
 
 export default function ExperienceSection() {
-  const experiences = [
+  const { experience } = content;
+  const experiences = experience.positions;
+  
+  const oldExperiences = [
     {
       role: "Solutions & Migrations Engineer",
       company: "Professional Cosmetic Surgery",
@@ -89,7 +93,7 @@ export default function ExperienceSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            Professional <span style={{ color: 'var(--accent-primary)' }}>Experience</span>
+            {experience.title} <span style={{ color: 'var(--accent-primary)' }}>{experience.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
@@ -132,20 +136,15 @@ export default function ExperienceSection() {
 
           {/* Early Career Summary */}
           <Card className="mt-8 p-6 md:p-8" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
-            <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Early Career Highlights</h3>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>{experience.earlyCareer.title}</h3>
             <div className="grid md:grid-cols-2 gap-4" style={{ color: 'var(--text-secondary)' }}>
-              <div>
-                <strong style={{ color: 'var(--accent-primary)' }}>O2 (2003–2005):</strong> Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage.
-              </div>
-              <div>
-                <strong style={{ color: 'var(--accent-primary)' }}>Cap Gemini (2002–2003):</strong> Applications Integrator performing performance tuning on Enterprise systems.
-              </div>
-              <div>
-                <strong style={{ color: 'var(--accent-secondary)' }}>Genie / BTCellnet (2001–2002):</strong> Implemented UK/Europe SMS solutions and managed Openwave WAP Portals.
-              </div>
-              <div>
-                <strong style={{ color: 'var(--accent-secondary)' }}>BTCellnet (1998–2000):</strong> Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart.
-              </div>
+              {experience.earlyCareer.items.map((item, idx) => (
+                <div key={idx}>
+                  <strong style={{ color: idx < 2 ? 'var(--accent-primary)' : 'var(--accent-secondary)' }}>
+                    {item.company} ({item.period}):
+                  </strong> {item.description}
+                </div>
+              ))}
             </div>
           </Card>
         </div>

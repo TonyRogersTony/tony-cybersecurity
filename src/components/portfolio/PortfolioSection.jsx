@@ -3,11 +3,16 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { content } from '../content';
 
 export default function PortfolioSection() {
+  const { portfolio } = content;
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const projects = [
+  const projects = portfolio.projects;
+  const categories = portfolio.categories;
+
+  const oldProjects = [
     {
       title: "Healthcare Systems Migration",
       category: "Cloud Infrastructure",
@@ -66,13 +71,6 @@ export default function PortfolioSection() {
     }
   ];
 
-  const categories = [
-    { label: 'All Projects', value: 'all' },
-    { label: 'Cloud Infrastructure', value: 'Cloud Infrastructure' },
-    { label: 'System Integration', value: 'System Integration' },
-    { label: 'Automation', value: 'Automation' }
-  ];
-
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
@@ -82,7 +80,7 @@ export default function PortfolioSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            Project <span style={{ color: 'var(--accent-primary)' }}>Portfolio</span>
+            {portfolio.title} <span style={{ color: 'var(--accent-primary)' }}>{portfolio.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-8" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
@@ -161,7 +159,7 @@ export default function PortfolioSection() {
           {/* Results count */}
           <div className="text-center mt-8">
             <p style={{ color: 'var(--text-tertiary)' }}>
-              Showing <span className="font-semibold" style={{ color: 'var(--accent-primary)' }}>{filteredProjects.length}</span> {filteredProjects.length === 1 ? 'project' : 'projects'}
+              {portfolio.resultText.showing} <span className="font-semibold" style={{ color: 'var(--accent-primary)' }}>{filteredProjects.length}</span> {filteredProjects.length === 1 ? portfolio.resultText.project : portfolio.resultText.projects}
             </p>
           </div>
         </div>

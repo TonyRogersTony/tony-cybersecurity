@@ -9,8 +9,10 @@ import CertificationsSection from '../components/portfolio/CertificationsSection
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import ThemeToggle from '../components/ThemeToggle';
+import { content } from '../components/content';
 
 export default function Home() {
+  const { footer } = content;
   const scrollToContact = () => {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   };
@@ -44,8 +46,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
         <div className="container mx-auto px-6 text-center">
-          <p>© 2026 Joe Bains. All rights reserved.</p>
-          <p className="text-sm mt-2">Senior Implementation Engineer | Technical Solutions Specialist</p>
+          <p>{footer.copyright}</p>
+          <p className="text-sm mt-2">{footer.tagline}</p>
         </div>
       </footer>
     </div>

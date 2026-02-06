@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Quote, X } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { content } from '../content';
 
 export default function TestimonialsSection() {
+  const { testimonials } = content;
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
-  const testimonials = [
+  const oldTestimonials = [
     {
       text: "Joe had an excellent technical understanding of our platforms and very often came up with excellent solutions to challenging problems.",
       fullText: "Joe had an excellent technical understanding of our platforms and very often came up with excellent solutions to challenging problems. His ability to quickly diagnose issues and implement effective solutions was invaluable to our team. Joe consistently demonstrated professionalism and technical excellence throughout our collaboration.",
@@ -62,12 +64,12 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            Client <span style={{ color: 'var(--accent-primary)' }}>Testimonials</span>
+            {testimonials.title} <span style={{ color: 'var(--accent-primary)' }}>{testimonials.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.items.map((testimonial, index) => (
               <Card 
                 key={index} 
                 className="p-6 hover:shadow-xl transition-all duration-300 relative border-l-2 cursor-pointer hover:scale-105"
@@ -93,7 +95,7 @@ export default function TestimonialsSection() {
                       <p className="text-sm" style={{ color: 'var(--accent-primary)' }}>{testimonial.company}</p>
                     )}
                   </div>
-                  <p className="text-xs mt-3 hover:underline" style={{ color: 'var(--accent-primary)' }}>Click to read full testimonial →</p>
+                  <p className="text-xs mt-3 hover:underline" style={{ color: 'var(--accent-primary)' }}>{testimonials.clickText}</p>
                 </div>
               </Card>
             ))}
@@ -105,7 +107,7 @@ export default function TestimonialsSection() {
               <DialogHeader>
                 <DialogTitle className="text-2xl flex items-start gap-3" style={{ color: 'var(--text-primary)' }}>
                   <Quote className="w-8 h-8 flex-shrink-0 mt-1" style={{ color: 'var(--accent-primary)' }} />
-                  <span>Full Testimonial</span>
+                  <span>{testimonials.modalTitle}</span>
                 </DialogTitle>
               </DialogHeader>
               

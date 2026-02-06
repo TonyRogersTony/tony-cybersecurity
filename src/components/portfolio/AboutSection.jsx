@@ -1,42 +1,37 @@
 import React from 'react';
 import { Briefcase, Award, Globe } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { content } from '../content';
 
 export default function AboutSection() {
-  const highlights = [
-    {
-      icon: Briefcase,
-      title: "Technical Excellence",
-      description: "Complex system integrations, SDK/API implementations, and streamlined deployment processes"
-    },
-    {
-      icon: Globe,
-      title: "Global Experience",
-      description: "15+ years delivering solutions across telecommunications, healthcare, and enterprise environments"
-    },
-    {
-      icon: Award,
-      title: "Communication",
-      description: "Advanced Toastmaster bridging deep technical knowledge with exceptional communication"
-    }
-  ];
+  const { about } = content;
+  
+  const iconMap = {
+    "Technical Excellence": Briefcase,
+    "Global Experience": Globe,
+    "Communication": Award
+  };
+
+  const highlights = about.highlights.map(h => ({
+    ...h,
+    icon: iconMap[h.title]
+  }));
 
   return (
     <section id="about" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-            About <span className="text-purple-400">Me</span>
+            {about.title} <span className="text-purple-400">{about.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
 
           <div className="backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 mb-12" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
-            <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
-              As a <strong className="text-purple-400">Solutions & Migrations Engineer</strong>, my career is a testament to technical excellence and dedication to delivering robust solutions. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships across global enterprises.
-            </p>
-            <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, cloud technologies, and DevOps practices allows me to guide clients towards optimized technical solutions. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
-            </p>
+            {about.paragraphs.map((para, idx) => (
+              <p key={idx} className="text-lg leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
+                {para}
+              </p>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">

@@ -7,8 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card } from '@/components/ui/card';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
+import { content } from '../content';
 
 export default function ContactSection() {
+  const { contact } = content;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,7 +26,7 @@ export default function ContactSection() {
 
     try {
       await base44.entities.ContactSubmission.create(formData);
-      toast.success('Message sent successfully! I\'ll get back to you soon.');
+      toast.success(contact.form.successMessage);
       setFormData({
         name: '',
         email: '',
@@ -33,7 +35,7 @@ export default function ContactSection() {
         message: ''
       });
     } catch (error) {
-      toast.error('Failed to send message. Please try again or contact me directly.');
+      toast.error(contact.form.errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -50,16 +52,16 @@ export default function ContactSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            Get in <span style={{ color: 'var(--accent-primary)' }}>Touch</span>
+            {contact.title} <span style={{ color: 'var(--accent-primary)' }}>{contact.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>Let's Work Together</h3>
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{contact.intro.title}</h3>
               <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                I'm available for consulting projects and technical training. Whether you need expertise in cloud migrations, system integrations, or Linux administration, I'd love to hear from you.
+                {contact.intro.description}
               </p>
 
               <div className="space-y-4">
@@ -69,8 +71,8 @@ export default function ContactSection() {
                       <MapPin className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                     </div>
                     <div>
-                      <p className="text-sm" style={{ color: 'var(--text-tertiary)' }}>Location</p>
-                      <p style={{ color: 'var(--text-primary)' }}>London, United Kingdom</p>
+                      <p className="text-sm" style={{ color: 'var(--text-tertiary)' }}>{contact.contactInfo.location.label}</p>
+                      <p style={{ color: 'var(--text-primary)' }}>{contact.contactInfo.location.value}</p>
                     </div>
                   </div>
                 </Card>
@@ -82,7 +84,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input
-                    placeholder="Your Name *"
+                    placeholder={contact.form.fields.name}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -93,7 +95,7 @@ export default function ContactSection() {
                 <div>
                   <Input
                     type="email"
-                    placeholder="Your Email *"
+                    placeholder={contact.form.fields.email}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
@@ -103,7 +105,7 @@ export default function ContactSection() {
 
                 <div>
                   <Input
-                    placeholder="Company Name"
+                    placeholder={contact.form.fields.company}
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
@@ -116,19 +118,19 @@ export default function ContactSection() {
                     onValueChange={(value) => setFormData({ ...formData, service_interest: value })}
                   >
                     <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
-                      <SelectValue placeholder="Service Interest" />
+                      <SelectValue placeholder={contact.form.fields.serviceInterest} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="technical_consulting">Technical Consulting</SelectItem>
-                      <SelectItem value="training">Training</SelectItem>
-                      <SelectItem value="general_inquiry">General Inquiry</SelectItem>
+                      {contact.form.serviceOptions.map(opt => (
+                        <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div>
                   <Textarea
-                    placeholder="Your Message *"
+                    placeholder={contact.form.fields.message}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
@@ -144,11 +146,11 @@ export default function ContactSection() {
                   style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
                 >
                   {isSubmitting ? (
-                    'Sending...'
+                    contact.form.submitting
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      {contact.form.submitButton}
                     </>
                   )}
                 </Button>

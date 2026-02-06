@@ -2,80 +2,27 @@ import React, { useState } from 'react';
 import { Cloud, Server, Database, Code, Cog, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
+import { content } from '../content';
 
 export default function SkillsSection() {
+  const { skills } = content;
   const [selectedCategory, setSelectedCategory] = useState('all');
+  
+  const iconMap = {
+    "cloud": Cloud,
+    "systems": Server,
+    "databases": Database,
+    "languages": Code,
+    "devops": Cog,
+    "tools": Activity
+  };
 
-  const skillCategories = [
-    {
-      icon: Cloud,
-      title: "Cloud & Infrastructure",
-      category: "cloud",
-      skills: [
-        { name: "AWS Cloud", level: 90 },
-        { name: "Docker", level: 85 },
-        { name: "Kubernetes", level: 80 },
-        { name: "Terraform", level: 75 },
-        { name: "VMware ESX/ESXi", level: 85 }
-      ]
-    },
-    {
-      icon: Server,
-      title: "Operating Systems",
-      category: "systems",
-      skills: [
-        { name: "Linux (RHEL/Ubuntu)", level: 95 },
-        { name: "Solaris Administration", level: 85 },
-        { name: "HP-UX", level: 75 },
-        { name: "Windows Server", level: 80 }
-      ]
-    },
-    {
-      icon: Database,
-      title: "Databases",
-      category: "databases",
-      skills: [
-        { name: "MySQL", level: 90 },
-        { name: "Oracle", level: 85 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MongoDB", level: 75 }
-      ]
-    },
-    {
-      icon: Code,
-      title: "Development & Scripting",
-      category: "languages",
-      skills: [
-        { name: "Python", level: 90 },
-        { name: "Shell Scripting", level: 95 },
-        { name: "JavaScript", level: 80 },
-        { name: "Java", level: 75 },
-        { name: "API/SDK Integration", level: 85 }
-      ]
-    },
-    {
-      icon: Cog,
-      title: "DevOps & Automation",
-      category: "devops",
-      skills: [
-        { name: "CI/CD Pipelines", level: 85 },
-        { name: "Ansible", level: 80 },
-        { name: "Git", level: 90 },
-        { name: "Puppet", level: 75 }
-      ]
-    },
-    {
-      icon: Activity,
-      title: "Monitoring & Tools",
-      category: "tools",
-      skills: [
-        { name: "Nagios", level: 85 },
-        { name: "F5 BigIP", level: 80 },
-        { name: "Centreon", level: 75 },
-        { name: "Jboss", level: 70 }
-      ]
-    }
-  ];
+  const skillCategories = skills.categories.map(cat => ({
+    ...cat,
+    icon: iconMap[cat.category]
+  }));
+
+
 
   const filteredCategories = selectedCategory === 'all' 
     ? skillCategories 
@@ -86,21 +33,13 @@ export default function SkillsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            Technical <span style={{ color: 'var(--accent-primary)' }}>Skills</span>
+            {skills.title} <span style={{ color: 'var(--accent-primary)' }}>{skills.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-8" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {[
-              { label: 'All Skills', value: 'all' },
-              { label: 'Cloud', value: 'cloud' },
-              { label: 'Systems', value: 'systems' },
-              { label: 'Databases', value: 'databases' },
-              { label: 'Languages', value: 'languages' },
-              { label: 'DevOps', value: 'devops' },
-              { label: 'Tools', value: 'tools' }
-            ].map((filter) => (
+            {skills.filters.map((filter) => (
               <button
                 key={filter.value}
                 onClick={() => setSelectedCategory(filter.value)}

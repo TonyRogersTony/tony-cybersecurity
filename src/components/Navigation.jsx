@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { content } from './content';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,16 +16,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Certifications', href: '#certifications' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' }
-  ];
+  const menuItems = content.navigation.items;
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
