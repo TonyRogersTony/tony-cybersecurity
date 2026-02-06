@@ -51,11 +51,21 @@ const themes = {
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState('purple');
+  const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'purple';
-    setTheme(savedTheme);
-    applyTheme(savedTheme);
+    const savedTheme = localStorage.getItem('theme');
+    const hasSeenWelcome = localStorage.getItem('hasSeenThemeWelcome');
+    
+    if (!hasSeenWelcome) {
+      setShowWelcome(true);
+      applyTheme('purple');
+      setTheme('purple');
+    } else {
+      const themeToUse = savedTheme || 'purple';
+      setTheme(themeToUse);
+      applyTheme(themeToUse);
+    }
   }, []);
 
   const applyTheme = (themeName) => {
@@ -70,33 +80,74 @@ export default function ThemeToggle() {
     setTheme(themeName);
     localStorage.setItem('theme', themeName);
     applyTheme(themeName);
+    
+    if (showWelcome) {
+      localStorage.setItem('hasSeenThemeWelcome', 'true');
+      setShowWelcome(false);
+    }
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="fixed top-6 right-6 z-50 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20"
-        >
-          <Palette className="h-5 w-5" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
-        {Object.entries(themes).map(([key, config]) => (
-          <DropdownMenuItem
-            key={key}
-            onClick={() => handleThemeChange(key)}
-            className={theme === key ? 'bg-accent' : ''}
-          >
-            <div className="flex items-center gap-2">
-              <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${config.bg}`}></div>
-              {config.name}
+    <>
+      {/* Welcome Theme Selector */}
+      {showWelcome && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-2xl mx-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', border: '1px solid' }}>
+            <h2 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
+              Choose Your Theme
+            </h2>
+            <p className="text-center mb-6" style={{ color: 'var(--text-secondary)' }}>
+              Select a theme to personalize your experience
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {Object.entries(themes).map(([key, config]) => (
+                <button
+                  key={key}
+                  onClick={() => handleThemeChange(key)}
+                  className="p-4 rounded-xl border-2 transition-all hover:scale-105"
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    borderColor: theme === key ? 'var(--accent-primary)' : 'var(--border-color)',
+                  }}
+                >
+                  <div className={`w-full h-24 rounded-lg bg-gradient-to-r ${config.bg} mb-3`}></div>
+                  <p className="font-medium text-center" style={{ color: 'var(--text-primary)' }}>
+                    {config.name}
+                  </p>
+                </button>
+              ))}
             </div>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+          </div>
+        </div>
+      )}
+
+      {/* Regular Theme Toggle */}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="outline"
+            size="icon"
+            className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20"
+          >
+            <Palette className="h-5 w-5" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-48">
+          {Object.entries(themes).map(([key, config]) => (
+            <DropdownMenuItem
+              key={key}
+              onClick={() => handleThemeChange(key)}
+              className={theme === key ? 'bg-accent' : ''}
+            >
+              <div className="flex items-center gap-2">
+                <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${config.bg}`}></div>
+                {config.name}
+              </div>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
   );
 }
