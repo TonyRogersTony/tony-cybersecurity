@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import CommentSection from '../components/blog/CommentSection';
+import ArticleSEO from '../components/blog/ArticleSEO';
 
 export default function ArticleDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -49,6 +50,7 @@ export default function ArticleDetail() {
 
   return (
     <div className="min-h-screen py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      <ArticleSEO article={article} />
       <article className="container mx-auto px-6 max-w-4xl">
         {/* Back button */}
         <Link to={createPageUrl('Articles')}>
