@@ -48,9 +48,9 @@ export default function Navigation() {
         aria-label="Main navigation"
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-center h-16 w-full">
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
+            <div className="hidden md:flex items-center gap-1">
               {menuItems.map((item) => (
                 item.isPage ? (
                   <Link key={item.href} to={createPageUrl(item.href.replace('/', ''))}>
@@ -92,11 +92,11 @@ export default function Navigation() {
                   </button>
                 )
               ))}
-            </div>
-
-            {/* Theme Toggle */}
-            <div className="hidden md:block">
-              <ThemeToggle />
+              
+              {/* Theme Toggle inline */}
+              <div className="ml-2">
+                <ThemeToggle />
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
