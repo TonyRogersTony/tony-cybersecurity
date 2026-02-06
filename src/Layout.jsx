@@ -1,8 +1,10 @@
 import React from 'react';
+import Navigation from './components/Navigation';
 
 export default function Layout({ children }) {
   return (
     <>
+      <Navigation />
       <style>{`
         /* Purple Night Theme */
         [data-theme="purple"] {
