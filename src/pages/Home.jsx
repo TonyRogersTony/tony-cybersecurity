@@ -40,7 +40,7 @@ export default function Home() {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-8">
+      <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
         <div className="container mx-auto px-6 text-center">
           <p>© 2026 Joe Bains. All rights reserved.</p>
           <p className="text-sm mt-2">Senior Implementation Engineer | Technical Solutions Specialist</p>

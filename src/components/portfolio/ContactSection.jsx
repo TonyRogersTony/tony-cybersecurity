@@ -40,37 +40,37 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#0f0c29]/50 text-white relative overflow-hidden">
+    <section id="contact" className="py-20 relative overflow-hidden" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-primary)' }}>
       {/* Background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'var(--glow-1)' }}></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'var(--glow-2)' }}></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Get in <span className="text-purple-400">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
+            Get in <span style={{ color: 'var(--accent-primary)' }}>Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-white">Let's Work Together</h3>
-              <p className="text-slate-300 mb-8 leading-relaxed">
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>Let's Work Together</h3>
+              <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 I'm available for consulting projects and technical training. Whether you need expertise in cloud migrations, system integrations, or Linux administration, I'd love to hear from you.
               </p>
 
               <div className="space-y-4">
-                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
+                <Card className="p-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-purple-400" />
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)' }}>
+                      <MapPin className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                     </div>
                     <div>
-                      <p className="text-sm text-slate-400">Location</p>
-                      <p className="text-white">London, United Kingdom</p>
+                      <p className="text-sm" style={{ color: 'var(--text-tertiary)' }}>Location</p>
+                      <p style={{ color: 'var(--text-primary)' }}>London, United Kingdom</p>
                     </div>
                   </div>
                 </Card>
@@ -78,7 +78,7 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-6 bg-[#1a1a2e]/80 border border-purple-500/20">
+            <Card className="p-6" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input
@@ -115,7 +115,7 @@ export default function ContactSection() {
                     value={formData.service_interest}
                     onValueChange={(value) => setFormData({ ...formData, service_interest: value })}
                   >
-                    <SelectTrigger className="bg-[#16213e]/50 border-purple-500/30 text-white">
+                    <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
                       <SelectValue placeholder="Service Interest" />
                     </SelectTrigger>
                     <SelectContent>
@@ -140,7 +140,8 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white"
+                  className="w-full text-white"
+                  style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
                 >
                   {isSubmitting ? (
                     'Sending...'

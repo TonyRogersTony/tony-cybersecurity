@@ -85,33 +85,33 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-[#16213e]/50">
+    <section id="experience" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-            Professional <span className="text-purple-400">Experience</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
+            Professional <span style={{ color: 'var(--accent-primary)' }}>Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <Card key={index} className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#1a1a2e]/80 border border-purple-500/20 border-l-4 border-l-purple-500">
+              <Card key={index} className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderLeftColor: 'var(--accent-primary)', borderWidth: '1px', borderLeftWidth: '4px', borderStyle: 'solid' }}>
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="mb-4 md:mb-0">
-                    <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
-                    <div className="flex items-center gap-2 text-purple-400 font-semibold mb-2">
+                    <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{exp.role}</h3>
+                    <div className="flex items-center gap-2 font-semibold mb-2" style={{ color: 'var(--accent-primary)' }}>
                       <Building2 className="w-4 h-4" />
                       <span>{exp.company}</span>
-                      <span className="text-slate-500">•</span>
-                      <span className="text-slate-400 font-normal">{exp.industry}</span>
+                      <span style={{ color: 'var(--text-tertiary)' }}>•</span>
+                      <span className="font-normal" style={{ color: 'var(--text-tertiary)' }}>{exp.industry}</span>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+                    <div className="flex flex-wrap gap-4 text-sm" style={{ color: 'var(--text-tertiary)' }}>
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4 text-indigo-400" />
+                        <Calendar className="w-4 h-4" style={{ color: 'var(--accent-secondary)' }} />
                         <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4 text-indigo-400" />
+                        <MapPin className="w-4 h-4" style={{ color: 'var(--accent-secondary)' }} />
                         <span>{exp.location}</span>
                       </div>
                     </div>
@@ -120,8 +120,8 @@ export default function ExperienceSection() {
 
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-300">
-                      <span className="text-purple-400 mt-1.5">•</span>
+                    <li key={idx} className="flex items-start gap-3" style={{ color: 'var(--text-secondary)' }}>
+                      <span className="mt-1.5" style={{ color: 'var(--accent-primary)' }}>•</span>
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -131,20 +131,20 @@ export default function ExperienceSection() {
           </div>
 
           {/* Early Career Summary */}
-          <Card className="mt-8 p-6 md:p-8 bg-[#1a1a2e]/80 border border-purple-500/20">
-            <h3 className="text-2xl font-bold text-white mb-4">Early Career Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-slate-300">
+          <Card className="mt-8 p-6 md:p-8" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Early Career Highlights</h3>
+            <div className="grid md:grid-cols-2 gap-4" style={{ color: 'var(--text-secondary)' }}>
               <div>
-                <strong className="text-purple-400">O2 (2003–2005):</strong> Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage.
+                <strong style={{ color: 'var(--accent-primary)' }}>O2 (2003–2005):</strong> Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage.
               </div>
               <div>
-                <strong className="text-purple-400">Cap Gemini (2002–2003):</strong> Applications Integrator performing performance tuning on Enterprise systems.
+                <strong style={{ color: 'var(--accent-primary)' }}>Cap Gemini (2002–2003):</strong> Applications Integrator performing performance tuning on Enterprise systems.
               </div>
               <div>
-                <strong className="text-indigo-400">Genie / BTCellnet (2001–2002):</strong> Implemented UK/Europe SMS solutions and managed Openwave WAP Portals.
+                <strong style={{ color: 'var(--accent-secondary)' }}>Genie / BTCellnet (2001–2002):</strong> Implemented UK/Europe SMS solutions and managed Openwave WAP Portals.
               </div>
               <div>
-                <strong className="text-indigo-400">BTCellnet (1998–2000):</strong> Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart.
+                <strong style={{ color: 'var(--accent-secondary)' }}>BTCellnet (1998–2000):</strong> Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart.
               </div>
             </div>
           </Card>

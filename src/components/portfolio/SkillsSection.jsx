@@ -82,13 +82,13 @@ export default function SkillsSection() {
     : skillCategories.filter(cat => cat.category === selectedCategory);
 
   return (
-    <section id="skills" className="py-20 bg-[#0f0c29]/50">
+    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-            Technical <span className="text-purple-400">Skills</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
+            Technical <span style={{ color: 'var(--accent-primary)' }}>Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-8"></div>
+          <div className="w-20 h-1 mx-auto mb-8" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -104,11 +104,11 @@ export default function SkillsSection() {
               <button
                 key={filter.value}
                 onClick={() => setSelectedCategory(filter.value)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === filter.value
-                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg'
-                    : 'bg-[#1a1a2e]/80 text-slate-300 border border-purple-500/20 hover:border-purple-500/40'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300`}
+                style={selectedCategory === filter.value
+                  ? { background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))', color: 'white', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }
+                  : { backgroundColor: 'var(--bg-primary)', color: 'var(--text-secondary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }
+                }
               >
                 {filter.label}
               </button>
@@ -132,24 +132,25 @@ export default function SkillsSection() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="p-6 hover:shadow-xl transition-all duration-300 bg-[#1a1a2e]/80 border border-purple-500/20 h-full">
+                  <Card className="p-6 hover:shadow-xl transition-all duration-300 h-full" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-purple-400" />
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)' }}>
+                        <Icon className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
                       </div>
-                      <h3 className="text-xl font-semibold text-white">{category.title}</h3>
+                      <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>{category.title}</h3>
                     </div>
                     
                     <div className="space-y-4">
                       {category.skills.map((skill, idx) => (
                         <div key={idx} className="space-y-2">
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-slate-300">{skill.name}</span>
-                            <span className="text-xs text-purple-400 font-semibold">{skill.level}%</span>
+                            <span className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{skill.name}</span>
+                            <span className="text-xs font-semibold" style={{ color: 'var(--accent-primary)' }}>{skill.level}%</span>
                           </div>
-                          <div className="h-2 bg-[#0f0c29] rounded-full overflow-hidden">
+                          <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
                             <motion.div
-                              className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"
+                              className="h-full rounded-full"
+                              style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
                               initial={{ width: 0 }}
                               whileInView={{ width: `${skill.level}%` }}
                               viewport={{ once: true }}
