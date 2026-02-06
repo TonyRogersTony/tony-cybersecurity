@@ -34,29 +34,31 @@ export default function Home() {
 
   return (
     <HelmetProvider>
-      <SEO />
-      <div className="min-h-screen">
-        <Navigation />
-        <div className="fixed top-6 right-6 z-50">
-          <ThemeToggle />
-        </div>
-        
-        <HeroSection onContactClick={scrollToContact} />
-        <AboutSection />
-        <SkillsSection />
-        <PortfolioSection />
-        <ExperienceSection />
-        <CertificationsSection />
-        <TestimonialsSection />
-        <ContactSection />
-        
-        <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
-          <div className="container mx-auto px-6 text-center">
-            <p>{footer.copyright}</p>
-            <p className="text-sm mt-2">{footer.tagline}</p>
+      <>
+        <SEO />
+        <div className="min-h-screen">
+          <Navigation />
+          <div className="fixed top-6 right-6 z-50">
+            <ThemeToggle />
           </div>
-        </footer>
-      </div>
+          
+          <HeroSection onContactClick={scrollToContact} />
+          <AboutSection />
+          <SkillsSection />
+          <PortfolioSection />
+          <ExperienceSection />
+          <CertificationsSection />
+          <TestimonialsSection />
+          <ContactSection />
+          
+          <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
+            <div className="container mx-auto px-6 text-center">
+              <p>{footer.copyright}</p>
+              <p className="text-sm mt-2">{footer.tagline}</p>
+            </div>
+          </footer>
+        </div>
+      </>
     </HelmetProvider>
   );
 }
