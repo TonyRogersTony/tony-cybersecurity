@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Plus, Search } from 'lucide-react';
 import ArticleCard from '../components/blog/ArticleCard';
 import ArticleForm from '../components/blog/ArticleForm';
+import CategoryGrid from '../components/blog/CategoryGrid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 
@@ -65,6 +66,14 @@ export default function Articles() {
     setEditingArticle(null);
     queryClient.invalidateQueries({ queryKey: ['articles'] });
   };
+
+  // Calculate article counts per category
+  const articleCounts = articles.reduce((acc, article) => {
+    if (article.published || isAdmin) {
+      acc[article.category] = (acc[article.category] || 0) + 1;
+    }
+    return acc;
+  }, {});
 
   const filteredArticles = articles.filter(article => {
     const matchesCategory = selectedCategory === 'all' || article.category === selectedCategory;
@@ -127,6 +136,9 @@ export default function Articles() {
             Thoughts on technology, leadership, and industry trends
           </motion.p>
         </div>
+
+        {/* Category Grid */}
+        <CategoryGrid articleCounts={articleCounts} />
 
         {/* Filters and Search */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
