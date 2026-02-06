@@ -50,6 +50,7 @@
 import Home from './pages/Home';
 import Articles from './pages/Articles';
 import ArticleDetail from './pages/ArticleDetail';
+import ArticlesByCategory from './pages/ArticlesByCategory';
 import __Layout from './Layout.jsx';
 
 
@@ -57,6 +58,7 @@ export const PAGES = {
     "Home": Home,
     "Articles": Articles,
     "ArticleDetail": ArticleDetail,
+    "ArticlesByCategory": ArticlesByCategory,
 }
 
 export const pagesConfig = {
