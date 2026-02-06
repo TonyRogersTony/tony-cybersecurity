@@ -93,10 +93,7 @@ export default function ExperienceSection() {
     <section id="experience" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            {experience.title} <span style={{ color: 'var(--accent-primary)' }}>{experience.titleHighlight}</span>
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
+          <SectionHeader title={experience.title} titleHighlight={experience.titleHighlight} />
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (

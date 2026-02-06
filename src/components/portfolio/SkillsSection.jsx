@@ -3,6 +3,7 @@ import { Cloud, Server, Database, Code, Cog, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { content } from '../content';
+import SectionHeader from '../SectionHeader';
 
 export default function SkillsSection() {
   const { skills } = content;
@@ -32,10 +33,7 @@ export default function SkillsSection() {
     <section id="skills" className="py-20" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            {skills.title} <span style={{ color: 'var(--accent-primary)' }}>{skills.titleHighlight}</span>
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-8" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
+          <SectionHeader title={skills.title} titleHighlight={skills.titleHighlight} />
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">

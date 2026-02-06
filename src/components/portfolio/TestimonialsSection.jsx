@@ -64,10 +64,7 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
-            {testimonials.title} <span style={{ color: 'var(--accent-primary)' }}>{testimonials.titleHighlight}</span>
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-12" style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}></div>
+          <SectionHeader title={testimonials.title} titleHighlight={testimonials.titleHighlight} />
 
           <div className="grid md:grid-cols-2 gap-6">
             {testimonials.items.map((testimonial, index) => (
