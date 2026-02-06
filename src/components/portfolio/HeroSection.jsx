@@ -94,9 +94,9 @@ export default function HeroSection({ onContactClick }) {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Name and Profile Picture */}
-          <div className="flex items-center justify-center gap-8 mb-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-4">
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold"
+              className="text-3xl sm:text-4xl md:text-7xl font-bold"
               style={{
                 background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
                 WebkitBackgroundClip: 'text',
@@ -148,7 +148,7 @@ export default function HeroSection({ onContactClick }) {
           </motion.button>
 
           <motion.div 
-            className="text-xl md:text-2xl mb-6 font-light"
+            className="text-lg sm:text-xl md:text-2xl mb-6 font-light px-4"
             style={{ color: 'var(--text-secondary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -158,7 +158,7 @@ export default function HeroSection({ onContactClick }) {
           </motion.div>
 
           <motion.div 
-            className="text-lg mb-4"
+            className="text-base sm:text-lg mb-4 px-4"
             style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -168,7 +168,7 @@ export default function HeroSection({ onContactClick }) {
           </motion.div>
 
           <motion.p 
-            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed px-4"
             style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -196,7 +196,7 @@ export default function HeroSection({ onContactClick }) {
 
           {/* CTA Buttons */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
@@ -208,7 +208,7 @@ export default function HeroSection({ onContactClick }) {
               <Button 
                 onClick={onContactClick}
                 size="lg"
-                className="text-white px-8 shadow-lg"
+                className="text-white px-6 sm:px-8 shadow-lg w-full sm:w-auto"
                 style={{
                   background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
                 }}
@@ -224,7 +224,7 @@ export default function HeroSection({ onContactClick }) {
                 onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
                 size="lg"
                 variant="outline"
-                className="px-8"
+                className="px-6 sm:px-8 w-full sm:w-auto"
                 style={{
                   borderColor: 'var(--accent-primary)',
                   color: 'var(--accent-light)',
