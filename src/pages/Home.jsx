@@ -9,7 +9,6 @@ import ExperienceSection from '../components/portfolio/ExperienceSection';
 import CertificationsSection from '../components/portfolio/CertificationsSection';
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
 import ContactSection from '../components/portfolio/ContactSection';
-import ThemeToggle from '../components/ThemeToggle';
 import SEO from '../components/SEO';
 import NewsletterSubscribe from '../components/NewsletterSubscribe';
 import { content } from '../components/content';
@@ -39,9 +38,6 @@ export default function Home() {
         <SEO />
         <div className="min-h-screen">
           <Navigation />
-          <div className="fixed top-6 right-6 z-50">
-            <ThemeToggle />
-          </div>
           
           <HeroSection onContactClick={scrollToContact} />
           <AboutSection />

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { content } from './content';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +50,7 @@ export default function Navigation() {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
               {menuItems.map((item) => (
                 item.isPage ? (
                   <Link key={item.href} to={createPageUrl(item.href.replace('/', ''))}>
@@ -93,6 +94,11 @@ export default function Navigation() {
               ))}
             </div>
 
+            {/* Theme Toggle */}
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
@@ -120,6 +126,9 @@ export default function Navigation() {
           }}
         >
           <div className="container mx-auto px-6 py-8">
+            <div className="mb-4">
+              <ThemeToggle />
+            </div>
             <div className="flex flex-col gap-2">
               {menuItems.map((item) => (
                 item.isPage ? (
