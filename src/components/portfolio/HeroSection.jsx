@@ -14,40 +14,41 @@ export default function HeroSection({ onContactClick }) {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#B8956A]/20 border border-[#B8956A]/30 rounded-full mb-8">
-            <div className="w-2 h-2 bg-[#B8956A] rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-[#9A7A52]">Available for Consulting</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full mb-8">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-purple-300">Available for Consulting</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#B8956A]">
+          <p className="text-purple-300 text-lg mb-2">Hello! I Am</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
             Joe Bains
           </h1>
 
-          <div className="text-xl md:text-2xl text-slate-600 mb-6 font-light">
+          <div className="text-xl md:text-2xl text-slate-300 mb-6 font-light">
             Senior Implementation Engineer | Technical Solutions Specialist
           </div>
 
-          <div className="text-lg text-slate-500 mb-4">
+          <div className="text-lg text-slate-400 mb-4">
             Linux Administrator • DBA • Linux Trainer
           </div>
 
-          <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-3xl mx-auto leading-relaxed">
             15+ years of expertise in technical solutions delivery across telecommunications, healthcare, and enterprise environments.
           </p>
 
           {/* Contact info */}
-          <div className="flex flex-wrap justify-center gap-6 mb-12 text-slate-600">
+          <div className="flex flex-wrap justify-center gap-6 mb-12 text-slate-400">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#B8956A]" />
+              <MapPin className="w-4 h-4 text-purple-400" />
               <span>London, UK</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#B8956A]" />
-              <a href="tel:+447834963875" className="hover:text-[#9A7A52] transition-colors">+44 7834 963875</a>
+              <Phone className="w-4 h-4 text-purple-400" />
+              <a href="tel:+447834963875" className="hover:text-purple-300 transition-colors">+44 7834 963875</a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#B8956A]" />
-              <a href="mailto:biohackerjoe@gmail.com" className="hover:text-[#9A7A52] transition-colors">biohackerjoe@gmail.com</a>
+              <Mail className="w-4 h-4 text-purple-400" />
+              <a href="mailto:biohackerjoe@gmail.com" className="hover:text-purple-300 transition-colors">biohackerjoe@gmail.com</a>
             </div>
           </div>
 
@@ -56,7 +57,7 @@ export default function HeroSection({ onContactClick }) {
             <Button 
               onClick={onContactClick}
               size="lg"
-              className="bg-[#B8956A] hover:bg-[#9A7A52] text-white px-8 shadow-lg"
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 shadow-lg"
             >
               Get in Touch
             </Button>
@@ -64,7 +65,7 @@ export default function HeroSection({ onContactClick }) {
               onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
               size="lg"
               variant="outline"
-              className="border-[#B8956A] text-[#9A7A52] hover:bg-[#B8956A] hover:text-white px-8"
+              className="border-purple-500 text-purple-300 hover:bg-purple-500/20 hover:text-white px-8"
             >
               View Portfolio
             </Button>
@@ -72,7 +73,7 @@ export default function HeroSection({ onContactClick }) {
 
           {/* Scroll indicator */}
           <div className="animate-bounce">
-            <ArrowDown className="w-6 h-6 text-slate-500 mx-auto" />
+            <ArrowDown className="w-6 h-6 text-purple-400 mx-auto" />
           </div>
         </div>
       </div>
