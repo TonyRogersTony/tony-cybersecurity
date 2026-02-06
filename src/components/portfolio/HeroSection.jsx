@@ -91,25 +91,8 @@ export default function HeroSection({ onContactClick }) {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Status badge */}
-          <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
-            style={{ 
-              backgroundColor: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)',
-              borderColor: 'color-mix(in srgb, var(--accent-primary) 30%, transparent)',
-              borderWidth: '1px',
-              borderStyle: 'solid'
-            }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
-            <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
-          </motion.div>
-
           {/* Name and Profile Picture */}
-          <div className="flex items-center justify-center gap-8 mb-6">
+          <div className="flex items-center justify-center gap-8 mb-4">
             <motion.h1 
               className="text-5xl md:text-7xl font-bold"
               style={{
@@ -142,6 +125,23 @@ export default function HeroSection({ onContactClick }) {
               </div>
             </motion.div>
           </div>
+
+          {/* Status badge */}
+          <motion.div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
+            style={{ 
+              backgroundColor: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)',
+              borderColor: 'color-mix(in srgb, var(--accent-primary) 30%, transparent)',
+              borderWidth: '1px',
+              borderStyle: 'solid'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
+            <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
+          </motion.div>
 
           <motion.div 
             className="text-xl md:text-2xl mb-6 font-light"
