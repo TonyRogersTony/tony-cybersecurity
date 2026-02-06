@@ -53,6 +53,7 @@ import ArticlesByCategory from './pages/ArticlesByCategory';
 import Bookmarks from './pages/Bookmarks';
 import Home from './pages/Home';
 import GitHub from './pages/GitHub';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import __Layout from './Layout.jsx';
 
 
@@ -63,6 +64,7 @@ export const PAGES = {
     "Bookmarks": Bookmarks,
     "Home": Home,
     "GitHub": GitHub,
+    "PrivacyPolicy": PrivacyPolicy,
 }
 
 export const pagesConfig = {

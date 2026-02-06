@@ -467,7 +467,8 @@ export const content = {
       { label: "Testimonials", href: "#testimonials" },
       { label: "Articles", href: "/Articles", isPage: true },
       { label: "GitHub", href: "/GitHub", isPage: true },
-      { label: "Contact", href: "#contact" }
+      { label: "Contact", href: "#contact" },
+      { label: "Privacy", href: "/PrivacyPolicy", isPage: true }
     ]
   },
   footer: {
