@@ -6,6 +6,7 @@ import ExperienceSection from '../components/portfolio/ExperienceSection';
 import CertificationsSection from '../components/portfolio/CertificationsSection';
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
 import ContactSection from '../components/portfolio/ContactSection';
+import ThemeToggle from '../components/ThemeToggle';
 
 export default function Home() {
   const scrollToContact = () => {
