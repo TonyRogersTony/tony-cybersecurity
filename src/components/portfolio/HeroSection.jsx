@@ -91,6 +91,24 @@ export default function HeroSection({ onContactClick }) {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Profile Picture */}
+          <motion.div 
+            className="mb-8 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full blur-2xl" style={{ backgroundColor: 'var(--glow-1)', opacity: 0.3 }}></div>
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg" 
+                alt="Joe Bains"
+                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 relative z-10"
+                style={{ borderColor: 'var(--accent-primary)' }}
+              />
+            </div>
+          </motion.div>
+
           {/* Status badge */}
           <motion.div 
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
@@ -102,7 +120,7 @@ export default function HeroSection({ onContactClick }) {
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
             <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
@@ -113,7 +131,7 @@ export default function HeroSection({ onContactClick }) {
             style={{ color: 'var(--accent-light)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             Hello! I Am
           </motion.p>
@@ -128,7 +146,7 @@ export default function HeroSection({ onContactClick }) {
             }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             Joe Bains
           </motion.h1>
@@ -223,7 +241,7 @@ export default function HeroSection({ onContactClick }) {
             className="animate-bounce"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
           >
             <ArrowDown className="w-6 h-6 mx-auto" style={{ color: 'var(--accent-primary)' }} />
           </motion.div>
