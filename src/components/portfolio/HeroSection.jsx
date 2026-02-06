@@ -91,24 +91,6 @@ export default function HeroSection({ onContactClick }) {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Profile Picture */}
-          <motion.div 
-            className="mb-8 flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full blur-2xl" style={{ backgroundColor: 'var(--glow-1)', opacity: 0.3 }}></div>
-              <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg" 
-                alt="Joe Bains"
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 relative z-10"
-                style={{ borderColor: 'var(--accent-primary)' }}
-              />
-            </div>
-          </motion.div>
-
           {/* Status badge */}
           <motion.div 
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
@@ -120,36 +102,46 @@ export default function HeroSection({ onContactClick }) {
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
             <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
           </motion.div>
 
-          <motion.p 
-            className="text-lg mb-2"
-            style={{ color: 'var(--accent-light)' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            Hello! I Am
-          </motion.p>
-          
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6"
-            style={{
-              background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Joe Bains
-          </motion.h1>
+          {/* Name and Profile Picture */}
+          <div className="flex items-center justify-center gap-8 mb-6">
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold"
+              style={{
+                background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Joe Bains
+            </motion.h1>
+            
+            <motion.div 
+              className="flex-shrink-0"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full blur-2xl" style={{ backgroundColor: 'var(--glow-1)', opacity: 0.3 }}></div>
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg" 
+                  alt="Joe Bains"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-lg border-4 relative z-10"
+                  style={{ borderColor: 'var(--accent-primary)' }}
+                />
+              </div>
+            </motion.div>
+          </div>
 
           <motion.div 
             className="text-xl md:text-2xl mb-6 font-light"
