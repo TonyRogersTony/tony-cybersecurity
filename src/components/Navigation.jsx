@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { content } from './content';
 import ThemeToggle from './ThemeToggle';
@@ -9,6 +9,7 @@ import ThemeToggle from './ThemeToggle';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +26,16 @@ export default function Navigation() {
     if (isPage) {
       return; // Let Link component handle navigation
     }
+    
+    const isHomePage = location.pathname === '/';
     const element = document.querySelector(href);
-    if (element) {
+    
+    if (isHomePage && element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
+    } else if (!isHomePage) {
+      // Navigate to home and scroll to section after redirect
+      window.location.href = `/?section=${href.replace('#', '')}`;
     }
   };
 
