@@ -31,12 +31,21 @@ export default function AboutSection() {
           <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12">
-            <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              With a dual role as a <strong className="text-[#B8956A]">Solutions & Migrations Engineer</strong> and a <strong className="text-[#D4A574]">Health Coach</strong>, my career is a testament to versatility and a dedication to empowering others through technology and wellness. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, combined with a commitment to biohacking and holistic health, allows me to guide clients towards both optimized technical solutions and healthier lifestyles. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg" 
+                alt="Joe Bains"
+                className="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-[#B8956A]"
+              />
+              <div className="flex-1">
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                  With a dual role as a <strong className="text-[#B8956A]">Solutions & Migrations Engineer</strong> and a <strong className="text-[#D4A574]">Health Coach</strong>, my career is a testament to versatility and a dedication to empowering others through technology and wellness. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, combined with a commitment to biohacking and holistic health, allows me to guide clients towards both optimized technical solutions and healthier lifestyles. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
