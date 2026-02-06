@@ -14,8 +14,8 @@ export const content = {
     }
   },
   about: {
-    title: "About",
-    titleHighlight: "Me",
+    title: "Who I",
+    titleHighlight: "Am",
     paragraphs: [
       "As a Solutions & Migrations Engineer, my career is a testament to technical excellence and dedication to delivering robust solutions. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships across global enterprises.",
       "I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, cloud technologies, and DevOps practices allows me to guide clients towards optimized technical solutions. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication."
@@ -36,8 +36,8 @@ export const content = {
     ]
   },
   skills: {
-    title: "Technical",
-    titleHighlight: "Skills",
+    title: "Core",
+    titleHighlight: "Expertise",
     filters: [
       { label: "All Skills", value: "all" },
       { label: "Cloud", value: "cloud" },
@@ -113,8 +113,8 @@ export const content = {
     ]
   },
   portfolio: {
-    title: "Project",
-    titleHighlight: "Portfolio",
+    title: "Featured",
+    titleHighlight: "Projects",
     categories: [
       { label: "All Projects", value: "all" },
       { label: "Cloud Infrastructure", value: "Cloud Infrastructure" },
@@ -186,8 +186,8 @@ export const content = {
     }
   },
   experience: {
-    title: "Professional",
-    titleHighlight: "Experience",
+    title: "Career",
+    titleHighlight: "Journey",
     positions: [
       {
         role: "Solutions & Migrations Engineer",
@@ -295,8 +295,8 @@ export const content = {
     }
   },
   certifications: {
-    title: "Certifications &",
-    titleHighlight: "Training",
+    title: "Credentials &",
+    titleHighlight: "Achievements",
     sections: {
       certifications: {
         title: "Professional Certifications",
@@ -337,8 +337,8 @@ export const content = {
     }
   },
   testimonials: {
-    title: "Client",
-    titleHighlight: "Testimonials",
+    title: "What Clients",
+    titleHighlight: "Say",
     items: [
       {
         text: "Joe had an excellent technical understanding of our platforms and very often came up with excellent solutions to challenging problems.",
@@ -387,8 +387,8 @@ export const content = {
     clickText: "Click to read full testimonial →"
   },
   contact: {
-    title: "Get in",
-    titleHighlight: "Touch",
+    title: "Let's",
+    titleHighlight: "Connect",
     intro: {
       title: "Let's Work Together",
       description: "I'm available for consulting projects and technical training. Whether you need expertise in cloud migrations, system integrations, or Linux administration, I'd love to hear from you."
