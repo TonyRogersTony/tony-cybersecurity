@@ -39,6 +39,7 @@ export default function Navigation() {
           backdropFilter: isScrolled ? 'blur(10px)' : 'none',
           borderBottom: isScrolled ? '1px solid var(--border-color)' : 'none'
         }}
+        aria-label="Main navigation"
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
@@ -73,6 +74,8 @@ export default function Navigation() {
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               style={{ color: 'var(--text-primary)' }}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
