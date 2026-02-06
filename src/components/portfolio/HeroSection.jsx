@@ -28,11 +28,12 @@ export default function HeroSection({ onContactClick }) {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#16213e] to-[#1a1a2e] text-white relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ color: 'var(--text-primary)' }}>
       {/* Animated background elements with mouse tracking */}
       <div className="absolute inset-0 opacity-20">
         <motion.div 
-          className="absolute top-20 left-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--glow-1)' }}
           animate={{
             x: mousePosition.x * 0.02,
             y: mousePosition.y * 0.02 - parallaxOffset,
@@ -40,7 +41,8 @@ export default function HeroSection({ onContactClick }) {
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--glow-2)' }}
           animate={{
             x: -mousePosition.x * 0.015,
             y: -mousePosition.y * 0.015 - parallaxOffset,
@@ -48,7 +50,8 @@ export default function HeroSection({ onContactClick }) {
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--accent-light)' }}
           animate={{
             x: mousePosition.x * 0.01 - 128,
             y: mousePosition.y * 0.01 - 128 - parallaxOffset * 0.8,
@@ -67,8 +70,9 @@ export default function HeroSection({ onContactClick }) {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-purple-400 rounded-full"
-            style={{
+            className="absolute w-1 h-1 rounded-full"
+            style={{ 
+              backgroundColor: 'var(--accent-primary)',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
@@ -89,17 +93,24 @@ export default function HeroSection({ onContactClick }) {
         <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
           <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
+            style={{ 
+              backgroundColor: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)',
+              borderColor: 'color-mix(in srgb, var(--accent-primary) 30%, transparent)',
+              borderWidth: '1px',
+              borderStyle: 'solid'
+            }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-purple-300">Available for Consulting</span>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
+            <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>Available for Consulting</span>
           </motion.div>
 
           <motion.p 
-            className="text-purple-300 text-lg mb-2"
+            className="text-lg mb-2"
+            style={{ color: 'var(--accent-light)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -108,7 +119,13 @@ export default function HeroSection({ onContactClick }) {
           </motion.p>
           
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400"
+            className="text-5xl md:text-7xl font-bold mb-6"
+            style={{
+              background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -117,7 +134,8 @@ export default function HeroSection({ onContactClick }) {
           </motion.h1>
 
           <motion.div 
-            className="text-xl md:text-2xl text-slate-300 mb-6 font-light"
+            className="text-xl md:text-2xl mb-6 font-light"
+            style={{ color: 'var(--text-secondary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -126,7 +144,8 @@ export default function HeroSection({ onContactClick }) {
           </motion.div>
 
           <motion.div 
-            className="text-lg text-slate-400 mb-4"
+            className="text-lg mb-4"
+            style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -135,7 +154,8 @@ export default function HeroSection({ onContactClick }) {
           </motion.div>
 
           <motion.p 
-            className="text-lg md:text-xl text-slate-400 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+            style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -145,22 +165,23 @@ export default function HeroSection({ onContactClick }) {
 
           {/* Contact info */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-6 mb-12 text-slate-400"
+            className="flex flex-wrap justify-center gap-6 mb-12"
+            style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-purple-400" />
+              <MapPin className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
               <span>London, UK</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-purple-400" />
-              <a href="tel:+447834963875" className="hover:text-purple-300 transition-colors">+44 7834 963875</a>
+              <Phone className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+              <a href="tel:+447834963875" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-tertiary)' }}>+44 7834 963875</a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-purple-400" />
-              <a href="mailto:biohackerjoe@gmail.com" className="hover:text-purple-300 transition-colors">biohackerjoe@gmail.com</a>
+              <Mail className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+              <a href="mailto:biohackerjoe@gmail.com" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-tertiary)' }}>biohackerjoe@gmail.com</a>
             </div>
           </motion.div>
 
@@ -178,7 +199,10 @@ export default function HeroSection({ onContactClick }) {
               <Button 
                 onClick={onContactClick}
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 shadow-lg"
+                className="text-white px-8 shadow-lg"
+                style={{
+                  background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))`,
+                }}
               >
                 Get in Touch
               </Button>
@@ -191,7 +215,11 @@ export default function HeroSection({ onContactClick }) {
                 onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
                 size="lg"
                 variant="outline"
-                className="border-purple-500 text-purple-300 hover:bg-purple-500/20 hover:text-white px-8"
+                className="px-8"
+                style={{
+                  borderColor: 'var(--accent-primary)',
+                  color: 'var(--accent-light)',
+                }}
               >
                 View Portfolio
               </Button>
@@ -205,13 +233,13 @@ export default function HeroSection({ onContactClick }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            <ArrowDown className="w-6 h-6 text-purple-400 mx-auto" />
+            <ArrowDown className="w-6 h-6 mx-auto" style={{ color: 'var(--accent-primary)' }} />
           </motion.div>
         </div>
       </div>
 
       {/* Professional status badge */}
-      <div className="absolute bottom-8 right-8 text-sm text-slate-400 hidden md:block">
+      <div className="absolute bottom-8 right-8 text-sm hidden md:block" style={{ color: 'var(--text-tertiary)' }}>
         British Citizen • Full UK Driving Licence • Former SC-Cleared
       </div>
     </section>
