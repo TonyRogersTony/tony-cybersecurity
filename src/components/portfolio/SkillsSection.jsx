@@ -41,20 +41,21 @@ export default function SkillsSection() {
           {/* Category Filters */}
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {skills.filters.map((filter) => (
-              <button
-                key={filter.value}
-                onClick={() => setSelectedCategory(filter.value)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300`}
-                style={selectedCategory === filter.value
-                  ? { background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))', color: 'white', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }
-                  : { backgroundColor: 'var(--bg-primary)', color: 'var(--text-secondary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }
-                }
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
+              {skills.filters.map((filter) => (
+                <button
+                  key={filter.value}
+                  onClick={() => setSelectedCategory(filter.value)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300`}
+                  style={selectedCategory === filter.value
+                    ? { background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))', color: 'white', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }
+                    : { backgroundColor: 'var(--bg-primary)', color: 'var(--text-secondary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }
+                  }
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
 
           {/* Skills Grid */}
           <motion.div 
