@@ -189,17 +189,17 @@ export default function ArticleDetail() {
               ol: ({ children }) => <ol className="list-decimal ml-6 mb-4 space-y-2" style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</ol>,
               li: ({ children }) => <li style={{ color: readingMode === 'dark' ? '#d1d1d1' : 'var(--text-secondary)' }}>{children}</li>,
               code: ({ inline, children }) => inline ? (
-                <code className="px-1.5 py-0.5 rounded text-sm" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--accent-primary)' }}>
+                <code className="px-1.5 py-0.5 rounded text-sm" style={{ backgroundColor: readingMode === 'dark' ? '#2a2a2a' : 'var(--bg-primary)', color: 'var(--accent-primary)' }}>
                   {children}
                 </code>
               ) : (
-                <code className="block p-4 rounded-lg text-sm overflow-x-auto" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+                <code className="block p-4 rounded-lg text-sm overflow-x-auto" style={{ backgroundColor: readingMode === 'dark' ? '#2a2a2a' : 'var(--bg-primary)', color: readingMode === 'dark' ? '#e5e5e5' : 'var(--text-primary)' }}>
                   {children}
                 </code>
               ),
               pre: ({ children }) => <pre className="mb-4">{children}</pre>,
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 pl-4 my-4 italic" style={{ borderColor: 'var(--accent-primary)', color: 'var(--text-tertiary)' }}>
+                <blockquote className="border-l-4 pl-4 my-4 italic" style={{ borderColor: 'var(--accent-primary)', color: readingMode === 'dark' ? '#b0b0b0' : 'var(--text-tertiary)' }}>
                   {children}
                 </blockquote>
               ),
