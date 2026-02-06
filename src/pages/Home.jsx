@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/portfolio/HeroSection';
 import AboutSection from '../components/portfolio/AboutSection';
@@ -9,6 +10,7 @@ import CertificationsSection from '../components/portfolio/CertificationsSection
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import ThemeToggle from '../components/ThemeToggle';
+import SEO from '../components/SEO';
 import { content } from '../components/content';
 
 export default function Home() {
@@ -44,12 +46,13 @@ export default function Home() {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
-        <div className="container mx-auto px-6 text-center">
-          <p>{footer.copyright}</p>
-          <p className="text-sm mt-2">{footer.tagline}</p>
-        </div>
-      </footer>
-    </div>
+        <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
+          <div className="container mx-auto px-6 text-center">
+            <p>{footer.copyright}</p>
+            <p className="text-sm mt-2">{footer.tagline}</p>
+          </div>
+        </footer>
+      </div>
+    </HelmetProvider>
   );
 }

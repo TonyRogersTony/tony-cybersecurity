@@ -246,6 +246,6 @@ export default function HeroSection({ onContactClick }) {
       <div className="absolute bottom-8 right-8 text-sm hidden md:block" style={{ color: 'var(--text-tertiary)' }}>
         {hero.footer}
       </div>
-    </section>
+    </header>
   );
 }

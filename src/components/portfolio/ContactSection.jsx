@@ -56,13 +56,13 @@ export default function ContactSection() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
-            <div>
+            <aside>
               <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{contact.intro.title}</h3>
               <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {contact.intro.description}
               </p>
 
-              <div className="space-y-4">
+              <address className="space-y-4 not-italic">
                 <Card className="p-4" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)' }}>
@@ -74,18 +74,19 @@ export default function ContactSection() {
                     </div>
                   </div>
                 </Card>
-              </div>
-            </div>
+              </address>
+            </aside>
 
             {/* Contact Form */}
             <Card className="p-6" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
                 <div>
                   <Input
                     placeholder={contact.form.fields.name}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
+                    aria-label="Your name"
                     style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
@@ -97,6 +98,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    aria-label="Your email"
                     style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
@@ -106,6 +108,7 @@ export default function ContactSection() {
                     placeholder={contact.form.fields.company}
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    aria-label="Company name"
                     style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
@@ -114,6 +117,7 @@ export default function ContactSection() {
                   <Select
                     value={formData.service_interest}
                     onValueChange={(value) => setFormData({ ...formData, service_interest: value })}
+                    aria-label="Service interest"
                   >
                     <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
                       <SelectValue placeholder={contact.form.fields.serviceInterest} />
@@ -133,6 +137,7 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={5}
+                    aria-label="Your message"
                     style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>

@@ -1,4 +1,42 @@
 export const content = {
+  seo: {
+    title: "Joe Bains - Senior Implementation Engineer | Technical Solutions Specialist",
+    description: "Senior Implementation Engineer with 15+ years of expertise in cloud migrations, Linux administration, and DevOps. Specializing in AWS, Docker, Kubernetes, and technical solutions delivery.",
+    keywords: "Senior Implementation Engineer, Technical Solutions Specialist, Linux Administrator, Cloud Solutions, AWS Expert, DevOps Engineer, Database Administrator, System Integration, Joe Bains",
+    author: "Joe Bains",
+    url: "https://joebains.com",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg",
+    sections: {
+      about: {
+        title: "About Joe Bains | Technical Background & Expertise",
+        description: "Learn about Joe Bains' 15+ years of technical excellence in system integrations, SDK/API implementations, and solutions delivery across global enterprises."
+      },
+      skills: {
+        title: "Technical Skills & Expertise | Joe Bains Portfolio",
+        description: "Comprehensive technical skills including AWS Cloud, Docker, Kubernetes, Linux Administration, Python, MySQL, and DevOps automation tools."
+      },
+      portfolio: {
+        title: "Featured Projects | Joe Bains Technical Portfolio",
+        description: "Explore Joe Bains' portfolio of cloud migrations, system integrations, and automation projects for healthcare, telecommunications, and enterprise clients."
+      },
+      experience: {
+        title: "Professional Experience | Joe Bains Career Journey",
+        description: "15+ years of professional experience as Solutions Engineer, Cloud Consultant, and DevOps Engineer for leading companies including Vodafone, Swisscom, and BSKYB."
+      },
+      certifications: {
+        title: "Certifications & Training | Joe Bains Credentials",
+        description: "AWS Certified Cloud Practitioner, Python DevOps, Linux training certifications, and Advanced Toastmaster credentials."
+      },
+      testimonials: {
+        title: "Client Testimonials | What Clients Say About Joe Bains",
+        description: "Read testimonials from clients and colleagues at National Grid, Vodafone, Axon, and other leading organizations."
+      },
+      contact: {
+        title: "Contact Joe Bains | Technical Consulting & Training",
+        description: "Get in touch for technical consulting, cloud migrations, system integrations, or Linux administration training services."
+      }
+    }
+  },
   hero: {
     name: "Joe Bains",
     profileImage: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg",

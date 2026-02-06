@@ -21,7 +21,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <article className="max-w-6xl mx-auto">
           <SectionHeader title={about.title} titleHighlight={about.titleHighlight} />
 
           <div className="backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 mb-12" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', borderWidth: '1px', borderStyle: 'solid' }}>
@@ -46,7 +46,7 @@ export default function AboutSection() {
               );
             })}
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );
