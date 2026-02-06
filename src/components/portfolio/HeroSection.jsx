@@ -177,7 +177,7 @@ export default function HeroSection({ onContactClick }) {
 
           {/* Contact info */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="flex flex-col items-center gap-3 mb-12"
             style={{ color: 'var(--text-tertiary)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -186,6 +186,9 @@ export default function HeroSection({ onContactClick }) {
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
               <span>{hero.location}</span>
+            </div>
+            <div className="text-sm">
+              {hero.footer}
             </div>
           </motion.div>
 
@@ -240,11 +243,6 @@ export default function HeroSection({ onContactClick }) {
             <ArrowDown className="w-6 h-6 mx-auto" style={{ color: 'var(--accent-primary)' }} />
           </motion.div>
         </div>
-      </div>
-
-      {/* Professional status badge */}
-      <div className="absolute bottom-8 right-8 text-sm hidden md:block" style={{ color: 'var(--text-tertiary)' }}>
-        {hero.footer}
       </div>
     </header>
   );
