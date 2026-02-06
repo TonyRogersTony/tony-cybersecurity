@@ -59,7 +59,7 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-white">Let's Work Together</h3>
               <p className="text-slate-300 mb-8 leading-relaxed">
-                I'm available for consulting projects, technical training, and health coaching. Whether you need expertise in cloud migrations, system integrations, or wellness programs, I'd love to hear from you.
+                I'm available for consulting projects and technical training. Whether you need expertise in cloud migrations, system integrations, or Linux administration, I'd love to hear from you.
               </p>
 
               <div className="space-y-4">
@@ -120,7 +120,6 @@ export default function ContactSection() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="technical_consulting">Technical Consulting</SelectItem>
-                      <SelectItem value="health_coaching">Health Coaching</SelectItem>
                       <SelectItem value="training">Training</SelectItem>
                       <SelectItem value="general_inquiry">General Inquiry</SelectItem>
                     </SelectContent>

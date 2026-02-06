@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Heart, Award } from 'lucide-react';
+import { Briefcase, Award, Globe } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export default function AboutSection() {
@@ -10,9 +10,9 @@ export default function AboutSection() {
       description: "Complex system integrations, SDK/API implementations, and streamlined deployment processes"
     },
     {
-      icon: Heart,
-      title: "Wellness Focus",
-      description: "Certified health coach combining biohacking and holistic health with technical expertise"
+      icon: Globe,
+      title: "Global Experience",
+      description: "15+ years delivering solutions across telecommunications, healthcare, and enterprise environments"
     },
     {
       icon: Award,
@@ -32,10 +32,10 @@ export default function AboutSection() {
 
           <div className="bg-[#1a1a2e]/80 backdrop-blur-sm border border-purple-500/20 rounded-2xl shadow-xl p-8 md:p-12 mb-12">
             <p className="text-lg text-slate-300 leading-relaxed mb-6">
-              With a dual role as a <strong className="text-purple-400">Solutions & Migrations Engineer</strong> and a <strong className="text-indigo-400">Health Coach</strong>, my career is a testament to versatility and a dedication to empowering others through technology and wellness. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships.
+              As a <strong className="text-purple-400">Solutions & Migrations Engineer</strong>, my career is a testament to technical excellence and dedication to delivering robust solutions. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships across global enterprises.
             </p>
             <p className="text-lg text-slate-300 leading-relaxed">
-              I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, combined with a commitment to biohacking and holistic health, allows me to guide clients towards both optimized technical solutions and healthier lifestyles. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
+              I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, cloud technologies, and DevOps practices allows me to guide clients towards optimized technical solutions. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
             </p>
           </div>
 
