@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '../utils';
+import { createPageUrl } from '../../pages/utils';
 
 export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
   const publishedDate = article.published_date ? new Date(article.published_date) : new Date(article.created_date);
