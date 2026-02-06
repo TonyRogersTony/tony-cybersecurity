@@ -27,6 +27,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <ThemeToggle />
       <HeroSection onContactClick={scrollToContact} />
       <AboutSection />
       <SkillsSection />
