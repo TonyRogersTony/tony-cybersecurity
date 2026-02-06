@@ -37,13 +37,13 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-slate-50">
+    <section id="testimonials" className="py-20 bg-[#16213e]/50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Client <span className="text-[#B8956A]">Testimonials</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            Client <span className="text-purple-400">Testimonials</span>
           </h2>
-          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {testimonials.map((testimonial, index) => (

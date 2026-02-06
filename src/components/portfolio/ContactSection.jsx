@@ -40,65 +40,65 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#E8C7A0]/30 text-slate-800 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-[#0f0c29]/50 text-white relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-[#B8956A] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#D4A574] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Get in <span className="text-[#B8956A]">Touch</span>
+            Get in <span className="text-purple-400">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-[#9A7A52]">Let's Work Together</h3>
-              <p className="text-slate-700 mb-8 leading-relaxed">
+              <h3 className="text-2xl font-semibold mb-6 text-white">Let's Work Together</h3>
+              <p className="text-slate-300 mb-8 leading-relaxed">
                 I'm available for consulting projects, technical training, and health coaching. Whether you need expertise in cloud migrations, system integrations, or wellness programs, I'd love to hear from you.
               </p>
 
               <div className="space-y-4">
-                <Card className="p-4 bg-white border-[#B8956A]/20">
+                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-[#B8956A]" />
+                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <p className="text-sm text-slate-500">Email</p>
-                      <a href="mailto:biohackerjoe@gmail.com" className="text-[#9A7A52] hover:text-[#B8956A] transition-colors">
+                      <p className="text-sm text-slate-400">Email</p>
+                      <a href="mailto:biohackerjoe@gmail.com" className="text-white hover:text-purple-300 transition-colors">
                         biohackerjoe@gmail.com
                       </a>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-4 bg-white border-[#B8956A]/20">
+                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-[#B8956A]" />
+                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <p className="text-sm text-slate-500">Phone</p>
-                      <a href="tel:+447834963875" className="text-[#9A7A52] hover:text-[#B8956A] transition-colors">
+                      <p className="text-sm text-slate-400">Phone</p>
+                      <a href="tel:+447834963875" className="text-white hover:text-purple-300 transition-colors">
                         +44 7834 963875
                       </a>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-4 bg-white border-[#B8956A]/20">
+                <Card className="p-4 bg-[#1a1a2e]/80 border border-purple-500/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-[#B8956A]" />
+                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <p className="text-sm text-slate-500">Location</p>
-                      <p className="text-[#9A7A52]">London, United Kingdom</p>
+                      <p className="text-sm text-slate-400">Location</p>
+                      <p className="text-white">London, United Kingdom</p>
                     </div>
                   </div>
                 </Card>
@@ -106,7 +106,7 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-6 bg-white border-[#B8956A]/20">
+            <Card className="p-6 bg-[#1a1a2e]/80 border border-purple-500/20">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input
@@ -114,7 +114,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="border-[#B8956A]/30 focus:border-[#B8956A]"
+                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
                   />
                 </div>
 
@@ -125,7 +125,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="border-[#B8956A]/30 focus:border-[#B8956A]"
+                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
                   />
                 </div>
 
@@ -134,7 +134,7 @@ export default function ContactSection() {
                     placeholder="Company Name"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="border-[#B8956A]/30 focus:border-[#B8956A]"
+                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
                   />
                 </div>
 
@@ -143,7 +143,7 @@ export default function ContactSection() {
                     value={formData.service_interest}
                     onValueChange={(value) => setFormData({ ...formData, service_interest: value })}
                   >
-                    <SelectTrigger className="border-[#B8956A]/30">
+                    <SelectTrigger className="bg-[#16213e]/50 border-purple-500/30 text-white">
                       <SelectValue placeholder="Service Interest" />
                     </SelectTrigger>
                     <SelectContent>
@@ -162,14 +162,14 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={5}
-                    className="border-[#B8956A]/30 focus:border-[#B8956A]"
+                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#B8956A] hover:bg-[#9A7A52] text-white"
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white"
                 >
                   {isSubmitting ? (
                     'Sending...'

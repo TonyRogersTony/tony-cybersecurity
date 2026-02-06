@@ -85,33 +85,33 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-slate-50">
+    <section id="experience" className="py-20 bg-[#16213e]/50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Professional <span className="text-[#B8956A]">Experience</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            Professional <span className="text-purple-400">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <Card key={index} className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-l-[#B8956A]">
+              <Card key={index} className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#1a1a2e]/80 border border-purple-500/20 border-l-4 border-l-purple-500">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="mb-4 md:mb-0">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{exp.role}</h3>
-                    <div className="flex items-center gap-2 text-[#B8956A] font-semibold mb-2">
+                    <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
+                    <div className="flex items-center gap-2 text-purple-400 font-semibold mb-2">
                       <Building2 className="w-4 h-4" />
                       <span>{exp.company}</span>
-                      <span className="text-slate-400">•</span>
-                      <span className="text-slate-600 font-normal">{exp.industry}</span>
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-400 font-normal">{exp.industry}</span>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                    <div className="flex flex-wrap gap-4 text-sm text-slate-400">
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4 text-[#D4A574]" />
+                        <Calendar className="w-4 h-4 text-indigo-400" />
                         <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4 text-[#D4A574]" />
+                        <MapPin className="w-4 h-4 text-indigo-400" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
@@ -120,8 +120,8 @@ export default function ExperienceSection() {
 
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700">
-                      <span className="text-[#B8956A] mt-1.5">•</span>
+                    <li key={idx} className="flex items-start gap-3 text-slate-300">
+                      <span className="text-purple-400 mt-1.5">•</span>
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -131,20 +131,20 @@ export default function ExperienceSection() {
           </div>
 
           {/* Early Career Summary */}
-          <Card className="mt-8 p-6 md:p-8 bg-[#E8C7A0]/20">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">Early Career Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-slate-700">
+          <Card className="mt-8 p-6 md:p-8 bg-[#1a1a2e]/80 border border-purple-500/20">
+            <h3 className="text-2xl font-bold text-white mb-4">Early Career Highlights</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-slate-300">
               <div>
-                <strong className="text-[#B8956A]">O2 (2003–2005):</strong> Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage.
+                <strong className="text-purple-400">O2 (2003–2005):</strong> Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage.
               </div>
               <div>
-                <strong className="text-[#B8956A]">Cap Gemini (2002–2003):</strong> Applications Integrator performing performance tuning on Enterprise systems.
+                <strong className="text-purple-400">Cap Gemini (2002–2003):</strong> Applications Integrator performing performance tuning on Enterprise systems.
               </div>
               <div>
-                <strong className="text-[#9A7A52]">Genie / BTCellnet (2001–2002):</strong> Implemented UK/Europe SMS solutions and managed Openwave WAP Portals.
+                <strong className="text-indigo-400">Genie / BTCellnet (2001–2002):</strong> Implemented UK/Europe SMS solutions and managed Openwave WAP Portals.
               </div>
               <div>
-                <strong className="text-[#9A7A52]">BTCellnet (1998–2000):</strong> Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart.
+                <strong className="text-indigo-400">BTCellnet (1998–2000):</strong> Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart.
               </div>
             </div>
           </Card>

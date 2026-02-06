@@ -34,29 +34,29 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-white">
+    <section id="certifications" className="py-20 bg-[#0f0c29]/50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Certifications & <span className="text-[#B8956A]">Training</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            Certifications & <span className="text-purple-400">Training</span>
           </h2>
-          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mb-12"></div>
 
           {/* Certifications Grid */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-slate-800 flex items-center gap-2">
-              <Award className="w-6 h-6 text-[#B8956A]" />
+            <h3 className="text-2xl font-semibold mb-6 text-white flex items-center gap-2">
+              <Award className="w-6 h-6 text-purple-400" />
               Professional Certifications
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
+                <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-[#1a1a2e]/80 border border-purple-500/20">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 mb-1">{cert.name}</h4>
-                      <p className="text-sm text-slate-600">{cert.issuer}</p>
+                      <h4 className="font-semibold text-white mb-1">{cert.name}</h4>
+                      <p className="text-sm text-slate-400">{cert.issuer}</p>
                     </div>
-                    <Badge variant="outline" className="border-[#B8956A] text-[#9A7A52] whitespace-nowrap">
+                    <Badge variant="outline" className="border-purple-500 text-purple-300 whitespace-nowrap">
                       {cert.year}
                     </Badge>
                   </div>
@@ -66,12 +66,12 @@ export default function CertificationsSection() {
           </div>
 
           {/* Education */}
-          <Card className="mb-12 p-6 bg-[#E8C7A0]/20">
+          <Card className="mb-12 p-6 bg-[#1a1a2e]/80 border border-purple-500/20">
             <div className="flex items-start gap-3">
-              <GraduationCap className="w-6 h-6 text-[#B8956A] mt-1" />
+              <GraduationCap className="w-6 h-6 text-purple-400 mt-1" />
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-slate-800">Education</h3>
-                <p className="text-slate-700">
+                <h3 className="text-xl font-semibold mb-2 text-white">Education</h3>
+                <p className="text-slate-300">
                   <strong>University of Wolverhampton</strong> — Computer Studies & Programming (1992–1995)
                 </p>
               </div>
@@ -84,12 +84,12 @@ export default function CertificationsSection() {
             {training.map((item, index) => {
               const Icon = item.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-xl transition-shadow">
-                  <div className="w-12 h-12 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#B8956A]" />
+                <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-[#1a1a2e]/80 border border-purple-500/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-purple-400" />
                   </div>
-                  <h4 className="text-lg font-semibold mb-2 text-slate-800">{item.title}</h4>
-                  <p className="text-slate-600 text-sm">{item.description}</p>
+                  <h4 className="text-lg font-semibold mb-2 text-white">{item.title}</h4>
+                  <p className="text-slate-300 text-sm">{item.description}</p>
                 </Card>
               );
             })}

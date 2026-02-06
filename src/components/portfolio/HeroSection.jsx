@@ -4,11 +4,11 @@ import { Button } from '@/components/ui/button';
 
 export default function HeroSection({ onContactClick }) {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-[#E8C7A0]/20 text-slate-800 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#16213e] to-[#1a1a2e] text-white relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[#B8956A] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#D4A574] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
