@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import CommentSection from '../components/blog/CommentSection';
 import ArticleSEO from '../components/blog/ArticleSEO';
+import SocialShare from '../components/blog/SocialShare';
 
 export default function ArticleDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -187,6 +188,11 @@ export default function ArticleDetail() {
             {article.content}
           </ReactMarkdown>
         </motion.div>
+
+        {/* Social Share */}
+        <div className="my-12">
+          <SocialShare article={article} />
+        </div>
 
         {/* Comments Section */}
         <CommentSection articleId={articleId} />
