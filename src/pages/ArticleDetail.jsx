@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
+import CommentSection from '../components/blog/CommentSection';
 
 export default function ArticleDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -184,6 +185,9 @@ export default function ArticleDetail() {
             {article.content}
           </ReactMarkdown>
         </motion.div>
+
+        {/* Comments Section */}
+        <CommentSection articleId={articleId} />
 
         {/* Back to articles button */}
         <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--border-color)' }}>
