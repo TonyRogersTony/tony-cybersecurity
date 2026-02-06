@@ -7,37 +7,37 @@ export default function SkillsSection() {
     {
       icon: Cloud,
       title: "Cloud & Infrastructure",
-      color: "green",
+      color: "teal",
       skills: ["AWS Cloud (Certified CLF-C02)", "Docker", "Kubernetes", "Openshift", "Terraform", "VMware ESX/ESXi", "Sun Cluster"]
     },
     {
       icon: Server,
       title: "Operating Systems",
-      color: "orange",
+      color: "amber",
       skills: ["Linux (RedHat, Ubuntu, CentOS, Debian)", "Solaris 10 & Administration", "HP-UX", "Windows Server"]
     },
     {
       icon: Database,
       title: "Databases",
-      color: "green",
+      color: "teal",
       skills: ["MySQL", "Oracle (9i, 10g with ASM)", "Sybase", "PostgreSQL", "MongoDB"]
     },
     {
       icon: Code,
       title: "Development & Scripting",
-      color: "orange",
+      color: "amber",
       skills: ["Python (DevOps, Data Science)", "Java", "JavaScript", "Perl", "Shell Scripting (Bash)", "API/SDK Integration"]
     },
     {
       icon: Cog,
       title: "DevOps & Automation",
-      color: "green",
+      color: "teal",
       skills: ["CI/CD Pipeline Implementation", "Puppet", "Ansible", "Git", "SVN", "Eclipse"]
     },
     {
       icon: Activity,
       title: "Monitoring & Networking",
-      color: "orange",
+      color: "amber",
       skills: ["Nagios", "Centreon", "Check_MK", "Munin", "F5 BigIP Load Balancing", "Jboss", "Websphere MQ", "Tibco"]
     }
   ];
@@ -47,16 +47,16 @@ export default function SkillsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Technical <span className="text-orange-600">Skills</span>
+            Technical <span className="text-amber-600">Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-green-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-600 to-teal-500 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillCategories.map((category, index) => {
               const Icon = category.icon;
-              const colorClass = category.color === "green" ? "from-green-500 to-green-600" : "from-orange-500 to-orange-600";
-              const bgClass = category.color === "green" ? "bg-green-50" : "bg-orange-50";
-              const textClass = category.color === "green" ? "text-green-600" : "text-orange-600";
+              const colorClass = category.color === "teal" ? "from-teal-500 to-teal-600" : "from-amber-500 to-amber-600";
+              const bgClass = category.color === "teal" ? "bg-teal-50" : "bg-amber-50";
+              const textClass = category.color === "teal" ? "text-teal-600" : "text-amber-600";
               
               return (
                 <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">

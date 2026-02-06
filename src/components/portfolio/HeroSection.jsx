@@ -7,19 +7,19 @@ export default function HeroSection({ onContactClick }) {
     <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-green-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-amber-400 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-full mb-8">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-400">Available for Consulting</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 border border-teal-500/30 rounded-full mb-8">
+            <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-teal-300">Available for Consulting</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-orange-400">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-amber-400">
             Joe Bains
           </h1>
 
@@ -38,16 +38,16 @@ export default function HeroSection({ onContactClick }) {
           {/* Contact info */}
           <div className="flex flex-wrap justify-center gap-6 mb-12 text-slate-400">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-green-500" />
+              <MapPin className="w-4 h-4 text-teal-400" />
               <span>London, UK</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-green-500" />
-              <a href="tel:+447834963875" className="hover:text-green-400 transition-colors">+44 7834 963875</a>
+              <Phone className="w-4 h-4 text-teal-400" />
+              <a href="tel:+447834963875" className="hover:text-teal-300 transition-colors">+44 7834 963875</a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-green-500" />
-              <a href="mailto:biohackerjoe@gmail.com" className="hover:text-green-400 transition-colors">biohackerjoe@gmail.com</a>
+              <Mail className="w-4 h-4 text-teal-400" />
+              <a href="mailto:biohackerjoe@gmail.com" className="hover:text-teal-300 transition-colors">biohackerjoe@gmail.com</a>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function HeroSection({ onContactClick }) {
             <Button 
               onClick={onContactClick}
               size="lg"
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8"
+              className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-8"
             >
               Get in Touch
             </Button>

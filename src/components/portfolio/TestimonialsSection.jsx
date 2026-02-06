@@ -41,14 +41,14 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Client <span className="text-green-600">Testimonials</span>
+            Client <span className="text-teal-600">Testimonials</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-green-600 to-orange-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-teal-600 to-amber-500 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="p-6 hover:shadow-xl transition-shadow relative">
-                <Quote className="absolute top-4 right-4 w-8 h-8 text-green-200" />
+                <Quote className="absolute top-4 right-4 w-8 h-8 text-teal-200" />
                 <div className="relative z-10">
                   <p className="text-slate-700 mb-4 italic leading-relaxed">
                     "{testimonial.text}"

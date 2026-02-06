@@ -38,14 +38,14 @@ export default function CertificationsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Certifications & <span className="text-orange-600">Training</span>
+            Certifications & <span className="text-amber-600">Training</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-green-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-600 to-teal-500 mx-auto mb-12"></div>
 
           {/* Certifications Grid */}
           <div className="mb-12">
             <h3 className="text-2xl font-semibold mb-6 text-slate-800 flex items-center gap-2">
-              <Award className="w-6 h-6 text-green-600" />
+              <Award className="w-6 h-6 text-teal-600" />
               Professional Certifications
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -56,7 +56,7 @@ export default function CertificationsSection() {
                       <h4 className="font-semibold text-slate-800 mb-1">{cert.name}</h4>
                       <p className="text-sm text-slate-600">{cert.issuer}</p>
                     </div>
-                    <Badge variant="outline" className="border-green-500 text-green-700 whitespace-nowrap">
+                    <Badge variant="outline" className="border-teal-500 text-teal-700 whitespace-nowrap">
                       {cert.year}
                     </Badge>
                   </div>
@@ -66,9 +66,9 @@ export default function CertificationsSection() {
           </div>
 
           {/* Education */}
-          <Card className="mb-12 p-6 bg-gradient-to-r from-green-50 to-orange-50">
+          <Card className="mb-12 p-6 bg-gradient-to-r from-teal-50 to-amber-50">
             <div className="flex items-start gap-3">
-              <GraduationCap className="w-6 h-6 text-orange-600 mt-1" />
+              <GraduationCap className="w-6 h-6 text-amber-600 mt-1" />
               <div>
                 <h3 className="text-xl font-semibold mb-2 text-slate-800">Education</h3>
                 <p className="text-slate-700">
@@ -85,8 +85,8 @@ export default function CertificationsSection() {
               const Icon = item.icon;
               return (
                 <Card key={index} className="p-6 hover:shadow-xl transition-shadow">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-orange-600" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-amber-600" />
                   </div>
                   <h4 className="text-lg font-semibold mb-2 text-slate-800">{item.title}</h4>
                   <p className="text-slate-600 text-sm">{item.description}</p>

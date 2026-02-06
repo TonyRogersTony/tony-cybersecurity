@@ -43,16 +43,16 @@ export default function ContactSection() {
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-green-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-amber-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Get in <span className="text-green-400">Touch</span>
+            Get in <span className="text-teal-400">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-orange-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-amber-500 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
@@ -65,12 +65,12 @@ export default function ContactSection() {
               <div className="space-y-4">
                 <Card className="p-4 bg-slate-800/50 border-slate-700">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-green-400" />
+                    <div className="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-teal-400" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Email</p>
-                      <a href="mailto:biohackerjoe@gmail.com" className="text-white hover:text-green-400 transition-colors">
+                      <a href="mailto:biohackerjoe@gmail.com" className="text-white hover:text-teal-400 transition-colors">
                         biohackerjoe@gmail.com
                       </a>
                     </div>
@@ -79,12 +79,12 @@ export default function ContactSection() {
 
                 <Card className="p-4 bg-slate-800/50 border-slate-700">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-orange-400" />
+                    <div className="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-amber-400" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Phone</p>
-                      <a href="tel:+447834963875" className="text-white hover:text-orange-400 transition-colors">
+                      <a href="tel:+447834963875" className="text-white hover:text-amber-400 transition-colors">
                         +44 7834 963875
                       </a>
                     </div>
@@ -93,8 +93,8 @@ export default function ContactSection() {
 
                 <Card className="p-4 bg-slate-800/50 border-slate-700">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-green-400" />
+                    <div className="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-teal-400" />
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Location</p>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white"
+                  className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white"
                 >
                   {isSubmitting ? (
                     'Sending...'
