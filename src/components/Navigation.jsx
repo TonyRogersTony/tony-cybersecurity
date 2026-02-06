@@ -50,12 +50,12 @@ export default function Navigation() {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-center h-16 w-full">
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-0.5 lg:gap-1 flex-wrap justify-center max-w-full">
               {menuItems.map((item) => (
                 item.isPage ? (
                   <Link key={item.href} to={createPageUrl(item.href.replace('/', ''))}>
                     <button
-                      className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                      className="px-2 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap"
                       style={{
                         color: 'var(--text-secondary)',
                       }}
@@ -75,7 +75,7 @@ export default function Navigation() {
                   <button
                     key={item.href}
                     onClick={() => scrollToSection(item.href, item.isPage)}
-                    className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                    className="px-2 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap"
                     style={{
                       color: 'var(--text-secondary)',
                     }}
@@ -94,7 +94,7 @@ export default function Navigation() {
               ))}
               
               {/* Theme Toggle inline */}
-              <div className="ml-2">
+              <div className="ml-1 lg:ml-2">
                 <ThemeToggle />
               </div>
             </div>
