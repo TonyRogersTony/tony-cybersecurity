@@ -32,46 +32,46 @@ export default function ThemeMenu() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: -350, opacity: 0 }}
+            initial={{ x: -140, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -350, opacity: 0 }}
+            exit={{ x: -140, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="rounded-r-2xl shadow-2xl p-6 backdrop-blur-sm"
+            className="rounded-r-xl shadow-lg p-3 backdrop-blur-sm"
             style={{
               backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 95%, transparent)',
               borderRight: '2px solid var(--border-color)',
               borderTop: '2px solid var(--border-color)',
               borderBottom: '2px solid var(--border-color)',
               minHeight: 'auto',
-              width: '280px'
+              width: '130px'
             }}
           >
-            <div className="flex items-center gap-2 mb-6">
-              <Palette className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
-              <h3 className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>Themes</h3>
+            <div className="flex items-center justify-center mb-3">
+              <Palette className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               {themes.map((theme) => (
                 <motion.button
                   key={theme.value}
                   onClick={() => handleThemeChange(theme.value)}
-                  whileHover={{ scale: 1.05, x: 5 }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full px-4 py-3 rounded-lg text-left transition-all duration-200 text-sm font-medium flex items-center gap-3"
+                  title={theme.name}
+                  className="w-full px-2 py-2 rounded-md text-left transition-all duration-200 text-xs font-medium flex items-center gap-2"
                   style={{
                     backgroundColor: currentTheme === theme.value 
                       ? 'color-mix(in srgb, var(--accent-primary) 20%, transparent)'
                       : 'color-mix(in srgb, var(--bg-primary) 50%, transparent)',
                     borderLeft: currentTheme === theme.value 
-                      ? '3px solid var(--accent-primary)'
-                      : '3px solid transparent',
+                      ? '2px solid var(--accent-primary)'
+                      : '2px solid transparent',
                     color: currentTheme === theme.value ? 'var(--accent-light)' : 'var(--text-secondary)',
-                    paddingLeft: currentTheme === theme.value ? '13px' : '16px'
+                    paddingLeft: currentTheme === theme.value ? '6px' : '8px'
                   }}
                 >
-                  <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${theme.gradient} flex-shrink-0`}></div>
-                  {theme.name}
+                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${theme.gradient} flex-shrink-0`}></div>
+                  <span className="hidden sm:inline">{theme.name}</span>
                 </motion.button>
               ))}
             </div>
@@ -83,13 +83,13 @@ export default function ThemeMenu() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all"
+        className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-all"
         style={{
           backgroundColor: 'var(--accent-primary)',
           color: 'white'
         }}
       >
-        {isOpen ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+        {isOpen ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
       </motion.button>
     </div>
   );
