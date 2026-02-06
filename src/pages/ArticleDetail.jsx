@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from './utils';
+import { createPageUrl } from '../utils';
 
 export default function ArticleDetail() {
   const urlParams = new URLSearchParams(window.location.search);
