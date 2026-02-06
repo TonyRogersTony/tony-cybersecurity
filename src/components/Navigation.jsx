@@ -1,0 +1,132 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export default function Navigation() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const menuItems = [
+    { label: 'Home', href: '#hero' },
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Certifications', href: '#certifications' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Contact', href: '#contact' }
+  ];
+
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  return (
+    <>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'shadow-lg' : ''
+        }`}
+        style={{
+          backgroundColor: isScrolled 
+            ? 'color-mix(in srgb, var(--bg-primary) 95%, transparent)' 
+            : 'transparent',
+          backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+          borderBottom: isScrolled ? '1px solid var(--border-color)' : 'none'
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Name */}
+            <button 
+              onClick={() => scrollToSection('#hero')}
+              className="text-xl font-bold transition-colors"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Joe Bains
+            </button>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-1">
+              {menuItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'var(--text-secondary)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = 'color-mix(in srgb, var(--accent-primary) 10%, transparent)';
+                    e.target.style.color = 'var(--accent-primary)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                    e.target.style.color = 'var(--text-secondary)';
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              style={{ color: 'var(--text-primary)' }}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 z-30 md:hidden"
+          style={{ 
+            backgroundColor: 'color-mix(in srgb, var(--bg-primary) 98%, transparent)',
+            backdropFilter: 'blur(10px)',
+            paddingTop: '4rem'
+          }}
+        >
+          <div className="container mx-auto px-6 py-8">
+            <div className="flex flex-col gap-2">
+              {menuItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className="px-4 py-3 rounded-lg text-left font-medium transition-all duration-300"
+                  style={{
+                    color: 'var(--text-primary)',
+                    backgroundColor: 'color-mix(in srgb, var(--accent-primary) 5%, transparent)',
+                    borderLeft: '3px solid var(--accent-primary)'
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

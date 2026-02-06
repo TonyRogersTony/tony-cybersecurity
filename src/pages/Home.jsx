@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Navigation from '../components/Navigation';
 import HeroSection from '../components/portfolio/HeroSection';
 import AboutSection from '../components/portfolio/AboutSection';
 import SkillsSection from '../components/portfolio/SkillsSection';
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <Navigation />
       <ThemeToggle />
       <HeroSection onContactClick={scrollToContact} />
       <AboutSection />
