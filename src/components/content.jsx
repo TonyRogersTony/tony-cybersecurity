@@ -466,6 +466,7 @@ export const content = {
       { label: "Certifications", href: "#certifications" },
       { label: "Testimonials", href: "#testimonials" },
       { label: "Articles", href: "/Articles", isPage: true },
+      { label: "GitHub", href: "/GitHub", isPage: true },
       { label: "Contact", href: "#contact" }
     ]
   },
