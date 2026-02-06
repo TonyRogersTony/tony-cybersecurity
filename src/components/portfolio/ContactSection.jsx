@@ -86,7 +86,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
+                    style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
 
@@ -97,7 +97,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
+                    style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
 
@@ -106,7 +106,7 @@ export default function ContactSection() {
                     placeholder="Company Name"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
+                    style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
 
@@ -133,7 +133,7 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={5}
-                    className="bg-[#16213e]/50 border-purple-500/30 text-white placeholder:text-slate-500 focus:border-purple-500"
+                    style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
                   />
                 </div>
 
