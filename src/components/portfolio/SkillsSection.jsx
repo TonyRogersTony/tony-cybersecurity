@@ -47,26 +47,23 @@ export default function SkillsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Technical <span className="text-amber-600">Skills</span>
+            Technical <span className="text-[#B8956A]">Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-amber-600 to-teal-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillCategories.map((category, index) => {
               const Icon = category.icon;
-              const colorClass = category.color === "teal" ? "from-teal-500 to-teal-600" : "from-amber-500 to-amber-600";
-              const bgClass = category.color === "teal" ? "bg-teal-50" : "bg-amber-50";
-              const textClass = category.color === "teal" ? "text-teal-600" : "text-amber-600";
               
               return (
-                <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${colorClass} rounded-lg flex items-center justify-center mb-4`}>
-                    <Icon className="w-6 h-6 text-white" />
+                <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-2 border-l-[#B8956A]">
+                  <div className="w-12 h-12 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[#B8956A]" />
                   </div>
-                  <h3 className={`text-xl font-semibold mb-4 ${textClass}`}>{category.title}</h3>
+                  <h3 className="text-xl font-semibold mb-4 text-[#9A7A52]">{category.title}</h3>
                   <div className="space-y-2">
                     {category.skills.map((skill, idx) => (
-                      <div key={idx} className={`text-sm ${bgClass} px-3 py-2 rounded-lg text-slate-700`}>
+                      <div key={idx} className="text-sm bg-[#E8C7A0]/20 px-3 py-2 rounded-lg text-slate-700">
                         {skill}
                       </div>
                     ))}

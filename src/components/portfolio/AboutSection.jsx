@@ -26,13 +26,13 @@ export default function AboutSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            About <span className="text-teal-600">Me</span>
+            About <span className="text-[#B8956A]">Me</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-teal-600 to-amber-500 mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-[#B8956A] mx-auto mb-12"></div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12">
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              With a dual role as a <strong className="text-teal-600">Solutions & Migrations Engineer</strong> and a <strong className="text-amber-600">Health Coach</strong>, my career is a testament to versatility and a dedication to empowering others through technology and wellness. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships.
+              With a dual role as a <strong className="text-[#B8956A]">Solutions & Migrations Engineer</strong> and a <strong className="text-[#D4A574]">Health Coach</strong>, my career is a testament to versatility and a dedication to empowering others through technology and wellness. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed">
               I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, combined with a commitment to biohacking and holistic health, allows me to guide clients towards both optimized technical solutions and healthier lifestyles. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication.
@@ -43,9 +43,9 @@ export default function AboutSection() {
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow border-t-4 border-t-teal-500">
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-100 to-amber-100 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-teal-600" />
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow border-t-4 border-t-[#B8956A]">
+                  <div className="w-12 h-12 bg-[#E8C7A0]/30 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[#B8956A]" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-slate-800">{item.title}</h3>
                   <p className="text-slate-600">{item.description}</p>
