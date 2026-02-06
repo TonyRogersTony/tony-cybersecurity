@@ -129,13 +129,15 @@ export default function HeroSection({ onContactClick }) {
           </div>
 
           {/* Status badge */}
-          <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
+          <motion.button 
+            onClick={onContactClick}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 cursor-pointer hover:opacity-80 transition-opacity"
             style={{ 
               backgroundColor: 'color-mix(in srgb, var(--accent-primary) 20%, transparent)',
               borderColor: 'color-mix(in srgb, var(--accent-primary) 30%, transparent)',
               borderWidth: '1px',
-              borderStyle: 'solid'
+              borderStyle: 'solid',
+              border: 'none'
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,7 +145,7 @@ export default function HeroSection({ onContactClick }) {
           >
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent-primary)' }}></div>
             <span className="text-sm font-medium" style={{ color: 'var(--accent-light)' }}>{hero.status}</span>
-          </motion.div>
+          </motion.button>
 
           <motion.div 
             className="text-xl md:text-2xl mb-6 font-light"
