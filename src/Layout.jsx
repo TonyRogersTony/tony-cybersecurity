@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import SocialLinks from './components/SocialLinks';
+import ThemeMenu from './components/ThemeMenu';
 import { content } from './components/content';
 
 export default function Layout({ children }) {
@@ -8,6 +9,7 @@ export default function Layout({ children }) {
 
   return (
     <>
+      <ThemeMenu />
       <Navigation />
       <style>{`
         /* Purple Night Theme */
