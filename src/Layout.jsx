@@ -1,7 +1,11 @@
 import React from 'react';
 import Navigation from './components/Navigation';
+import SocialLinks from './components/SocialLinks';
+import { content } from './components/content';
 
 export default function Layout({ children }) {
+  const { footer } = content;
+
   return (
     <>
       <Navigation />
@@ -120,6 +124,13 @@ export default function Layout({ children }) {
         }
       `}</style>
       {children}
+      <footer className="py-8" style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-tertiary)' }}>
+        <div className="container mx-auto px-6 text-center">
+          <SocialLinks />
+          <p>{footer.copyright}</p>
+          <p className="text-sm mt-2">{footer.tagline}</p>
+        </div>
+      </footer>
     </>
   );
 }
