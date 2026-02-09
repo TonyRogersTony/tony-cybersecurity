@@ -39,29 +39,35 @@ export default function LinkedInSection() {
 
         <ScrollReveal delay={0.2}>
           <div className="max-w-4xl mx-auto space-y-6">
-            {/* LinkedIn Profile Embed */}
+            {/* LinkedIn Profile Preview */}
             <Card 
-              className="overflow-hidden border-2"
+              className="overflow-hidden border-2 cursor-pointer transition-all duration-300 hover:shadow-2xl"
               style={{ 
                 backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 80%, transparent)',
                 borderColor: 'var(--border-color)'
               }}
+              onClick={() => window.open(linkedInUrl, '_blank')}
             >
-              <iframe
-                src="https://www.linkedin.com/embed/feed/update/urn:li:share:6898694772484112384"
-                height="400"
-                width="100%"
-                frameBorder="0"
-                allowFullScreen=""
-                title="LinkedIn Profile"
-                className="w-full"
-                style={{ minHeight: '400px' }}
-              />
+              <div className="relative h-96">
+                <iframe
+                  src={linkedInUrl}
+                  className="w-full h-full"
+                  title="LinkedIn Profile"
+                  sandbox="allow-scripts allow-same-origin"
+                />
+                <div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
+                />
+                <div className="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
+                  <h3 className="text-2xl font-bold mb-2">Joe Bains</h3>
+                  <p className="text-lg opacity-90">Senior Implementation Engineer | Technical Solutions Specialist</p>
+                </div>
+              </div>
             </Card>
 
             {/* Action Buttons */}
             <Card 
-              className="p-8 border-2 transition-all duration-300 hover:shadow-2xl"
+              className="p-8 border-2 transition-all duration-300"
               style={{ 
                 backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 80%, transparent)',
                 borderColor: 'var(--border-color)'
@@ -82,7 +88,7 @@ export default function LinkedInSection() {
                       }}
                     >
                       <Linkedin className="w-5 h-5" />
-                      View Profile
+                      View Full Profile
                       <ExternalLink className="w-4 h-4" />
                     </Button>
                   </motion.div>
