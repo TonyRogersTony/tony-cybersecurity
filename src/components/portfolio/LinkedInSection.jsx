@@ -11,7 +11,7 @@ export default function LinkedInSection() {
 
   return (
     <section 
-      id="linkedin" 
+      id="contact" 
       className="py-24 relative overflow-hidden"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
@@ -32,7 +32,7 @@ export default function LinkedInSection() {
           <div className="flex items-center justify-center gap-3 mb-12">
             <Linkedin className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
             <h2 className="text-4xl font-bold text-center">
-              Connect on <span style={{ color: 'var(--accent-primary)' }}>LinkedIn</span>
+              Let's <span style={{ color: 'var(--accent-primary)' }}>Connect</span>
             </h2>
           </div>
         </ScrollReveal>
