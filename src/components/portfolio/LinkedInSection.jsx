@@ -38,74 +38,80 @@ export default function LinkedInSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="max-w-4xl mx-auto space-y-6">
-            {/* LinkedIn Profile Preview */}
+          <div className="max-w-4xl mx-auto">
             <Card 
-              className="overflow-hidden border-2 cursor-pointer transition-all duration-300 hover:shadow-2xl"
-              style={{ 
-                backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 80%, transparent)',
-                borderColor: 'var(--border-color)'
-              }}
-              onClick={() => window.open(linkedInUrl, '_blank')}
-            >
-              <div className="relative h-96">
-                <iframe
-                  src={linkedInUrl}
-                  className="w-full h-full"
-                  title="LinkedIn Profile"
-                  sandbox="allow-scripts allow-same-origin"
-                />
-                <div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
-                />
-                <div className="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
-                  <h3 className="text-2xl font-bold mb-2">Joe Bains</h3>
-                  <p className="text-lg opacity-90">Senior Implementation Engineer | Technical Solutions Specialist</p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Action Buttons */}
-            <Card 
-              className="p-8 border-2 transition-all duration-300"
+              className="overflow-hidden border-2 transition-all duration-300 hover:shadow-2xl"
               style={{ 
                 backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 80%, transparent)',
                 borderColor: 'var(--border-color)'
               }}
             >
-              <div className="text-center space-y-6">
-                <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-                  Let's connect and explore opportunities for collaboration
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button
-                      onClick={() => window.open(linkedInUrl, '_blank')}
-                      className="px-6 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3"
-                      style={{ 
-                        backgroundColor: 'var(--accent-primary)',
-                        color: 'white'
-                      }}
+              {/* LinkedIn-style header */}
+              <div 
+                className="h-32 relative"
+                style={{ 
+                  background: 'linear-gradient(135deg, #0077b5 0%, #00a0dc 100%)'
+                }}
+              />
+              
+              {/* Profile section */}
+              <div className="px-8 pb-8">
+                <div className="flex flex-col md:flex-row gap-6 -mt-16 relative">
+                  <div className="flex-shrink-0">
+                    <div 
+                      className="w-32 h-32 rounded-full border-4 overflow-hidden"
+                      style={{ borderColor: 'var(--bg-secondary)' }}
                     >
-                      <Linkedin className="w-5 h-5" />
-                      View Full Profile
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button
-                      onClick={() => window.open(linkedInMessageUrl, '_blank')}
-                      className="px-6 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3"
-                      style={{ 
-                        backgroundColor: 'var(--accent-secondary)',
-                        color: 'white'
-                      }}
-                    >
-                      <Linkedin className="w-5 h-5" />
-                      Message on LinkedIn
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
-                  </motion.div>
+                      <img 
+                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg"
+                        alt="Joe Bains"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1 pt-4">
+                    <h3 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                      Joe Bains
+                    </h3>
+                    <p className="text-lg mb-4" style={{ color: 'var(--text-secondary)' }}>
+                      Senior Implementation Engineer | Technical Solutions Specialist
+                    </p>
+                    <p className="text-sm mb-6" style={{ color: 'var(--text-tertiary)' }}>
+                      London, UK • 500+ connections
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+                        <Button
+                          onClick={() => window.open(linkedInUrl, '_blank')}
+                          className="w-full px-6 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+                          style={{ 
+                            backgroundColor: '#0077b5',
+                            color: 'white'
+                          }}
+                        >
+                          <Linkedin className="w-5 h-5" />
+                          View LinkedIn Profile
+                          <ExternalLink className="w-4 h-4" />
+                        </Button>
+                      </motion.div>
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+                        <Button
+                          onClick={() => window.open(linkedInMessageUrl, '_blank')}
+                          className="w-full px-6 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+                          style={{ 
+                            backgroundColor: 'var(--accent-secondary)',
+                            color: 'white'
+                          }}
+                        >
+                          <Linkedin className="w-5 h-5" />
+                          Message Me
+                          <ExternalLink className="w-4 h-4" />
+                        </Button>
+                      </motion.div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>
