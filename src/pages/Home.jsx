@@ -8,6 +8,7 @@ import PortfolioSection from '../components/portfolio/PortfolioSection';
 import ExperienceSection from '../components/portfolio/ExperienceSection';
 import CertificationsSection from '../components/portfolio/CertificationsSection';
 import TestimonialsSection from '../components/portfolio/TestimonialsSection';
+import LinkedInSection from '../components/portfolio/LinkedInSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import SEO from '../components/SEO';
 import { content } from '../components/content';
@@ -44,6 +45,7 @@ export default function Home() {
           <ExperienceSection />
           <CertificationsSection />
           <TestimonialsSection />
+          <LinkedInSection />
           <ContactSection />
         </div>
       </>

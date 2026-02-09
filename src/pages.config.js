@@ -51,8 +51,8 @@ import ArticleDetail from './pages/ArticleDetail';
 import Articles from './pages/Articles';
 import ArticlesByCategory from './pages/ArticlesByCategory';
 import Bookmarks from './pages/Bookmarks';
-import Home from './pages/Home';
 import GitHub from './pages/GitHub';
+import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import __Layout from './Layout.jsx';
 
@@ -62,8 +62,8 @@ export const PAGES = {
     "Articles": Articles,
     "ArticlesByCategory": ArticlesByCategory,
     "Bookmarks": Bookmarks,
-    "Home": Home,
     "GitHub": GitHub,
+    "Home": Home,
     "PrivacyPolicy": PrivacyPolicy,
 }
 
