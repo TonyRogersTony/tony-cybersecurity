@@ -50,7 +50,7 @@ export default function LinkedInSection() {
               <div 
                 className="h-32 relative"
                 style={{ 
-                  background: 'linear-gradient(135deg, #0077b5 0%, #00a0dc 100%)'
+                  background: 'linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%)'
                 }}
               />
               
@@ -87,7 +87,7 @@ export default function LinkedInSection() {
                           onClick={() => window.open(linkedInUrl, '_blank')}
                           className="w-full px-6 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
                           style={{ 
-                            backgroundColor: '#0077b5',
+                            backgroundColor: 'var(--accent-primary)',
                             color: 'white'
                           }}
                         >
