@@ -14,17 +14,6 @@ export default function CertificationsSection() {
     "Additional Expertise": GraduationCap
   };
 
-  const oldCertifications = [
-    { name: "AWS Certified Cloud Practitioner (CLF-C02)", issuer: "Amazon Web Services", year: "2023" },
-    { name: "Python Scripting for DevOps", issuer: "Coursera Project Network", year: "2023" },
-    { name: "Linux and Bash for Data Engineering", issuer: "Duke University", year: "2023" },
-    { name: "Introduction to DevOps", issuer: "IBM", year: "2023" },
-    { name: "AI & Machine Learning: Text Embeddings Mastery", issuer: "Multiple", year: "2024" },
-    { name: "ChatGPT Developer Program", issuer: "OpenAI", year: "2024" },
-    { name: "Langchain Certification for LLM Development", issuer: "Langchain", year: "2024" },
-    { name: "Focus Awards Level 3 Award in Education and Training", issuer: "AET PTLLS", year: "2020" }
-  ];
-
   return (
     <section id="certifications" className="py-20" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
       <div className="container mx-auto px-6">

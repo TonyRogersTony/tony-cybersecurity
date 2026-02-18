@@ -13,65 +13,6 @@ export default function PortfolioSection() {
   const projects = portfolio.projects;
   const categories = portfolio.categories;
 
-  const oldProjects = [
-    {
-      title: "Healthcare Systems Migration",
-      category: "Cloud Infrastructure",
-      description: "Architected and executed complete cloud migration for healthcare facility, ensuring HIPAA compliance and zero downtime during transition.",
-      technologies: ["AWS", "Docker", "Kubernetes", "Terraform"],
-      highlights: ["Zero downtime migration", "HIPAA compliant", "Cost reduction by 40%"]
-    },
-    {
-      title: "Video Conferencing Platform",
-      category: "System Integration",
-      description: "Implemented and optimized Vidyo video conferencing system for Swisscom, supporting high-profile international events.",
-      technologies: ["Linux", "MySQL", "Nagios", "Python"],
-      highlights: ["Supported OECD Meeting", "Custom monitoring", "Database optimization"]
-    },
-    {
-      title: "OpenStack Cloud Infrastructure",
-      category: "Cloud Infrastructure",
-      description: "Contributed to detailed design and implementation of OpenStack cloud infrastructure across three data centres in Switzerland.",
-      technologies: ["OpenStack", "Puppet", "Linux", "Storage SAN/NAS"],
-      highlights: ["Multi-datacenter", "Automated provisioning", "High availability"]
-    },
-    {
-      title: "CI/CD Pipeline Implementation",
-      category: "Automation",
-      description: "Designed and implemented continuous integration and deployment pipeline for broadcast platform, streamlining build and release processes.",
-      technologies: ["Jenkins", "Git", "Docker", "Shell Scripting"],
-      highlights: ["Automated deployments", "Reduced build time by 60%", "Zero-touch releases"]
-    },
-    {
-      title: "Global Payment Gateway",
-      category: "System Integration",
-      description: "Led deployment and integration of payment solutions for Vodafone's global network, handling millions of transactions.",
-      technologies: ["Oracle", "Java", "WebSphere MQ", "Linux"],
-      highlights: ["Multi-country rollout", "24/7 uptime", "Transaction optimization"]
-    },
-    {
-      title: "Infrastructure Monitoring System",
-      category: "Automation",
-      description: "Implemented comprehensive monitoring solution using Nagios and Centreon, providing real-time visibility across 300+ servers.",
-      technologies: ["Nagios", "Centreon", "Python", "MySQL"],
-      highlights: ["300+ servers monitored", "Custom plugins", "Predictive alerting"]
-    },
-    {
-      title: "Python DevOps Automation",
-      category: "Automation",
-      description: "Developed Python-based automation tools for deployment processes, configuration management, and infrastructure provisioning.",
-      technologies: ["Python", "Ansible", "Docker", "AWS"],
-      highlights: ["Reduced manual tasks by 80%", "Self-service deployments", "Cost tracking"]
-    },
-    {
-      title: "Database Performance Optimization",
-      category: "System Integration",
-      description: "Performed comprehensive database optimization for enterprise systems, achieving significant performance improvements.",
-      technologies: ["Oracle", "MySQL", "Performance Tuning", "Shell Scripting"],
-      highlights: ["Query optimization", "Index restructuring", "50% faster response times"]
-    }
-  ];
-
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Bookmark, BookmarkCheck, Type, Moon, Sun } from 'lucide-react';
 import { toast } from 'sonner';
@@ -10,8 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { content } from '../content';
 
 export default function ArticleReadingControls({ articleId, onFontSizeChange, onReadingModeChange }) {
+  const readingContent = content.articleReadingControls;
   const [fontSize, setFontSize] = useState('medium');
   const [readingMode, setReadingMode] = useState('light');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +23,7 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const user = await base44.auth.me();
+        const user = await apiClient.auth.me();
         setIsAuthenticated(!!user);
       } catch {
         setIsAuthenticated(false);
@@ -43,7 +45,7 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
     queryKey: ['bookmarks', articleId],
     queryFn: async () => {
       if (!isAuthenticated) return [];
-      return await base44.entities.Bookmark.filter({ article_id: articleId });
+      return await apiClient.entities.Bookmark.filter({ article_id: articleId });
     },
     enabled: isAuthenticated && !!articleId,
   });
@@ -52,24 +54,24 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
 
   // Bookmark mutations
   const addBookmarkMutation = useMutation({
-    mutationFn: () => base44.entities.Bookmark.create({ article_id: articleId }),
+    mutationFn: () => apiClient.entities.Bookmark.create({ article_id: articleId }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['bookmarks'] });
-      toast.success('Article bookmarked!');
+      toast.success(readingContent.messages.bookmarked);
     },
     onError: () => {
-      toast.error('Failed to bookmark article');
+      toast.error(readingContent.messages.bookmarkFailed);
     }
   });
 
   const removeBookmarkMutation = useMutation({
-    mutationFn: () => base44.entities.Bookmark.delete(bookmarks[0].id),
+    mutationFn: () => apiClient.entities.Bookmark.delete(bookmarks[0].id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['bookmarks'] });
-      toast.success('Bookmark removed');
+      toast.success(readingContent.messages.bookmarkRemoved);
     },
     onError: () => {
-      toast.error('Failed to remove bookmark');
+      toast.error(readingContent.messages.removeFailed);
     }
   });
 
@@ -77,7 +79,7 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
     setFontSize(size);
     localStorage.setItem('article-font-size', size);
     onFontSizeChange?.(size);
-    toast.success(`Font size: ${size}`);
+    toast.success(`${readingContent.messages.fontSizePrefix} ${size}`);
   };
 
   const handleReadingModeToggle = () => {
@@ -89,7 +91,7 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
 
   const handleBookmarkToggle = async () => {
     if (!isAuthenticated) {
-      toast.error('Please log in to bookmark articles');
+      toast.error(readingContent.messages.loginRequired);
       return;
     }
 
@@ -116,21 +118,21 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="sm" className="gap-2">
             <Type className="w-4 h-4" />
-            <span className="hidden sm:inline">Font Size</span>
+            <span className="hidden sm:inline">{readingContent.fontSize}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem onClick={() => handleFontSizeChange('small')}>
-            <span className={fontSize === 'small' ? 'font-bold' : ''}>Small</span>
+            <span className={fontSize === 'small' ? 'font-bold' : ''}>{readingContent.sizes.small}</span>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleFontSizeChange('medium')}>
-            <span className={fontSize === 'medium' ? 'font-bold' : ''}>Medium</span>
+            <span className={fontSize === 'medium' ? 'font-bold' : ''}>{readingContent.sizes.medium}</span>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleFontSizeChange('large')}>
-            <span className={fontSize === 'large' ? 'font-bold' : ''}>Large</span>
+            <span className={fontSize === 'large' ? 'font-bold' : ''}>{readingContent.sizes.large}</span>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleFontSizeChange('xlarge')}>
-            <span className={fontSize === 'xlarge' ? 'font-bold' : ''}>Extra Large</span>
+            <span className={fontSize === 'xlarge' ? 'font-bold' : ''}>{readingContent.sizes.xlarge}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -145,12 +147,12 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
         {readingMode === 'light' ? (
           <>
             <Moon className="w-4 h-4" />
-            <span className="hidden sm:inline">Dark Mode</span>
+            <span className="hidden sm:inline">{readingContent.darkMode}</span>
           </>
         ) : (
           <>
             <Sun className="w-4 h-4" />
-            <span className="hidden sm:inline">Light Mode</span>
+            <span className="hidden sm:inline">{readingContent.lightMode}</span>
           </>
         )}
       </Button>
@@ -166,12 +168,12 @@ export default function ArticleReadingControls({ articleId, onFontSizeChange, on
         {isBookmarked ? (
           <>
             <BookmarkCheck className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-            <span className="hidden sm:inline">Bookmarked</span>
+            <span className="hidden sm:inline">{readingContent.bookmarked}</span>
           </>
         ) : (
           <>
             <Bookmark className="w-4 h-4" />
-            <span className="hidden sm:inline">Bookmark</span>
+            <span className="hidden sm:inline">{readingContent.bookmark}</span>
           </>
         )}
       </Button>

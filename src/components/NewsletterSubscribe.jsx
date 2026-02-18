@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -24,7 +24,7 @@ export default function NewsletterSubscribe({ variant = 'default' }) {
 
     try {
       // Check if email already exists
-      const existing = await base44.entities.Newsletter.filter({ email });
+      const existing = await apiClient.entities.Newsletter.filter({ email });
       
       if (existing.length > 0) {
         toast.info('You\'re already subscribed!');
@@ -34,7 +34,7 @@ export default function NewsletterSubscribe({ variant = 'default' }) {
         return;
       }
 
-      await base44.entities.Newsletter.create({
+      await apiClient.entities.Newsletter.create({
         email,
         subscribed: true,
         interests: []

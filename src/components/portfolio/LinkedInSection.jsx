@@ -4,14 +4,16 @@ import { Linkedin, ExternalLink, Briefcase, Users, TrendingUp } from 'lucide-rea
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import ScrollReveal from '../ScrollReveal';
+import { content } from '../content';
 
 export default function LinkedInSection() {
-  const linkedInUrl = 'https://www.linkedin.com/in/joebains/';
-  const linkedInMessageUrl = 'https://www.linkedin.com/messaging/compose?recipient=joebains';
+  const linkedIn = content.linkedInSection;
+  const linkedInUrl = linkedIn.linkedInUrl;
+  const linkedInMessageUrl = linkedIn.linkedInMessageUrl;
 
   return (
     <section 
-      id="contact" 
+      id="linkedin" 
       className="py-24 relative overflow-hidden"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
@@ -32,7 +34,7 @@ export default function LinkedInSection() {
           <div className="flex items-center justify-center gap-3 mb-12">
             <Linkedin className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
             <h2 className="text-4xl font-bold text-center">
-              Let's <span style={{ color: 'var(--accent-primary)' }}>Connect</span>
+              {linkedIn.headingPrefix} <span style={{ color: 'var(--accent-primary)' }}>{linkedIn.headingHighlight}</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -63,8 +65,8 @@ export default function LinkedInSection() {
                       style={{ borderColor: 'var(--bg-secondary)' }}
                     >
                       <img 
-                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698607607cbc9a047948de01/f378d41cc_JoeBainsProfile.jpg"
-                        alt="Joe Bains"
+                        src={linkedIn.profileImage}
+                        alt={linkedIn.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -72,13 +74,13 @@ export default function LinkedInSection() {
                   
                   <div className="flex-1 pt-4">
                     <h3 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
-                      Joe Bains
+                      {linkedIn.name}
                     </h3>
                     <p className="text-lg mb-4" style={{ color: 'var(--text-secondary)' }}>
-                      Senior Implementation Engineer | Technical Solutions Specialist
+                      {linkedIn.title}
                     </p>
                     <p className="text-sm mb-6" style={{ color: 'var(--text-tertiary)' }}>
-                      London, UK • 500+ connections
+                      {linkedIn.meta}
                     </p>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -92,7 +94,7 @@ export default function LinkedInSection() {
                           }}
                         >
                           <Linkedin className="w-5 h-5" />
-                          View LinkedIn Profile
+                          {linkedIn.buttons.viewProfile}
                           <ExternalLink className="w-4 h-4" />
                         </Button>
                       </motion.div>
@@ -106,7 +108,7 @@ export default function LinkedInSection() {
                           }}
                         >
                           <Linkedin className="w-5 h-5" />
-                          Message Me
+                          {linkedIn.buttons.messageMe}
                           <ExternalLink className="w-4 h-4" />
                         </Button>
                       </motion.div>

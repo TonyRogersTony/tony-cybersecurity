@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -10,8 +10,10 @@ import ArticleForm from '../components/blog/ArticleForm';
 import CategoryGrid from '../components/blog/CategoryGrid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
+import { content } from '../components/content';
 
 export default function Articles() {
+  const pageContent = content.articlesPage;
   const [showForm, setShowForm] = useState(false);
   const [editingArticle, setEditingArticle] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -25,7 +27,7 @@ export default function Articles() {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const user = await base44.auth.me();
+        const user = await apiClient.auth.me();
         setIsAdmin(user?.role === 'admin');
       } catch (error) {
         setIsAdmin(false);
@@ -37,16 +39,16 @@ export default function Articles() {
   const { data: articles = [], isLoading } = useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
-      const allArticles = await base44.entities.Article.list('-published_date');
+      const allArticles = await apiClient.entities.Article.list('-published_date');
       return isAdmin ? allArticles : allArticles.filter(a => a.published);
     },
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id) => base44.entities.Article.delete(id),
+    mutationFn: (id) => apiClient.entities.Article.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['articles'] });
-      toast.success('Article deleted');
+      toast.success(pageContent.articleDeleted);
     },
   });
 
@@ -56,7 +58,7 @@ export default function Articles() {
   };
 
   const handleDelete = (id) => {
-    if (window.confirm('Are you sure you want to delete this article?')) {
+    if (window.confirm(pageContent.deleteConfirm)) {
       deleteMutation.mutate(id);
     }
   };
@@ -94,7 +96,7 @@ export default function Articles() {
     setCurrentPage(1);
   }, [selectedCategory, searchQuery]);
 
-  const categories = ['Technical', 'Leadership', 'Industry Insights', 'Case Studies', 'Tutorials'];
+  const categories = pageContent.categories;
 
   if (showForm) {
     return (
@@ -124,7 +126,7 @@ export default function Articles() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Articles & Insights
+            {pageContent.title}
           </motion.h1>
           <motion.p
             className="text-lg max-w-2xl mx-auto"
@@ -133,7 +135,7 @@ export default function Articles() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Thoughts on technology, leadership, and industry trends
+            {pageContent.subtitle}
           </motion.p>
         </div>
 
@@ -147,7 +149,7 @@ export default function Articles() {
             <Input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search articles..."
+              placeholder={pageContent.searchPlaceholder}
               className="pl-10"
               style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
@@ -155,10 +157,10 @@ export default function Articles() {
           
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="w-full md:w-48" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
-              <SelectValue placeholder="All Categories" />
+              <SelectValue placeholder={pageContent.allCategories} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
+              <SelectItem value="all">{pageContent.allCategories}</SelectItem>
               {categories.map(cat => (
                 <SelectItem key={cat} value={cat}>{cat}</SelectItem>
               ))}
@@ -172,7 +174,7 @@ export default function Articles() {
               style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
             >
               <Plus className="w-4 h-4 mr-2" />
-              New Article
+              {pageContent.newArticle}
             </Button>
           )}
         </div>
@@ -180,12 +182,12 @@ export default function Articles() {
         {/* Articles Grid */}
         {isLoading ? (
           <div className="text-center py-20" style={{ color: 'var(--text-tertiary)' }}>
-            Loading articles...
+            {pageContent.loading}
           </div>
         ) : paginatedArticles.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-lg" style={{ color: 'var(--text-tertiary)' }}>
-              No articles found
+              {pageContent.empty}
             </p>
           </div>
         ) : (
@@ -212,7 +214,7 @@ export default function Articles() {
                   onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                   disabled={currentPage === 1}
                 >
-                  Previous
+                  {pageContent.pagination.previous}
                 </Button>
                 
                 <div className="flex gap-2">
@@ -237,7 +239,7 @@ export default function Articles() {
                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                   disabled={currentPage === totalPages}
                 >
-                  Next
+                  {pageContent.pagination.next}
                 </Button>
               </div>
             )}

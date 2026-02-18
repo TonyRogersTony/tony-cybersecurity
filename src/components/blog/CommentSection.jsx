@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { MessageCircle, Trash2, CheckCircle, Clock, UserCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
+import { content } from '../content';
 
 export default function CommentSection({ articleId }) {
+  const commentContent = content.commentSection;
   const [newComment, setNewComment] = useState('');
   const [user, setUser] = useState(null);
   const queryClient = useQueryClient();
 
   // Check if user is authenticated
   React.useEffect(() => {
-    base44.auth.me().then(setUser).catch(() => setUser(null));
+    apiClient.auth.me().then(setUser).catch(() => setUser(null));
   }, []);
 
   // Fetch comments
   const { data: comments = [], isLoading } = useQuery({
     queryKey: ['comments', articleId],
     queryFn: async () => {
-      const allComments = await base44.entities.Comment.filter({ article_id: articleId }, '-created_date');
+      const allComments = await apiClient.entities.Comment.filter({ article_id: articleId }, '-created_date');
       // Show all comments to admin, only approved to regular users
       if (user?.role === 'admin') {
         return allComments;
@@ -35,7 +37,7 @@ export default function CommentSection({ articleId }) {
   // Create comment mutation
   const createComment = useMutation({
     mutationFn: async (content) => {
-      return await base44.entities.Comment.create({
+      return await apiClient.entities.Comment.create({
         article_id: articleId,
         content,
         approved: false,
@@ -44,32 +46,32 @@ export default function CommentSection({ articleId }) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
       setNewComment('');
-      toast.success('Comment submitted for approval!');
+      toast.success(commentContent.messages.submitted);
     },
     onError: () => {
-      toast.error('Failed to submit comment');
+      toast.error(commentContent.messages.submitFailed);
     },
   });
 
   // Approve comment mutation (admin only)
   const approveComment = useMutation({
     mutationFn: async (commentId) => {
-      return await base44.entities.Comment.update(commentId, { approved: true });
+      return await apiClient.entities.Comment.update(commentId, { approved: true });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
-      toast.success('Comment approved');
+      toast.success(commentContent.messages.approved);
     },
   });
 
   // Delete comment mutation (admin only)
   const deleteComment = useMutation({
     mutationFn: async (commentId) => {
-      return await base44.entities.Comment.delete(commentId);
+      return await apiClient.entities.Comment.delete(commentId);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments', articleId] });
-      toast.success('Comment deleted');
+      toast.success(commentContent.messages.deleted);
     },
   });
 
@@ -79,12 +81,19 @@ export default function CommentSection({ articleId }) {
     createComment.mutate(newComment);
   };
 
+  const formatCommentDate = (value) => {
+    if (!value) return 'Unknown date';
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return 'Unknown date';
+    return format(parsed, 'MMM d, yyyy • h:mm a');
+  };
+
   return (
     <div className="mt-12">
       <div className="flex items-center gap-2 mb-6">
         <MessageCircle className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
         <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-          Comments ({comments.length})
+          {commentContent.title} ({comments.length})
         </h2>
       </div>
 
@@ -93,7 +102,7 @@ export default function CommentSection({ articleId }) {
         <Card className="p-6 mb-8" style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)' }}>
           <form onSubmit={handleSubmit}>
             <Textarea
-              placeholder="Share your thoughts..."
+              placeholder={commentContent.placeholder}
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               className="mb-4 min-h-[100px]"
@@ -111,22 +120,22 @@ export default function CommentSection({ articleId }) {
                 color: 'white'
               }}
             >
-              {createComment.isPending ? 'Submitting...' : 'Post Comment'}
+              {createComment.isPending ? commentContent.submitting : commentContent.post}
             </Button>
           </form>
         </Card>
       ) : (
         <Card className="p-6 mb-8 text-center" style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)' }}>
-          <p style={{ color: 'var(--text-secondary)' }}>Please log in to leave a comment</p>
+          <p style={{ color: 'var(--text-secondary)' }}>{commentContent.loginRequired}</p>
         </Card>
       )}
 
       {/* Comments List */}
       <div className="space-y-4">
         {isLoading ? (
-          <p style={{ color: 'var(--text-tertiary)' }}>Loading comments...</p>
+          <p style={{ color: 'var(--text-tertiary)' }}>{commentContent.loading}</p>
         ) : comments.length === 0 ? (
-          <p style={{ color: 'var(--text-tertiary)' }}>No comments yet. Be the first to comment!</p>
+          <p style={{ color: 'var(--text-tertiary)' }}>{commentContent.empty}</p>
         ) : (
           comments.map((comment) => (
             <Card 
@@ -148,7 +157,7 @@ export default function CommentSection({ articleId }) {
                       {comment.created_by}
                     </p>
                     <p className="text-sm" style={{ color: 'var(--text-tertiary)' }}>
-                      {format(new Date(comment.created_date), 'MMM d, yyyy • h:mm a')}
+                      {formatCommentDate(comment.created_date)}
                     </p>
                   </div>
                 </div>
@@ -165,14 +174,14 @@ export default function CommentSection({ articleId }) {
                         style={{ borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
                       >
                         <CheckCircle className="w-4 h-4 mr-1" />
-                        Approve
+                        {commentContent.approve}
                       </Button>
                     )}
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => {
-                        if (confirm('Delete this comment?')) {
+                        if (confirm(commentContent.deleteConfirm)) {
                           deleteComment.mutate(comment.id);
                         }
                       }}
@@ -190,7 +199,7 @@ export default function CommentSection({ articleId }) {
                 <div className="flex items-center gap-2 mb-3 px-3 py-1 rounded-md w-fit" style={{ backgroundColor: 'color-mix(in srgb, var(--accent-secondary) 20%, transparent)' }}>
                   <Clock className="w-4 h-4" style={{ color: 'var(--accent-secondary)' }} />
                   <span className="text-sm font-medium" style={{ color: 'var(--accent-secondary)' }}>
-                    Pending Approval
+                    {commentContent.pending}
                   </span>
                 </div>
               )}

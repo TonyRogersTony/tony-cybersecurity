@@ -4,46 +4,23 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { BookOpen, Users, TrendingUp, FileText, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const categories = [
-  {
-    name: 'Technical',
-    icon: BookOpen,
-    description: 'Deep dives into technical topics and engineering practices',
-    color: 'rgb(59, 130, 246)',
-    gradient: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05))'
-  },
-  {
-    name: 'Leadership',
-    icon: Users,
-    description: 'Insights on team leadership and management',
-    color: 'rgb(168, 85, 247)',
-    gradient: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05))'
-  },
-  {
-    name: 'Industry Insights',
-    icon: TrendingUp,
-    description: 'Analysis of industry trends and developments',
-    color: 'rgb(16, 185, 129)',
-    gradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05))'
-  },
-  {
-    name: 'Case Studies',
-    icon: FileText,
-    description: 'Real-world project experiences and lessons',
-    color: 'rgb(245, 158, 11)',
-    gradient: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05))'
-  },
-  {
-    name: 'Tutorials',
-    icon: GraduationCap,
-    description: 'Step-by-step guides and how-to content',
-    color: 'rgb(239, 68, 68)',
-    gradient: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))'
-  }
-];
+import { content } from '../content';
 
 export default function CategoryGrid({ articleCounts = {} }) {
+  const iconMap = {
+    book: BookOpen,
+    users: Users,
+    trending: TrendingUp,
+    file: FileText,
+    graduation: GraduationCap,
+  };
+
+  const gridContent = content.categoryGrid;
+  const categories = gridContent.categories.map((category) => ({
+    ...category,
+    icon: iconMap[category.icon],
+  }));
+
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       {categories.map((category, index) => {
@@ -91,7 +68,7 @@ export default function CategoryGrid({ articleCounts = {} }) {
                   className="text-sm font-medium"
                   style={{ color: category.color }}
                 >
-                  {count} article{count !== 1 ? 's' : ''}
+                  {count} {count !== 1 ? gridContent.articleCountLabelPlural : gridContent.articleCountLabel}
                 </div>
               </Card>
             </Link>

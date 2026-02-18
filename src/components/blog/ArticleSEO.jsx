@@ -1,77 +1,85 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { content } from '../content';
 
 export default function ArticleSEO({ article }) {
   if (!article) return null;
+  const seoContent = content.articleSEO;
+  const safeContent = typeof article.content === 'string' ? article.content : '';
+  const safeExcerpt = typeof article.excerpt === 'string' ? article.excerpt : '';
+  const safeTags = Array.isArray(article.tags) ? article.tags : [];
+  const safeCategory = typeof article.category === 'string' ? article.category : 'Technical';
+  const safeAuthor = typeof article.author === 'string' ? article.author : 'Unknown Author';
+  const safeTitle = typeof article.title === 'string' ? article.title : 'Article';
 
   // Generate meta description from excerpt or content
-  const metaDescription = article.excerpt || 
-    article.content.substring(0, 160).replace(/[#*`]/g, '').trim() + '...';
+  const metaDescription = safeExcerpt || 
+    `${safeContent.substring(0, 160).replace(/[#*`]/g, '').trim()}...`;
 
   // Generate keywords from tags and category
-  const keywords = article.tags 
-    ? [...article.tags, article.category, article.author].join(', ')
-    : `${article.category}, ${article.author}, blog, article`;
+  const keywords = safeTags.length > 0
+    ? [...safeTags, safeCategory, safeAuthor].join(', ')
+    : `${safeCategory}, ${safeAuthor}, blog, article`;
 
   const publishedDate = article.published_date || article.created_date;
   const url = typeof window !== 'undefined' ? window.location.href : '';
-  const imageUrl = article.cover_image || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200';
+  const imageUrl = article.cover_image || seoContent.fallbackImage;
 
   // Structured Data (JSON-LD) for Article
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": article.title,
+    "headline": safeTitle,
     "description": metaDescription,
     "image": imageUrl,
     "datePublished": publishedDate,
     "dateModified": article.updated_date || publishedDate,
     "author": {
       "@type": "Person",
-      "name": article.author
+      "name": safeAuthor
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Joe Bains",
+      "name": seoContent.publisherName,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"
+        "url": seoContent.publisherLogo
       }
     },
-    "articleSection": article.category,
+    "articleSection": safeCategory,
     "keywords": keywords,
-    "wordCount": article.content.split(/\s+/).length,
+    "wordCount": safeContent.split(/\s+/).filter(Boolean).length,
     "timeRequired": article.read_time ? `PT${article.read_time}M` : undefined
   };
 
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <title>{article.title} | Joe Bains</title>
-      <meta name="title" content={article.title} />
+      <title>{safeTitle}{seoContent.titleSuffix}</title>
+      <meta name="title" content={safeTitle} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content={article.author} />
+      <meta name="author" content={safeAuthor} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="article" />
       <meta property="og:url" content={url} />
-      <meta property="og:title" content={article.title} />
+      <meta property="og:title" content={safeTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={imageUrl} />
       <meta property="article:published_time" content={publishedDate} />
       <meta property="article:modified_time" content={article.updated_date || publishedDate} />
-      <meta property="article:author" content={article.author} />
-      <meta property="article:section" content={article.category} />
-      {article.tags && article.tags.map((tag, index) => (
+      <meta property="article:author" content={safeAuthor} />
+      <meta property="article:section" content={safeCategory} />
+      {safeTags.map((tag, index) => (
         <meta key={index} property="article:tag" content={tag} />
       ))}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={url} />
-      <meta name="twitter:title" content={article.title} />
+      <meta name="twitter:title" content={safeTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={imageUrl} />
 

@@ -2,15 +2,17 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Twitter, Facebook, Linkedin, Mail, Link as LinkIcon } from 'lucide-react';
 import { toast } from 'sonner';
+import { content } from '../content';
 
 export default function SocialShare({ article, url }) {
+  const shareContent = content.socialShare;
   const shareUrl = url || window.location.href;
   const title = article.title;
   const excerpt = article.excerpt || '';
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
-    toast.success('Link copied to clipboard!');
+    toast.success(shareContent.linkCopied);
   };
 
   const handleTwitterShare = () => {
@@ -30,8 +32,8 @@ export default function SocialShare({ article, url }) {
   };
 
   const handleEmailShare = () => {
-    const subject = `Check out: ${title}`;
-    const body = `I thought you might find this article interesting:\n\n${title}\n${excerpt}\n\nRead more: ${shareUrl}`;
+    const subject = `${shareContent.checkOut} ${title}`;
+    const body = `${shareContent.emailIntro}\n\n${title}\n${excerpt}\n\n${shareContent.readMore} ${shareUrl}`;
     window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -46,7 +48,7 @@ export default function SocialShare({ article, url }) {
       }}
     >
       <span className="text-sm font-medium mr-2" style={{ color: 'var(--text-secondary)' }}>
-        Share this article:
+        {shareContent.shareThisArticle}
       </span>
       
       <Button
@@ -57,7 +59,7 @@ export default function SocialShare({ article, url }) {
         style={{ borderColor: 'var(--border-color)' }}
       >
         <Twitter className="w-4 h-4" style={{ color: '#1DA1F2' }} />
-        <span style={{ color: 'var(--text-primary)' }}>Twitter</span>
+        <span style={{ color: 'var(--text-primary)' }}>{shareContent.buttons.twitter}</span>
       </Button>
 
       <Button
@@ -68,7 +70,7 @@ export default function SocialShare({ article, url }) {
         style={{ borderColor: 'var(--border-color)' }}
       >
         <Facebook className="w-4 h-4" style={{ color: '#1877F2' }} />
-        <span style={{ color: 'var(--text-primary)' }}>Facebook</span>
+        <span style={{ color: 'var(--text-primary)' }}>{shareContent.buttons.facebook}</span>
       </Button>
 
       <Button
@@ -79,7 +81,7 @@ export default function SocialShare({ article, url }) {
         style={{ borderColor: 'var(--border-color)' }}
       >
         <Linkedin className="w-4 h-4" style={{ color: '#0A66C2' }} />
-        <span style={{ color: 'var(--text-primary)' }}>LinkedIn</span>
+        <span style={{ color: 'var(--text-primary)' }}>{shareContent.buttons.linkedin}</span>
       </Button>
 
       <Button
@@ -90,7 +92,7 @@ export default function SocialShare({ article, url }) {
         style={{ borderColor: 'var(--border-color)' }}
       >
         <Mail className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-        <span style={{ color: 'var(--text-primary)' }}>Email</span>
+        <span style={{ color: 'var(--text-primary)' }}>{shareContent.buttons.email}</span>
       </Button>
 
       <Button
@@ -101,7 +103,7 @@ export default function SocialShare({ article, url }) {
         style={{ borderColor: 'var(--border-color)' }}
       >
         <LinkIcon className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-        <span style={{ color: 'var(--text-primary)' }}>Copy Link</span>
+        <span style={{ color: 'var(--text-primary)' }}>{shareContent.buttons.copyLink}</span>
       </Button>
     </div>
   );

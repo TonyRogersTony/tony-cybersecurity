@@ -6,17 +6,21 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { X } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { toast } from 'sonner';
+import { content } from '../content';
 
 export default function ArticleForm({ article, onSuccess, onCancel }) {
+  const formContent = content.articleForm;
+  const categories = content.articlesPage.categories;
+  const defaultCategory = categories[0] || 'Technical';
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
     content: '',
     excerpt: '',
     author: '',
-    category: 'Technical',
+    category: defaultCategory,
     tags: [],
     published: false,
     cover_image: '',
@@ -34,7 +38,7 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
         content: article.content || '',
         excerpt: article.excerpt || '',
         author: article.author || '',
-        category: article.category || 'Technical',
+        category: article.category || defaultCategory,
         tags: article.tags || [],
         published: article.published || false,
         cover_image: article.cover_image || '',
@@ -87,16 +91,16 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
       };
 
       if (article?.id) {
-        await base44.entities.Article.update(article.id, dataToSubmit);
-        toast.success(publish ? 'Article published!' : 'Article updated!');
+        await apiClient.entities.Article.update(article.id, dataToSubmit);
+        toast.success(publish ? formContent.messages.published : formContent.messages.updated);
       } else {
-        await base44.entities.Article.create(dataToSubmit);
-        toast.success(publish ? 'Article published!' : 'Article saved as draft!');
+        await apiClient.entities.Article.create(dataToSubmit);
+        toast.success(publish ? formContent.messages.published : formContent.messages.savedDraft);
       }
       
       onSuccess();
     } catch (error) {
-      toast.error('Failed to save article');
+      toast.error(formContent.messages.saveFailed);
     } finally {
       setIsSubmitting(false);
     }
@@ -106,19 +110,19 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
     <Card style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)' }}>
       <CardHeader>
         <CardTitle style={{ color: 'var(--text-primary)' }}>
-          {article ? 'Edit Article' : 'New Article'}
+          {article ? formContent.titleEdit : formContent.titleNew}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form className="space-y-6">
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Title
+              {formContent.labels.title}
             </label>
             <Input
               value={formData.title}
               onChange={(e) => handleTitleChange(e.target.value)}
-              placeholder="Enter article title"
+              placeholder={formContent.placeholders.title}
               required
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
@@ -126,12 +130,12 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Slug (URL)
+              {formContent.labels.slug}
             </label>
             <Input
               value={formData.slug}
               onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-              placeholder="article-url-slug"
+              placeholder={formContent.placeholders.slug}
               required
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
@@ -139,12 +143,12 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Author
+              {formContent.labels.author}
             </label>
             <Input
               value={formData.author}
               onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-              placeholder="Author name"
+              placeholder={formContent.placeholders.author}
               required
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
@@ -153,25 +157,23 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                Category
+                {formContent.labels.category}
               </label>
               <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })}>
                 <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Technical">Technical</SelectItem>
-                  <SelectItem value="Leadership">Leadership</SelectItem>
-                  <SelectItem value="Industry Insights">Industry Insights</SelectItem>
-                  <SelectItem value="Case Studies">Case Studies</SelectItem>
-                  <SelectItem value="Tutorials">Tutorials</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                Read Time (minutes)
+                {formContent.labels.readTime}
               </label>
               <Input
                 type="number"
@@ -185,24 +187,24 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Cover Image URL
+              {formContent.labels.coverImage}
             </label>
             <Input
               value={formData.cover_image}
               onChange={(e) => setFormData({ ...formData, cover_image: e.target.value })}
-              placeholder="https://example.com/image.jpg"
+              placeholder={formContent.placeholders.coverImage}
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Excerpt
+              {formContent.labels.excerpt}
             </label>
             <Textarea
               value={formData.excerpt}
               onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-              placeholder="Brief summary of the article"
+              placeholder={formContent.placeholders.excerpt}
               rows={3}
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
             />
@@ -210,17 +212,17 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Tags
+              {formContent.labels.tags}
             </label>
             <div className="flex gap-2 mb-2">
               <Input
                 value={tagInput}
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
-                placeholder="Add a tag"
+                placeholder={formContent.placeholders.tag}
                 style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
               />
-              <Button type="button" onClick={addTag} variant="outline">Add</Button>
+              <Button type="button" onClick={addTag} variant="outline">{formContent.buttons.addTag}</Button>
             </div>
             <div className="flex flex-wrap gap-2">
               {formData.tags.map((tag, index) => (
@@ -240,12 +242,12 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
 
           <div>
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Content (Markdown supported)
+              {formContent.labels.content}
             </label>
             <Textarea
               value={formData.content}
               onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              placeholder="Write your article content here... Markdown is supported."
+              placeholder={formContent.placeholders.content}
               rows={15}
               required
               style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
@@ -259,7 +261,7 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
               onClick={onCancel}
               disabled={isSubmitting}
             >
-              Cancel
+              {formContent.buttons.cancel}
             </Button>
             <Button
               type="button"
@@ -267,7 +269,7 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
               onClick={(e) => handleSubmit(e, false)}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Saving...' : 'Save as Draft'}
+              {isSubmitting ? formContent.buttons.saving : formContent.buttons.saveDraft}
             </Button>
             <Button
               type="button"
@@ -276,7 +278,7 @@ export default function ArticleForm({ article, onSuccess, onCancel }) {
               className="text-white"
               style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
             >
-              {isSubmitting ? 'Publishing...' : 'Publish'}
+              {isSubmitting ? formContent.buttons.publishing : formContent.buttons.publish}
             </Button>
           </div>
         </form>

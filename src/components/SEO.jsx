@@ -43,7 +43,7 @@ export default function SEO({ section }) {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          "name": "Joe Bains",
+          "name": seo.author,
           "jobTitle": "Senior Implementation Engineer",
           "description": seo.description,
           "url": seo.url,
@@ -77,7 +77,7 @@ export default function SEO({ section }) {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          "name": "Joe Bains Technical Consulting",
+          "name": `${seo.author} Technical Consulting`,
           "description": "Technical consulting and training services specializing in cloud migrations, system integrations, and Linux administration",
           "address": {
             "@type": "PostalAddress",

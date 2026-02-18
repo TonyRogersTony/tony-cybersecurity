@@ -7,8 +7,10 @@ import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
+import { content } from '../content';
 
 export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
+  const cardContent = content.articleCard;
   const publishedDate = article.published_date ? new Date(article.published_date) : new Date(article.created_date);
   
   return (
@@ -51,7 +53,7 @@ export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
               {article.category}
             </Badge>
             {!article.published && (
-              <Badge variant="outline" className="mb-2">Draft</Badge>
+              <Badge variant="outline" className="mb-2">{cardContent.draft}</Badge>
             )}
           </div>
           
@@ -98,7 +100,7 @@ export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
               {article.read_time && (
                 <div className="flex items-center gap-1">
                   <Clock className="w-4 h-4" />
-                  <span>{article.read_time} min</span>
+                  <span>{article.read_time} {cardContent.min}</span>
                 </div>
               )}
             </div>
@@ -113,7 +115,7 @@ export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
                 className="flex-1"
               >
                 <Edit className="w-4 h-4 mr-1" />
-                Edit
+                {cardContent.edit}
               </Button>
               <Button
                 variant="outline"
@@ -122,6 +124,7 @@ export default function ArticleCard({ article, onEdit, onDelete, isAdmin }) {
                 className="text-red-500 hover:bg-red-50"
               >
                 <Trash2 className="w-4 h-4" />
+                <span className="sr-only">{cardContent.delete}</span>
               </Button>
             </div>
           )}

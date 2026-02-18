@@ -1,0 +1,15 @@
+{
+  "id": "security-leadership-playbook",
+  "title": "Security Leadership Playbook for Growing Teams",
+  "slug": "security-leadership-playbook",
+  "excerpt": "How to scale security culture and delivery as your engineering organization grows.",
+  "author": "Joe Bains",
+  "category": "Leadership",
+  "tags": ["Leadership", "Security Culture", "Team Growth"],
+  "published": true,
+  "cover_image": "/images/article-cover-generic.jpg",
+  "read_time": 6,
+  "published_date": "2026-01-20T10:30:00.000Z",
+  "created_date": "2026-01-19T10:30:00.000Z",
+  "content": "## Build trust before process\n\nSecurity teams are most effective when they are seen as enablers, not blockers.\n\nStart by embedding security champions in delivery squads and running short, practical threat-model sessions.\n\n## Prioritize by risk\n\nUse a simple risk score based on impact and likelihood so everyone understands why work is prioritized.\n\n## Measure what matters\n\nTrack the time to remediate critical findings, deployment-blocking incidents, and adoption of secure defaults."
+}

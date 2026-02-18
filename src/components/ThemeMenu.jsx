@@ -21,6 +21,15 @@ export default function ThemeMenu() {
     document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const timer = setTimeout(() => {
+      setIsOpen(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
     localStorage.setItem('theme', theme);

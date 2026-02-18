@@ -1,0 +1,15 @@
+{
+  "id": "cloud-misconfig-lessons",
+  "title": "Cloud Misconfiguration Lessons from Real Incidents",
+  "slug": "cloud-misconfig-lessons",
+  "excerpt": "Common cloud configuration mistakes and the controls that prevent them.",
+  "author": "Joe Bains",
+  "category": "Industry Insights",
+  "tags": ["Cloud Security", "Incident Response", "Configuration"],
+  "published": true,
+  "cover_image": "/images/article-cover-cybersecurity.jpg",
+  "read_time": 8,
+  "published_date": "2026-02-01T08:15:00.000Z",
+  "created_date": "2026-01-30T08:15:00.000Z",
+  "content": "## Misconfiguration is still a top risk\n\nMost cloud breaches do not require advanced exploits. They rely on overly permissive access, public storage, and weak key hygiene.\n\n## Practical controls\n\n- Enforce least-privilege IAM by default.\n- Block public object storage unless explicitly approved.\n- Rotate secrets and use managed identity where possible.\n- Alert on changes to network and identity policy.\n\n## Make security continuous\n\nIntegrate policy checks into CI pipelines so risky configuration changes fail early before reaching production."
+}

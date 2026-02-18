@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { toast } from 'sonner';
 import { content } from '../content';
 import SectionHeader from '../SectionHeader';
@@ -27,7 +27,22 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      await base44.entities.ContactSubmission.create(formData);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        if (import.meta.env.DEV && response.status === 404) {
+          await apiClient.entities.ContactSubmission.create(formData);
+        } else {
+          throw new Error('Failed to submit contact form');
+        }
+      }
+
       toast.success(contact.form.successMessage);
       setFormData({
         name: '',

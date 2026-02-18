@@ -1,13 +1,19 @@
 import React from 'react';
 import { Facebook, Youtube, Linkedin, Instagram } from 'lucide-react';
+import { content } from './content';
 
 const SocialLinks = () => {
-  const socials = [
-    { icon: Facebook, url: 'https://www.facebook.com/joe.bains', label: 'Facebook' },
-    { icon: Youtube, url: 'https://www.youtube.com/c/joebains', label: 'YouTube' },
-    { icon: Linkedin, url: 'https://www.linkedin.com/in/joebains', label: 'LinkedIn' },
-    { icon: Instagram, url: 'https://www.instagram.com/effortlessbiohacking/', label: 'Instagram' },
-  ];
+  const iconMap = {
+    facebook: Facebook,
+    youtube: Youtube,
+    linkedin: Linkedin,
+    instagram: Instagram,
+  };
+
+  const socials = content.socialLinks.items.map((item) => ({
+    ...item,
+    icon: iconMap[item.icon],
+  }));
 
   return (
     <div className="flex items-center justify-center gap-4 mb-4">

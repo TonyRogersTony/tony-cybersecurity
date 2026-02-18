@@ -1,0 +1,15 @@
+{
+  "id": "zero-trust-basics",
+  "title": "Zero Trust Basics for Small Security Teams",
+  "slug": "zero-trust-basics",
+  "excerpt": "A practical introduction to implementing Zero Trust principles without enterprise-sized budgets.",
+  "author": "Joe Bains",
+  "category": "Technical",
+  "tags": ["Zero Trust", "Security Architecture", "Identity"],
+  "published": true,
+  "cover_image": "/images/article-cover-cybersecurity.jpg",
+  "read_time": 7,
+  "published_date": "2026-01-10T09:00:00.000Z",
+  "created_date": "2026-01-08T09:00:00.000Z",
+  "content": "## Why Zero Trust matters\n\nZero Trust starts with a simple assumption: never trust, always verify.\n\nFor smaller teams, the goal is not to buy every tool. Instead, focus on strong identity controls, endpoint posture checks, and least-privilege access.\n\n## First 30-day plan\n\n1. Require MFA everywhere possible.\n2. Review and remove stale user accounts.\n3. Segment high-risk internal systems.\n4. Add logging around privileged actions.\n\n## What success looks like\n\nIf a compromised account cannot laterally move across your environment, you are on the right path."
+}

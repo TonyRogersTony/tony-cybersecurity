@@ -14,7 +14,7 @@ import { content } from '../components/content';
 
 export default function Home() {
   const scrollToContact = () => {
-    document.getElementById('linkedin').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('linkedin')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {

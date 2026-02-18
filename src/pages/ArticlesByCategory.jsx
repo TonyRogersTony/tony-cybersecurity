@@ -1,5 +1,5 @@
 import React from 'react';
-import { base44 } from '@/api/base44Client';
+import { apiClient } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import ArticleCard from '../components/blog/ArticleCard';
 import { motion } from 'framer-motion';
@@ -7,14 +7,7 @@ import { ArrowLeft, FolderOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
-
-const categoryDescriptions = {
-  'Technical': 'Deep dives into technical topics, architecture, and engineering practices',
-  'Leadership': 'Insights on team leadership, management, and organizational growth',
-  'Industry Insights': 'Analysis and perspectives on industry trends and developments',
-  'Case Studies': 'Real-world project experiences and lessons learned',
-  'Tutorials': 'Step-by-step guides and practical how-to content'
-};
+import { content } from '../components/content';
 
 const categoryColors = {
   'Technical': { bg: 'rgba(59, 130, 246, 0.1)', border: 'rgb(59, 130, 246)' },
@@ -25,13 +18,17 @@ const categoryColors = {
 };
 
 export default function ArticlesByCategory() {
+  const pageContent = content.articlesByCategory;
+  const categoryDescriptions = Object.fromEntries(
+    content.categoryGrid.categories.map((category) => [category.name, category.description])
+  );
   const urlParams = new URLSearchParams(window.location.search);
   const category = urlParams.get('category');
 
   const { data: articles = [], isLoading } = useQuery({
     queryKey: ['articles', 'category', category],
     queryFn: async () => {
-      const allArticles = await base44.entities.Article.filter({ published: true, category }, '-published_date');
+      const allArticles = await apiClient.entities.Article.filter({ published: true, category }, '-published_date');
       return allArticles;
     },
     enabled: !!category,
@@ -41,7 +38,7 @@ export default function ArticlesByCategory() {
     return (
       <div className="min-h-screen py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container mx-auto px-6 text-center">
-          <p style={{ color: 'var(--text-tertiary)' }}>Category not specified</p>
+          <p style={{ color: 'var(--text-tertiary)' }}>{pageContent.categoryNotSpecified}</p>
         </div>
       </div>
     );
@@ -56,7 +53,7 @@ export default function ArticlesByCategory() {
         <Link to={createPageUrl('Articles')}>
           <Button variant="ghost" className="mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to All Articles
+            {pageContent.backToAll}
           </Button>
         </Link>
 
@@ -83,29 +80,29 @@ export default function ArticlesByCategory() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: 'var(--text-primary)' }}
           >
-            {category} Articles
+            {category} {pageContent.articlesSuffix}
           </h1>
           
           <p 
             className="text-lg max-w-2xl mx-auto"
             style={{ color: 'var(--text-secondary)' }}
           >
-            {categoryDescriptions[category] || 'Explore articles in this category'}
+            {categoryDescriptions[category] || pageContent.defaultDescription}
           </p>
         </motion.div>
 
         {/* Articles Grid */}
         {isLoading ? (
           <div className="text-center" style={{ color: 'var(--text-tertiary)' }}>
-            Loading articles...
+            {pageContent.loading}
           </div>
         ) : articles.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-lg mb-4" style={{ color: 'var(--text-tertiary)' }}>
-              No articles found in this category yet.
+              {pageContent.empty}
             </p>
             <Link to={createPageUrl('Articles')}>
-              <Button variant="outline">Browse All Articles</Button>
+              <Button variant="outline">{pageContent.browseAll}</Button>
             </Link>
           </div>
         ) : (
@@ -127,7 +124,7 @@ export default function ArticlesByCategory() {
         {!isLoading && articles.length > 0 && (
           <div className="text-center mt-12 pt-8 border-t" style={{ borderColor: 'var(--border-color)' }}>
             <p style={{ color: 'var(--text-tertiary)' }}>
-              Showing {articles.length} article{articles.length !== 1 ? 's' : ''} in {category}
+              {pageContent.showing} {articles.length} {articles.length !== 1 ? pageContent.articles : pageContent.article} {pageContent.in} {category}
             </p>
           </div>
         )}

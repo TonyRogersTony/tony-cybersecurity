@@ -6,10 +6,11 @@ import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import SectionHeader from '../components/SectionHeader';
 import ScrollReveal from '../components/ScrollReveal';
-
-const GITHUB_USERNAME = 'riverart2000';
+import { content } from '../components/content';
 
 export default function GitHub() {
+  const pageContent = content.githubPage;
+  const GITHUB_USERNAME = pageContent.username;
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -69,10 +70,10 @@ export default function GitHub() {
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
                   }}>
-                    GitHub Profile
+                    {pageContent.title}
                   </h1>
                   <p className="text-lg md:text-xl" style={{ color: 'var(--text-secondary)' }}>
-                    Explore my open-source contributions and projects
+                    {pageContent.subtitle}
                   </p>
                 </div>
               </ScrollReveal>
@@ -109,25 +110,25 @@ export default function GitHub() {
                           <motion.div whileHover={{ scale: 1.05 }}>
                             <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-primary)' }}>
                               <p className="text-2xl font-bold" style={{ color: 'var(--accent-primary)' }}>{userData.public_repos}</p>
-                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>Repositories</p>
+                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{pageContent.stats.repositories}</p>
                             </div>
                           </motion.div>
                           <motion.div whileHover={{ scale: 1.05 }}>
                             <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-primary)' }}>
                               <p className="text-2xl font-bold" style={{ color: 'var(--accent-primary)' }}>{userData.followers}</p>
-                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>Followers</p>
+                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{pageContent.stats.followers}</p>
                             </div>
                           </motion.div>
                           <motion.div whileHover={{ scale: 1.05 }}>
                             <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-primary)' }}>
                               <p className="text-2xl font-bold" style={{ color: 'var(--accent-primary)' }}>{userData.following}</p>
-                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>Following</p>
+                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{pageContent.stats.following}</p>
                             </div>
                           </motion.div>
                           <motion.div whileHover={{ scale: 1.05 }}>
                             <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-primary)' }}>
                               <p className="text-2xl font-bold" style={{ color: 'var(--accent-primary)' }}>{userData.public_gists}</p>
-                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>Gists</p>
+                              <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{pageContent.stats.gists}</p>
                             </div>
                           </motion.div>
                         </div>
@@ -135,7 +136,7 @@ export default function GitHub() {
                         <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
                           <Button className="text-white" style={{ background: `linear-gradient(to right, var(--accent-primary), var(--accent-secondary))` }}>
                             <GithubIcon className="w-4 h-4 mr-2" />
-                            Visit GitHub Profile
+                            {pageContent.visitProfile}
                             <ExternalLink className="w-4 h-4 ml-2" />
                           </Button>
                         </a>
@@ -156,7 +157,7 @@ export default function GitHub() {
                 <div className="flex items-center justify-between mb-12">
                   <div className="flex items-center gap-3">
                     <Code2 className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
-                    <h2 className="text-4xl font-bold">Top Repositories</h2>
+                    <h2 className="text-4xl font-bold">{pageContent.topRepositories}</h2>
                   </div>
                   <motion.button
                     onClick={fetchGitHubData}
@@ -171,7 +172,7 @@ export default function GitHub() {
                     }}
                   >
                     <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                    <span className="text-sm font-medium">Refresh</span>
+                    <span className="text-sm font-medium">{pageContent.refresh}</span>
                   </motion.button>
                 </div>
               </ScrollReveal>
