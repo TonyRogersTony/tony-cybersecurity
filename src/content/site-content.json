@@ -34,6 +34,10 @@
       "contact": {
         "title": "Contact Joe Bains | Technical Consulting & Training",
         "description": "Get in touch for technical consulting, cloud migrations, system integrations, or Linux administration training services."
+      },
+      "services": {
+        "title": "Helping London SMEs Modernise Tech Without the Headache | Joe Bains",
+        "description": "Practical cloud migrations, AI automation, and digital transformation services for London SMEs, delivered with enterprise-grade reliability and SME-friendly simplicity."
       }
     }
   },
@@ -709,6 +713,11 @@
       {
         "label": "Testimonials",
         "href": "#testimonials"
+      },
+      {
+        "label": "Services",
+        "href": "/Services",
+        "isPage": true
       },
       {
         "label": "Articles",

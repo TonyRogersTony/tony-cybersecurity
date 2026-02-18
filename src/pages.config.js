@@ -54,6 +54,7 @@ import Bookmarks from './pages/Bookmarks';
 import GitHub from './pages/GitHub';
 import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Services from './pages/Services';
 import __Layout from './Layout.jsx';
 
 
@@ -65,6 +66,7 @@ export const PAGES = {
     "GitHub": GitHub,
     "Home": Home,
     "PrivacyPolicy": PrivacyPolicy,
+    "Services": Services,
 }
 
 export const pagesConfig = {
