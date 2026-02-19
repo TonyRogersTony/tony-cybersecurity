@@ -51,9 +51,15 @@ const sourceOptions = ['LinkedIn', 'Google search', 'Referral / word of mouth', 
 
 const isEmail = (value) => /\S+@\S+\.\S+/.test(value);
 
+const isExternalUrl = (value) => {
+  if (!value) return false;
+  return /^https?:\/\//i.test(value);
+};
+
 export default function DiscoverySurveyFab() {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [debugLines, setDebugLines] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     businessEmail: '',
@@ -94,29 +100,79 @@ export default function DiscoverySurveyFab() {
     event.preventDefault();
     if (!canSubmit) return;
 
+    setDebugLines([]);
+    const traceLines = [];
+    const pushTrace = (line) => {
+      const timestamp = new Date().toISOString();
+      const message = `[${timestamp}] ${line}`;
+      traceLines.push(message);
+      console.log(`[Discovery Debug] ${message}`);
+    };
+
     if (!discoveryEndpoint) {
+      setDebugLines([`[${new Date().toISOString()}] Missing VITE_DISCOVERY_WEBHOOK_URL.`]);
       toast.error('Discovery form is not configured yet. Please set VITE_DISCOVERY_WEBHOOK_URL.');
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(discoveryEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const externalWebhook = isExternalUrl(discoveryEndpoint);
+      pushTrace(`POST endpoint: ${discoveryEndpoint}`);
+      pushTrace(`External endpoint: ${externalWebhook ? 'yes' : 'no'}`);
+      pushTrace('Sending request in CORS mode to capture full response details.');
 
-      if (!response.ok) {
-        throw new Error('Failed to submit discovery survey');
+      let submitSucceeded = false;
+
+      try {
+        const response = await fetch(discoveryEndpoint, {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        const responseBody = await response.text();
+        pushTrace(`HTTP ${response.status} ${response.statusText}`);
+        pushTrace(`Response body: ${responseBody || '(empty)'}`);
+
+        if (!response.ok) {
+          throw new Error(`Webhook returned HTTP ${response.status}`);
+        }
+
+        submitSucceeded = true;
+      } catch (corsError) {
+        if (!externalWebhook) {
+          throw corsError;
+        }
+
+        pushTrace(`CORS-mode request failed: ${corsError?.message || 'Unknown error'}`);
+        pushTrace('Retrying with no-cors mode (expected for many Apps Script web apps).');
+
+        await fetch(discoveryEndpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(formData),
+        });
+
+        pushTrace('no-cors request sent. Browser cannot read response body in this mode.');
+        pushTrace('Check Apps Script Executions and Drive folder for confirmation.');
+        submitSucceeded = true;
       }
 
-      toast.success('Thanks — taking you to book your discovery call.');
+      if (!submitSucceeded) {
+        throw new Error('Submission did not complete');
+      }
+
+      setDebugLines([]);
+      toast.success('Submitted ok. Redirecting to Calendly...');
       setOpen(false);
       window.location.href = calendlyUrl;
-    } catch {
+    } catch (error) {
+      pushTrace(`Request failed: ${error?.name || 'Error'} - ${error?.message || 'Unknown error'}`);
+      pushTrace('If this is a CORS error, check Apps Script deployment access and CORS handling.');
+      setDebugLines(traceLines);
       toast.error('Unable to submit right now. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -278,9 +334,49 @@ export default function DiscoverySurveyFab() {
                 )}
               </Button>
             </div>
+
+            {debugLines.length > 0 && (
+              <div className="pt-2">
+                <p className="text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>Debug output</p>
+                <pre
+                  className="text-xs p-3 rounded-md whitespace-pre-wrap break-words max-h-48 overflow-y-auto"
+                  style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
+                >
+                  {debugLines.join('\n')}
+                </pre>
+              </div>
+            )}
           </form>
         </DialogContent>
       </Dialog>
+
+      {debugLines.length > 0 && (
+        <div
+          className="mt-3 w-[360px] max-w-[calc(100vw-2rem)] p-3 rounded-lg shadow-xl"
+          style={{
+            backgroundColor: 'color-mix(in srgb, var(--bg-primary) 96%, transparent)',
+            border: '1px solid var(--border-color)',
+          }}
+        >
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>Discovery Debug</p>
+            <button
+              type="button"
+              className="text-xs underline"
+              style={{ color: 'var(--accent-primary)' }}
+              onClick={() => setDebugLines([])}
+            >
+              Clear
+            </button>
+          </div>
+          <pre
+            className="text-xs whitespace-pre-wrap break-words max-h-48 overflow-y-auto"
+            style={{ color: 'var(--text-secondary)' }}
+          >
+            {debugLines.join('\n')}
+          </pre>
+        </div>
+      )}
     </div>
   );
 }
