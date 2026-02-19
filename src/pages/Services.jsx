@@ -4,8 +4,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CloudUpload, Bot, Route, Wrench, CheckCircle2 } from 'lucide-react';
 
-const calendlyUrl = import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/biohackinghealthcoach/30min';
-
 const services = [
   {
     icon: CloudUpload,
@@ -18,7 +16,6 @@ const services = [
       'Tailored for London SMEs: UK data sovereignty, hybrid setups, and legacy system handling.',
     ],
     proof: 'Delivered complex AWS migrations for healthcare and telecom clients – now helping smaller teams achieve the same reliability.',
-    cta: 'Ready to migrate? Book a free 30-min scoping call.',
   },
   {
     icon: Bot,
@@ -31,7 +28,6 @@ const services = [
       'ROI-first approach: start small, measure savings, scale what works.',
     ],
     proof: 'Recent AI certifications plus hands-on delivery helping London agencies automate admin and marketing for faster growth.',
-    cta: 'Which task wastes your time most? Let’s automate it.',
   },
   {
     icon: Route,
@@ -44,7 +40,6 @@ const services = [
       'Built for London SMEs: budget-aware execution, fast wins, and compliance-aware planning.',
     ],
     proof: '15+ years streamlining deployments across telecom and healthcare, now focused on helping growing businesses avoid common pitfalls.',
-    cta: 'Need a clear tech roadmap? Schedule a no-obligation discovery session.',
   },
   {
     icon: Wrench,
@@ -57,7 +52,6 @@ const services = [
       'Independent second opinions before high-risk technical decisions.',
     ],
     proof: 'Hands-on rescue support for complex delivery environments where reliability and speed both matter.',
-    cta: 'Got a stuck project? Let’s unblock it quickly.',
   },
 ];
 
@@ -108,14 +102,6 @@ export default function Services() {
                 <p className="text-sm mb-5" style={{ color: 'var(--text-tertiary)' }}>
                   <strong style={{ color: 'var(--text-primary)' }}>Proof:</strong> {service.proof}
                 </p>
-
-                <Button
-                  onClick={() => window.open(calendlyUrl, '_blank', 'noopener,noreferrer')}
-                  className="w-full text-white"
-                  style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
-                >
-                  {service.cta}
-                </Button>
               </Card>
             );
           })}
@@ -132,7 +118,7 @@ export default function Services() {
             </ul>
 
             <Button
-              onClick={() => window.open(calendlyUrl, '_blank', 'noopener,noreferrer')}
+              onClick={() => window.dispatchEvent(new Event('open-discovery-survey'))}
               className="text-white"
               style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
             >

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { MessageSquare, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -23,6 +23,25 @@ import {
 
 const calendlyUrl = import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/biohackinghealthcoach/30min';
 const discoveryEndpoint = import.meta.env.VITE_DISCOVERY_WEBHOOK_URL;
+
+const buildCalendlyRedirectUrl = (baseUrl, name, email) => {
+  try {
+    const url = new URL(baseUrl);
+    const trimmedName = name?.trim();
+    const trimmedEmail = email?.trim();
+
+    if (trimmedName) {
+      url.searchParams.set('name', trimmedName);
+    }
+    if (trimmedEmail) {
+      url.searchParams.set('email', trimmedEmail);
+    }
+
+    return url.toString();
+  } catch {
+    return baseUrl;
+  }
+};
 
 const businessTypeOptions = [
   'Small business / startup (1–10 people)',
@@ -72,6 +91,12 @@ export default function DiscoverySurveyFab() {
   });
 
   const emailValid = useMemo(() => !formData.businessEmail || isEmail(formData.businessEmail), [formData.businessEmail]);
+
+  useEffect(() => {
+    const handleOpenSurvey = () => setOpen(true);
+    window.addEventListener('open-discovery-survey', handleOpenSurvey);
+    return () => window.removeEventListener('open-discovery-survey', handleOpenSurvey);
+  }, []);
 
   const setField = (field, value) => {
     setFormData((previous) => ({ ...previous, [field]: value }));
@@ -168,7 +193,11 @@ export default function DiscoverySurveyFab() {
       setDebugLines([]);
       toast.success('Submitted ok. Redirecting to Calendly...');
       setOpen(false);
-      window.location.href = calendlyUrl;
+      window.location.href = buildCalendlyRedirectUrl(
+        calendlyUrl,
+        formData.name,
+        formData.businessEmail,
+      );
     } catch (error) {
       pushTrace(`Request failed: ${error?.name || 'Error'} - ${error?.message || 'Unknown error'}`);
       pushTrace('If this is a CORS error, check Apps Script deployment access and CORS handling.');
@@ -180,7 +209,7 @@ export default function DiscoverySurveyFab() {
   };
 
   return (
-    <div className="fixed left-4 bottom-6 z-50">
+    <div className="fixed right-4 bottom-6 z-50">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button

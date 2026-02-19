@@ -56,8 +56,8 @@
     }
   },
   "about": {
-    "title": "Who I",
-    "titleHighlight": "Am",
+    "title": "who am",
+    "titleHighlight": "I",
     "paragraphs": [
       "As a Solutions & Migrations Engineer, my career is a testament to technical excellence and dedication to delivering robust solutions. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships across global enterprises.",
       "I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, cloud technologies, and DevOps practices allows me to guide clients towards optimized technical solutions. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication."
@@ -975,27 +975,6 @@
       "updated": "Article updated!",
       "savedDraft": "Article saved as draft!",
       "saveFailed": "Failed to save article"
-    }
-  },
-  "articleReadingControls": {
-    "fontSize": "Font Size",
-    "sizes": {
-      "small": "Small",
-      "medium": "Medium",
-      "large": "Large",
-      "xlarge": "Extra Large"
-    },
-    "darkMode": "Dark Mode",
-    "lightMode": "Light Mode",
-    "bookmarked": "Bookmarked",
-    "bookmark": "Bookmark",
-    "messages": {
-      "bookmarked": "Article bookmarked!",
-      "bookmarkFailed": "Failed to bookmark article",
-      "bookmarkRemoved": "Bookmark removed",
-      "removeFailed": "Failed to remove bookmark",
-      "loginRequired": "Please log in to bookmark articles",
-      "fontSizePrefix": "Font size:"
     }
   },
   "socialShare": {

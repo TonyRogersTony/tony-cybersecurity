@@ -14,6 +14,7 @@ import { content } from '../components/content';
 
 export default function Articles() {
   const pageContent = content.articlesPage;
+  const isLocalhost = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname);
   const [showForm, setShowForm] = useState(false);
   const [editingArticle, setEditingArticle] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -21,6 +22,7 @@ export default function Articles() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isAdmin, setIsAdmin] = useState(false);
   const articlesPerPage = 9;
+  const canManageArticles = isAdmin && isLocalhost;
 
   const queryClient = useQueryClient();
 
@@ -40,7 +42,7 @@ export default function Articles() {
     queryKey: ['articles'],
     queryFn: async () => {
       const allArticles = await apiClient.entities.Article.list('-published_date');
-      return isAdmin ? allArticles : allArticles.filter(a => a.published);
+      return canManageArticles ? allArticles : allArticles.filter(a => a.published);
     },
   });
 
@@ -71,7 +73,7 @@ export default function Articles() {
 
   // Calculate article counts per category
   const articleCounts = articles.reduce((acc, article) => {
-    if (article.published || isAdmin) {
+    if (article.published || canManageArticles) {
       acc[article.category] = (acc[article.category] || 0) + 1;
     }
     return acc;
@@ -167,7 +169,7 @@ export default function Articles() {
             </SelectContent>
           </Select>
 
-          {isAdmin && (
+          {canManageArticles && (
             <Button
               onClick={() => setShowForm(true)}
               className="text-white whitespace-nowrap"
@@ -200,7 +202,7 @@ export default function Articles() {
                     article={article}
                     onEdit={handleEdit}
                     onDelete={handleDelete}
-                    isAdmin={isAdmin}
+                    isAdmin={canManageArticles}
                   />
                 ))}
               </AnimatePresence>
