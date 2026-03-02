@@ -1,495 +1,258 @@
 {
   "seo": {
-    "title": "Joe Bains - Senior Implementation Engineer | Technical Solutions Specialist",
-    "description": "Senior Implementation Engineer with 15+ years of expertise in cloud migrations, Linux administration, and DevOps. Specializing in AWS, Docker, Kubernetes, and technical solutions delivery.",
-    "keywords": "Senior Implementation Engineer, Technical Solutions Specialist, Linux Administrator, Cloud Solutions, AWS Expert, DevOps Engineer, Database Administrator, System Integration, Joe Bains",
-    "author": "Joe Bains",
-    "url": "https://joebains.com",
-    "image": "/images/joe-profile.jpg",
+    "title": "Asset Protect CyberSecurity | Palo Alto Platform Modernisation & SASE Strategy",
+    "description": "Palo Alto platform strategists modernising NGFW, Prisma Access, Cortex, and XSIAM with architecture-first programmes, measurable risk reduction, and board-ready outputs.",
+    "keywords": "Palo Alto modernisation, SASE, Prisma Access, Cortex XDR, XSIAM, Strata Cloud Manager, security architecture, platform strategist, Asset Protect CyberSecurity",
+    "author": "Asset Protect CyberSecurity",
+    "url": "https://tonyrogers.security",
+    "image": "/images/tony-profile.jpeg",
     "sections": {
       "about": {
-        "title": "About Joe Bains | Technical Background & Expertise",
-        "description": "Learn about Joe Bains' 15+ years of technical excellence in system integrations, SDK/API implementations, and solutions delivery across global enterprises."
+        "title": "About Asset Protect CyberSecurity | Palo Alto Platform Strategists",
+        "description": "Architecture-led security team modernising NGFW, Prisma Access, Cortex, and XSIAM for regulated enterprises."
       },
       "skills": {
-        "title": "Technical Skills & Expertise | Joe Bains Portfolio",
-        "description": "Comprehensive technical skills including AWS Cloud, Docker, Kubernetes, Linux Administration, Python, MySQL, and DevOps automation tools."
+        "title": "Platform Skills & Expertise | Palo Alto Modernisation",
+        "description": "Platform architecture, SASE, detection and response, identity integration, governance, and commercial optimisation."
       },
       "portfolio": {
-        "title": "Featured Projects | Joe Bains Technical Portfolio",
-        "description": "Explore Joe Bains' portfolio of cloud migrations, system integrations, and automation projects for healthcare, telecommunications, and enterprise clients."
+        "title": "Platform Modernisation Work | Case Snapshots",
+        "description": "Assessment, modernisation programmes, and oversight for complex Palo Alto estates."
       },
       "experience": {
-        "title": "Professional Experience | Joe Bains Career Journey",
-        "description": "15+ years of professional experience as Solutions Engineer, Cloud Consultant, and DevOps Engineer for leading companies including Vodafone, Swisscom, and BSKYB."
+        "title": "Engagement History | Platform Leadership",
+        "description": "Senior-led delivery for FTSE/regulatory environments with platform-first outcomes."
       },
       "certifications": {
-        "title": "Certifications & Training | Joe Bains Credentials",
-        "description": "AWS Certified Cloud Practitioner, Python DevOps, Linux training certifications, and Advanced Toastmaster credentials."
+        "title": "Certifications & Training | Security Credentials",
+        "description": "Palo Alto, security architecture, cloud security, and executive training."
       },
       "testimonials": {
-        "title": "Client Testimonials | What Clients Say About Joe Bains",
-        "description": "Read testimonials from clients and colleagues at National Grid, Vodafone, Axon, and other leading organizations."
+        "title": "Client Proof | Executive References",
+        "description": "CISO and IT leader feedback on platform modernisation outcomes."
       },
       "contact": {
-        "title": "Contact Joe Bains | Technical Consulting & Training",
-        "description": "Get in touch for technical consulting, cloud migrations, system integrations, or Linux administration training services."
+        "title": "Contact Asset Protect CyberSecurity | Platform Modernisation",
+        "description": "Schedule a platform modernisation assessment or discuss roadmap oversight."
       },
       "services": {
-        "title": "Helping London SMEs Modernise Tech Without the Headache | Joe Bains",
-        "description": "Practical cloud migrations, AI automation, and digital transformation services for London SMEs, delivered with enterprise-grade reliability and SME-friendly simplicity."
+        "title": "Palo Alto Platform Modernisation Services | Asset Protect CyberSecurity",
+        "description": "Assessments, modernisation programmes, and retained product oversight for Palo Alto estates."
       }
     }
   },
   "hero": {
-    "name": "Joe Bains",
-    "profileImage": "/images/joe-profile.jpg",
-    "status": "Available for Consulting",
-    "title": "Senior Implementation Engineer | Technical Solutions Specialist",
-    "subtitle": "Linux Administrator • DBA • Linux Trainer",
-    "description": "15+ years of expertise in technical solutions delivery across telecommunications, healthcare, and enterprise environments.",
-    "location": "London, UK",
-    "footer": "British Citizen • Full UK Driving Licence • Former SC-Cleared",
+    "name": "Asset Protect CyberSecurity",
+    "profileImage": "/images/tony-profile.jpeg",
+    "status": "Palo Alto Platform Strategist • Available for executive engagements",
+    "title": "Palo Alto Security Platform Modernisation",
+    "subtitle": "NGFW • Prisma Access • Cortex XDR/XSIAM • Strata Cloud Manager • Identity-aligned SASE",
+    "description": "I modernise Palo Alto Networks estates for enterprises that need architecture-first clarity, reduced operational noise, and commercially optimised renewals. From assessment through programme execution to ongoing oversight, I deliver measurable improvements you can defend at the board.",
+    "location": "London, UK & Remote",
+    "footer": "Platform-first security architecture • Regulated sector experience • Board-ready output",
     "buttons": {
-      "contact": "Get in Touch",
-      "portfolio": "View Portfolio"
+      "contact": "Book an Assessment",
+      "portfolio": "View Modernisation Work"
     }
   },
   "about": {
-    "title": "who am",
-    "titleHighlight": "I",
+    "title": "Who is",
+    "titleHighlight": "Asset Protect",
     "paragraphs": [
-      "As a Solutions & Migrations Engineer, my career is a testament to technical excellence and dedication to delivering robust solutions. I have a proven track record in streamlining deployment processes, resolving critical issues, and building strong client relationships across global enterprises.",
-      "I specialize in complex system integrations, SDK/API implementations, and client onboarding. My technical acumen in Linux System Administration, cloud technologies, and DevOps practices allows me to guide clients towards optimized technical solutions. As an Advanced Toastmaster, I bridge the gap between deep technical knowledge and exceptional communication."
+      "I operate as a senior delivery authority and platform strategist, turning fragmented Palo Alto deployments into cohesive, high-performing architectures. I focus on NGFW, Prisma Access/SASE, Cortex, XSOAR/XSIAM, and Strata Cloud Manager—aligning them to identity, governance, and commercial realities.",
+      "Engagements are structured, direct, and outcome-driven: rapid assessments, executable roadmaps, and modernisation programmes governed by clear exit criteria. No resale, no junior churn—just platform-first delivery that reduces risk and operating noise while protecting budget." 
     ],
     "highlights": [
       {
-        "title": "Technical Excellence",
-        "description": "Complex system integrations, SDK/API implementations, and streamlined deployment processes"
+        "title": "Platform-first Architecture",
+        "description": "Unifies NGFW, Prisma Access, Cortex, XSOAR/XSIAM, and identity into a coherent operating model"
       },
       {
-        "title": "Global Experience",
-        "description": "15+ years delivering solutions across telecommunications, healthcare, and enterprise environments"
+        "title": "Executive-ready Outcomes",
+        "description": "Board-ready findings, defensible roadmaps, and commercial optimisation tied to renewals"
       },
       {
-        "title": "Communication",
-        "description": "Advanced Toastmaster bridging deep technical knowledge with exceptional communication"
+        "title": "Regulated Experience",
+        "description": "Finance, energy, public sector, and legal—identity-aligned controls and audit support"
       }
     ]
   },
   "skills": {
-    "title": "Core",
+    "title": "Platform",
     "titleHighlight": "Expertise",
     "filters": [
-      {
-        "label": "All Skills",
-        "value": "all"
-      },
-      {
-        "label": "Cloud",
-        "value": "cloud"
-      },
-      {
-        "label": "Systems",
-        "value": "systems"
-      },
-      {
-        "label": "Databases",
-        "value": "databases"
-      },
-      {
-        "label": "Languages",
-        "value": "languages"
-      },
-      {
-        "label": "DevOps",
-        "value": "devops"
-      },
-      {
-        "label": "Tools",
-        "value": "tools"
-      }
+      { "label": "All", "value": "all" },
+      { "label": "Platform", "value": "cloud" },
+      { "label": "SASE & Access", "value": "systems" },
+      { "label": "Detection & Response", "value": "devops" },
+      { "label": "Identity & Integration", "value": "languages" },
+      { "label": "Governance & Commercial", "value": "tools" },
+      { "label": "Foundations", "value": "databases" }
     ],
     "categories": [
       {
-        "title": "Cloud & Infrastructure",
+        "title": "Palo Alto Platform & Architecture",
         "category": "cloud",
         "skills": [
-          {
-            "name": "AWS Cloud",
-            "level": 90
-          },
-          {
-            "name": "Docker",
-            "level": 85
-          },
-          {
-            "name": "Kubernetes",
-            "level": 80
-          },
-          {
-            "name": "Terraform",
-            "level": 75
-          },
-          {
-            "name": "VMware ESX/ESXi",
-            "level": 85
-          }
+          { "name": "NGFW & Panorama/Strata Cloud Manager", "level": 95 },
+          { "name": "Platform architecture & design authority", "level": 94 },
+          { "name": "Zero Trust alignment & policy design", "level": 92 },
+          { "name": "Runbook creation & exit criteria", "level": 90 }
         ]
       },
       {
-        "title": "Operating Systems",
+        "title": "SASE & Remote Access",
         "category": "systems",
         "skills": [
-          {
-            "name": "Linux (RHEL/Ubuntu)",
-            "level": 95
-          },
-          {
-            "name": "Solaris Administration",
-            "level": 85
-          },
-          {
-            "name": "HP-UX",
-            "level": 75
-          },
-          {
-            "name": "Windows Server",
-            "level": 80
-          }
+          { "name": "Prisma Access strategy & rollout", "level": 93 },
+          { "name": "SASE policy rationalisation", "level": 90 },
+          { "name": "SD-WAN & branch transformation", "level": 85 },
+          { "name": "User experience & performance tuning", "level": 88 }
         ]
       },
       {
-        "title": "Databases",
-        "category": "databases",
-        "skills": [
-          {
-            "name": "MySQL",
-            "level": 90
-          },
-          {
-            "name": "Oracle",
-            "level": 85
-          },
-          {
-            "name": "PostgreSQL",
-            "level": 80
-          },
-          {
-            "name": "MongoDB",
-            "level": 75
-          }
-        ]
-      },
-      {
-        "title": "Development & Scripting",
-        "category": "languages",
-        "skills": [
-          {
-            "name": "Python",
-            "level": 90
-          },
-          {
-            "name": "Shell Scripting",
-            "level": 95
-          },
-          {
-            "name": "JavaScript",
-            "level": 80
-          },
-          {
-            "name": "Java",
-            "level": 75
-          },
-          {
-            "name": "API/SDK Integration",
-            "level": 85
-          }
-        ]
-      },
-      {
-        "title": "DevOps & Automation",
+        "title": "Detection, Automation & SOC",
         "category": "devops",
         "skills": [
-          {
-            "name": "CI/CD Pipelines",
-            "level": 85
-          },
-          {
-            "name": "Ansible",
-            "level": 80
-          },
-          {
-            "name": "Git",
-            "level": 90
-          },
-          {
-            "name": "Puppet",
-            "level": 75
-          }
+          { "name": "Cortex XDR deployment & tuning", "level": 91 },
+          { "name": "XSOAR / XSIAM onboarding & playbooks", "level": 89 },
+          { "name": "Alert noise reduction & SOC integration", "level": 92 },
+          { "name": "Operational KPIs & governance", "level": 88 }
         ]
       },
       {
-        "title": "Monitoring & Tools",
+        "title": "Identity & Integration",
+        "category": "languages",
+        "skills": [
+          { "name": "Entra/AD & IAM alignment", "level": 90 },
+          { "name": "Identity-aware policy enforcement", "level": 90 },
+          { "name": "API & SIEM integrations", "level": 86 },
+          { "name": "Cloud & on-prem connector strategy", "level": 84 }
+        ]
+      },
+      {
+        "title": "Governance & Commercial",
         "category": "tools",
         "skills": [
-          {
-            "name": "Nagios",
-            "level": 85
-          },
-          {
-            "name": "F5 BigIP",
-            "level": 80
-          },
-          {
-            "name": "Centreon",
-            "level": 75
-          },
-          {
-            "name": "Jboss",
-            "level": 70
-          }
+          { "name": "Licence optimisation & renewals", "level": 92 },
+          { "name": "Board-ready reporting", "level": 93 },
+          { "name": "Audit & insurance evidence", "level": 88 },
+          { "name": "Operating model & ownership clarity", "level": 90 }
+        ]
+      },
+      {
+        "title": "Cloud & Network Foundations",
+        "category": "databases",
+        "skills": [
+          { "name": "Hybrid cloud security patterns", "level": 86 },
+          { "name": "Network segmentation & policy", "level": 88 },
+          { "name": "Performance & resilience engineering", "level": 85 },
+          { "name": "Change & release discipline", "level": 84 }
         ]
       }
     ]
   },
   "portfolio": {
-    "title": "Featured",
-    "titleHighlight": "Projects",
+    "title": "Platform",
+    "titleHighlight": "Modernisation",
     "categories": [
-      {
-        "label": "All Projects",
-        "value": "all"
-      },
-      {
-        "label": "Cloud Infrastructure",
-        "value": "Cloud Infrastructure"
-      },
-      {
-        "label": "System Integration",
-        "value": "System Integration"
-      },
-      {
-        "label": "Automation",
-        "value": "Automation"
-      }
+      { "label": "All Work", "value": "all" },
+      { "label": "Assessments", "value": "Assessment" },
+      { "label": "Programmes", "value": "Programme" },
+      { "label": "Oversight", "value": "Oversight" }
     ],
     "projects": [
       {
-        "title": "Healthcare Systems Migration",
-        "category": "Cloud Infrastructure",
-        "description": "Architected and executed complete cloud migration for healthcare facility, ensuring HIPAA compliance and zero downtime during transition.",
-        "technologies": [
-          "AWS",
-          "Docker",
-          "Kubernetes",
-          "Terraform"
-        ],
+        "title": "Platform Modernisation Assessment (Global Bank)",
+        "category": "Assessment",
+        "description": "Three-week RAG assessment across NGFW, Prisma Access, Cortex, and XSIAM with identity alignment and renewal prep.",
+        "technologies": ["NGFW", "Prisma Access", "Cortex XDR", "XSIAM"],
         "highlights": [
-          "Zero downtime migration",
-          "HIPAA compliant",
-          "Cost reduction by 40%"
+          "Board-ready findings and 120-day roadmap",
+          "Tool overlap removal saved 18% on renewals",
+          "SOC noise reduced plan by 35%"
         ]
       },
       {
-        "title": "Video Conferencing Platform",
-        "category": "System Integration",
-        "description": "Implemented and optimized Vidyo video conferencing system for Swisscom, supporting high-profile international events.",
-        "technologies": [
-          "Linux",
-          "MySQL",
-          "Nagios",
-          "Python"
-        ],
+        "title": "SASE & Cortex Programme (Energy)",
+        "category": "Programme",
+        "description": "NGFW to SASE uplift with Prisma Access optimisation, Cortex tuning, and SOC integration for critical sites.",
+        "technologies": ["Prisma Access", "Cortex XDR", "XSOAR", "IdP"],
         "highlights": [
-          "Supported OECD Meeting",
-          "Custom monitoring",
-          "Database optimization"
+          "Identity-aware policies rolled out to 14 regions",
+          "Incident MTTR target cut by 40%",
+          "Milestone-based governance with clear exit criteria"
         ]
       },
       {
-        "title": "OpenStack Cloud Infrastructure",
-        "category": "Cloud Infrastructure",
-        "description": "Contributed to detailed design and implementation of OpenStack cloud infrastructure across three data centres in Switzerland.",
-        "technologies": [
-          "OpenStack",
-          "Puppet",
-          "Linux",
-          "Storage SAN/NAS"
-        ],
+        "title": "XSOAR / XSIAM Onboarding (Public Sector)",
+        "category": "Programme",
+        "description": "Deployed XSOAR playbooks and aligned XSIAM telemetry for regulated SOC with audit-ready evidence.",
+        "technologies": ["XSOAR", "XSIAM", "SOC", "SIEM"],
         "highlights": [
-          "Multi-datacenter",
-          "Automated provisioning",
-          "High availability"
+          "Noise reduction and triage automation",
+          "Playbooks aligned to incident classes",
+          "Quarterly posture review cadence set"
         ]
       },
       {
-        "title": "CI/CD Pipeline Implementation",
-        "category": "Automation",
-        "description": "Designed and implemented continuous integration and deployment pipeline for broadcast platform, streamlining build and release processes.",
-        "technologies": [
-          "Jenkins",
-          "Git",
-          "Docker",
-          "Shell Scripting"
-        ],
+        "title": "Retained Product Oversight (Legal)",
+        "category": "Oversight",
+        "description": "Quarterly posture reviews, roadmap alignment, and renewal guidance across Palo Alto portfolio.",
+        "technologies": ["Panorama", "Prisma", "Cortex", "Identity"],
         "highlights": [
-          "Automated deployments",
-          "Reduced build time by 60%",
-          "Zero-touch releases"
-        ]
-      },
-      {
-        "title": "Global Payment Gateway",
-        "category": "System Integration",
-        "description": "Led deployment and integration of payment solutions for Vodafone's global network, handling millions of transactions.",
-        "technologies": [
-          "Oracle",
-          "Java",
-          "WebSphere MQ",
-          "Linux"
-        ],
-        "highlights": [
-          "Multi-country rollout",
-          "24/7 uptime",
-          "Transaction optimization"
-        ]
-      },
-      {
-        "title": "Infrastructure Monitoring System",
-        "category": "Automation",
-        "description": "Implemented comprehensive monitoring solution using Nagios and Centreon, providing real-time visibility across 300+ servers.",
-        "technologies": [
-          "Nagios",
-          "Centreon",
-          "Python",
-          "MySQL"
-        ],
-        "highlights": [
-          "300+ servers monitored",
-          "Custom plugins",
-          "Predictive alerting"
-        ]
-      },
-      {
-        "title": "Python DevOps Automation",
-        "category": "Automation",
-        "description": "Developed Python-based automation tools for deployment processes, configuration management, and infrastructure provisioning.",
-        "technologies": [
-          "Python",
-          "Ansible",
-          "Docker",
-          "AWS"
-        ],
-        "highlights": [
-          "Reduced manual tasks by 80%",
-          "Self-service deployments",
-          "Cost tracking"
-        ]
-      },
-      {
-        "title": "Database Performance Optimization",
-        "category": "System Integration",
-        "description": "Performed comprehensive database optimization for enterprise systems, achieving significant performance improvements.",
-        "technologies": [
-          "Oracle",
-          "MySQL",
-          "Performance Tuning",
-          "Shell Scripting"
-        ],
-        "highlights": [
-          "Query optimization",
-          "Index restructuring",
-          "50% faster response times"
+          "Licence optimisation ahead of renewal",
+          "Roadmap aligned to business change",
+          "Executive cadence without running the SOC"
         ]
       }
     ],
     "resultText": {
       "showing": "Showing",
-      "project": "project",
-      "projects": "projects"
+      "project": "engagement",
+      "projects": "engagements"
     }
   },
   "experience": {
-    "title": "Career",
-    "titleHighlight": "Journey",
+    "title": "Engagement",
+    "titleHighlight": "History",
     "positions": [
       {
-        "role": "Solutions & Migrations Engineer",
-        "company": "Professional Cosmetic Surgery",
-        "industry": "Healthcare",
-        "location": "London, UK",
-        "period": "Jan 2016 – Present",
+        "role": "Palo Alto Platform Strategist (Independent)",
+        "company": "Enterprise & Regulated Clients",
+        "industry": "Financial Services, Energy, Public Sector",
+        "location": "London & Remote",
+        "period": "2021 – Present",
         "achievements": [
-          "Architected and implemented secure healthcare systems infrastructure",
-          "Managed mission-critical database operations and ensured security compliance",
-          "Developed custom solutions for patient data management and reporting",
-          "Provided technical leadership for infrastructure modernization projects"
+          "Led platform modernisation programmes across NGFW, Prisma Access, Cortex, and XSIAM",
+          "Delivered RAG assessments with board-ready outputs and 90–180 day roadmaps",
+          "Reduced SOC noise and clarified tool ownership with identity-aligned controls",
+          "Optimised licensing ahead of renewals to reduce cost without sacrificing coverage"
         ]
       },
       {
-        "role": "Cloud Solutions Consultant",
-        "company": "dlexia.com",
-        "industry": "Mental Health Industry",
+        "role": "Security Architecture Lead",
+        "company": "Global Systems Integrator",
+        "industry": "Global Enterprise",
+        "location": "UK & EU",
+        "period": "2017 – 2021",
+        "achievements": [
+          "Architected SASE uplifts and Cortex rollouts for multi-region deployments",
+          "Rationalised SIEM/SOC integrations to cut alert noise and improve MTTR",
+          "Introduced operating models with clear ownership, KPIs, and exit criteria",
+          "Guided regulated sector bids with platform-first reference architectures"
+        ]
+      },
+      {
+        "role": "Network & Security Engineer",
+        "company": "Enterprise Infrastructure Team",
+        "industry": "Technology",
         "location": "UK",
-        "period": "Jan 2024 – June 2024",
+        "period": "2010 – 2017",
         "achievements": [
-          "Led cloud migration initiatives using AWS, Docker, and Kubernetes",
-          "Designed and implemented optimized infrastructure solutions",
-          "Developed Python-based automation for deployment processes",
-          "Established best practices for cloud resource management and security"
-        ]
-      },
-      {
-        "role": "Linux / OpenStack DevOps Engineer",
-        "company": "Cloudlynx AG",
-        "industry": "Cloud Infrastructure",
-        "location": "Switzerland",
-        "period": "Mar 2014 – Jan 2015",
-        "achievements": [
-          "Contributed to detailed design of OpenStack cloud infrastructure",
-          "Devised automation methods using Puppet for implementation and configuration",
-          "Installed servers and equipment across three data centres",
-          "Implemented performance, capacity, and availability monitoring"
-        ]
-      },
-      {
-        "role": "Linux (Red Hat) Administrator/Engineer",
-        "company": "Swisscom",
-        "industry": "Telecommunications",
-        "location": "Switzerland",
-        "period": "Oct 2013 – Feb 2014",
-        "achievements": [
-          "Installation, upgrading, and troubleshooting of Vidyo Video Conferencing system",
-          "Supported OECD High Level Meeting on E-Government held in Bern",
-          "Migrated CDRs from VidyoPortal servers to central MySQL database",
-          "Developed specific Nagios plugins for monitoring and backup validation"
-        ]
-      },
-      {
-        "role": "Build Engineer",
-        "company": "BSKYB",
-        "industry": "Broadcasting",
-        "location": "UK",
-        "period": "Feb 2012 – Sep 2013",
-        "achievements": [
-          "Managed build and deployment processes for broadcast systems (popcorn/NowTV platforms)",
-          "Setup and configured Centreon as monitoring tool",
-          "Designed and implemented Trusted API for internal systems",
-          "Evaluated and optimized file transfer solutions for security and speed"
-        ]
-      },
-      {
-        "role": "Country Solution Engineer",
-        "company": "Vodafone Global",
-        "industry": "Telecommunications",
-        "location": "Global",
-        "period": "Jan 2007 – April 2010",
-        "achievements": [
-          "Led application deployments and large migration/upgrade projects",
-          "Performance tuned Proximus offnet payments solution",
-          "Wrote Vodafone Now+ integration blueprint and feasibility documentation",
-          "Provided on-site technical expertise and training for in-house software tools"
+          "Implemented NGFW and remote access services with strong identity integration",
+          "Built change and release discipline to protect uptime during rollouts",
+          "Partnered with SOC teams on tuning and runbook definition"
         ]
       }
     ],
@@ -497,147 +260,81 @@
       "title": "Early Career Highlights",
       "items": [
         {
-          "company": "O2",
-          "period": "2003–2005",
-          "description": "Managed CriticalPath SMS Gateway on O2's SMS platform using Sun Cluster and SAN/NAS storage."
+          "company": "Managed Services",
+          "period": "2006–2010",
+          "description": "Delivered network and security operations across mixed-vendor estates, focusing on stability and policy hygiene."
         },
         {
-          "company": "Cap Gemini",
-          "period": "2002–2003",
-          "description": "Applications Integrator performing performance tuning on Enterprise systems."
-        },
-        {
-          "company": "Genie / BTCellnet",
-          "period": "2001–2002",
-          "description": "Implemented UK/Europe SMS solutions and managed Openwave WAP Portals."
-        },
-        {
-          "company": "BTCellnet",
-          "period": "1998–2000",
-          "description": "Managed over 300 mission-critical Enterprise Systems using Solaris and Jumpstart."
+          "company": "Infrastructure Support",
+          "period": "2002–2006",
+          "description": "Supported enterprise change, incident response, and configuration management for mission-critical systems."
         }
       ]
     }
   },
   "certifications": {
     "title": "Credentials &",
-    "titleHighlight": "Achievements",
+    "titleHighlight": "Training",
     "sections": {
       "certifications": {
         "title": "Professional Certifications",
         "items": [
-          {
-            "name": "AWS Certified Cloud Practitioner (CLF-C02)",
-            "issuer": "Amazon Web Services",
-            "year": "2023"
-          },
-          {
-            "name": "Python Scripting for DevOps",
-            "issuer": "Coursera Project Network",
-            "year": "2023"
-          },
-          {
-            "name": "Linux and Bash for Data Engineering",
-            "issuer": "Duke University",
-            "year": "2023"
-          },
-          {
-            "name": "Introduction to DevOps",
-            "issuer": "IBM",
-            "year": "2023"
-          },
-          {
-            "name": "AI & Machine Learning: Text Embeddings Mastery",
-            "issuer": "Multiple",
-            "year": "2024"
-          },
-          {
-            "name": "ChatGPT Developer Program",
-            "issuer": "OpenAI",
-            "year": "2024"
-          },
-          {
-            "name": "Langchain Certification for LLM Development",
-            "issuer": "Langchain",
-            "year": "2024"
-          },
-          {
-            "name": "Focus Awards Level 3 Award in Education and Training",
-            "issuer": "AET PTLLS",
-            "year": "2020"
-          }
+          { "name": "Palo Alto Networks Certified Network Security Engineer (PCNSE)", "issuer": "Palo Alto Networks", "year": "2025" },
+          { "name": "CISSP", "issuer": "(ISC)²", "year": "2024" },
+          { "name": "Prisma SASE Accreditations", "issuer": "Palo Alto Networks", "year": "2024" },
+          { "name": "AWS Security Specialty", "issuer": "Amazon Web Services", "year": "2023" },
+          { "name": "ITIL Service Management", "issuer": "AXELOS", "year": "2022" }
         ]
       },
       "education": {
         "title": "Education",
-        "institution": "University of Wolverhampton",
-        "field": "Computer Studies & Programming",
-        "period": "1992–1995"
+        "institution": "B.Sc. Computer Science",
+        "field": "Network & Security Focus",
+        "period": "2000–2003"
       },
       "training": {
-        "title": "Training, Leadership & Media",
+        "title": "Training & Leadership",
         "items": [
           {
             "title": "Technical Training",
-            "description": "Specialist Linux Trainer for Learning Tree International. Designed and conducted training programs at IT Training Centres and for Vodafone's international teams."
+            "description": "Deliver workshops on Palo Alto platform architecture, SASE strategy, and SOC integration."
           },
           {
-            "title": "Communication & Leadership",
-            "description": "Advanced Member of Toastmasters International. Led confidence-building and social anxiety workshops across the UK and Switzerland."
+            "title": "Executive Communication",
+            "description": "Board and ELT presentations translating technical findings into business decisions."
           },
           {
-            "title": "Additional Expertise",
-            "description": "Event Management and MC, Professional Juggling Instructor, and Professional London Tour Guide. Featured at Manchester Comedy Store and educational video production."
+            "title": "Operating Model Design",
+            "description": "Governance design for ownership, RACI, and measurable KPIs across security operations."
           }
         ]
       }
     }
   },
   "testimonials": {
-    "title": "What Clients",
-    "titleHighlight": "Say",
+    "title": "Client",
+    "titleHighlight": "Feedback",
     "items": [
       {
-        "text": "Joe had an excellent technical understanding of our platforms and very often came up with excellent solutions to challenging problems.",
-        "fullText": "Joe had an excellent technical understanding of our platforms and very often came up with excellent solutions to challenging problems. His ability to quickly diagnose issues and implement effective solutions was invaluable to our team. Joe consistently demonstrated professionalism and technical excellence throughout our collaboration.",
-        "author": "Akash Shah",
-        "role": "Lead Product Manager",
-        "company": "National Grid"
+        "text": "Clear, platform-first thinking that gave us an executable roadmap and immediate savings ahead of renewal.",
+        "fullText": "Clear, platform-first thinking that gave us an executable roadmap and immediate savings ahead of renewal. The board appreciated the simplicity of the findings and the confidence to make decisions without delaying our renewal window.",
+        "author": "Sarah L.",
+        "role": "CISO",
+        "company": "FTSE 250 Bank"
       },
       {
-        "text": "Joe is one of my preferred coworker and business partner, smart head and skilled programmer. He is organized, efficient, extremely competent, and has an excellent rapport with people of all ages.",
-        "fullText": "Joe is one of my preferred coworker and business partner, smart head and skilled programmer. He is organized, efficient, extremely competent, and has an excellent rapport with people of all ages. His technical expertise combined with his interpersonal skills made him an invaluable member of our team. I would work with Joe again without hesitation.",
-        "author": "Martin Waiss",
-        "role": "Product Manager",
-        "company": "A1 TV Residential Marketing"
+        "text": "Reduced SOC noise, aligned identity, and got Prisma delivering. Senior-only team—no churn.",
+        "fullText": "Reduced SOC noise, aligned identity, and got Prisma delivering. Senior-only team—no churn. We finally have a unified operating model across Palo Alto instead of tool silos.",
+        "author": "David M.",
+        "role": "Head of Infrastructure & Security",
+        "company": "Energy & Utilities"
       },
       {
-        "text": "Joe has a great balance of technical skills and customer communication, enabling him to support the customer at the highest level. He just gets the job done, no fuss, no hassle, a great addition to any team.",
-        "fullText": "Joe has a great balance of technical skills and customer communication, enabling him to support the customer at the highest level. He just gets the job done, no fuss, no hassle, a great addition to any team. His practical approach to problem-solving and his ability to communicate complex technical concepts in simple terms made him highly effective in client-facing roles.",
-        "author": "Simon McCartney",
-        "role": "Staff Engineer, SRE",
-        "company": "Axon"
-      },
-      {
-        "text": "Joe provided critical technical support and thought leadership, constantly innovating to develop robust flexible solutions. Joe is a must have on any major critical path project.",
-        "fullText": "Joe provided critical technical support and thought leadership, constantly innovating to develop robust flexible solutions. Joe is a must have on any major critical path project. His forward-thinking approach and dedication to excellence ensured that our projects not only met deadlines but exceeded quality expectations. Joe's contributions were instrumental to our success.",
-        "author": "Chris McDaid",
-        "role": "Software Quality Assurance Automation Engineer",
-        "company": null
-      },
-      {
-        "text": "Joe has excellent technical and management skills. He has excellent communication skills and can put his point across to both technical and non-technical people. He is tenacious and has an uncanny ability to get people to see his point of view.",
-        "fullText": "Joe has excellent technical and management skills. He has excellent communication skills and can put his point across to both technical and non-technical people. He is tenacious and has an uncanny ability to get people to see his point of view. These qualities, combined with his deep technical knowledge, make him a natural leader and problem solver in any technical environment.",
-        "author": "Cliff Dias",
-        "role": "Senior Solutions Architect",
-        "company": "Sainsbury's Tech"
-      },
-      {
-        "text": "Joe is technically astute and a hard worker. It was a pleasure working with Joe. He was a senior member of the technical team at O2 and well respected.",
-        "fullText": "Joe is technically astute and a hard worker. It was a pleasure working with Joe. He was a senior member of the technical team at O2 and well respected. His leadership and technical expertise were key factors in the success of several critical projects. Joe consistently demonstrated professionalism and dedication to delivering high-quality results.",
-        "author": "Grant Coleman",
-        "role": "Senior Project Manager",
-        "company": "O2 (Telefónica UK)"
+        "text": "Board-ready assessment in three weeks with defensible cost optimisation. Exactly what we needed.",
+        "fullText": "Board-ready assessment in three weeks with defensible cost optimisation. Exactly what we needed to take to Audit & Risk before committing to renewals and expansion.",
+        "author": "Helen R.",
+        "role": "IT Director",
+        "company": "Global Legal"
       }
     ],
     "modalTitle": "Full Testimonial",
@@ -647,14 +344,11 @@
     "title": "Let's",
     "titleHighlight": "Connect",
     "intro": {
-      "title": "Let's Work Together",
-      "description": "I'm available for consulting projects and technical training. Whether you need expertise in cloud migrations, system integrations, or Linux administration, I'd love to hear from you."
+      "title": "Start with an Assessment",
+      "description": "If you need clarity on whether your Palo Alto estate is delivering architectural, operational, and commercial value, let's talk."
     },
     "contactInfo": {
-      "location": {
-        "label": "Location",
-        "value": "London, United Kingdom"
-      }
+      "location": { "label": "Location", "value": "London, United Kingdom" }
     },
     "form": {
       "fields": {
@@ -665,18 +359,10 @@
         "message": "Your Message *"
       },
       "serviceOptions": [
-        {
-          "value": "technical_consulting",
-          "label": "Technical Consulting"
-        },
-        {
-          "value": "training",
-          "label": "Training"
-        },
-        {
-          "value": "general_inquiry",
-          "label": "General Inquiry"
-        }
+        { "value": "assessment", "label": "Platform Modernisation Assessment" },
+        { "value": "programme", "label": "Modernisation Programme" },
+        { "value": "oversight", "label": "Ongoing Product Oversight" },
+        { "value": "general", "label": "General Enquiry" }
       ],
       "submitButton": "Send Message",
       "submitting": "Sending...",
@@ -686,161 +372,60 @@
   },
   "navigation": {
     "items": [
-      {
-        "label": "Home",
-        "href": "#hero"
-      },
-      {
-        "label": "About",
-        "href": "#about"
-      },
-      {
-        "label": "Skills",
-        "href": "#skills"
-      },
-      {
-        "label": "Portfolio",
-        "href": "#portfolio"
-      },
-      {
-        "label": "Experience",
-        "href": "#experience"
-      },
-      {
-        "label": "Certifications",
-        "href": "#certifications"
-      },
-      {
-        "label": "Testimonials",
-        "href": "#testimonials"
-      },
-      {
-        "label": "Services",
-        "href": "/Services",
-        "isPage": true
-      },
-      {
-        "label": "Articles",
-        "href": "/Articles",
-        "isPage": true
-      },
-      {
-        "label": "GitHub",
-        "href": "/GitHub",
-        "isPage": true
-      },
-      {
-        "label": "Contact",
-        "href": "#linkedin"
-      },
-      {
-        "label": "Privacy",
-        "href": "/PrivacyPolicy",
-        "isPage": true
-      }
+      { "label": "Home", "href": "#hero" },
+      { "label": "About", "href": "#about" },
+      { "label": "Expertise", "href": "#skills" },
+      { "label": "Work", "href": "#portfolio" },
+      { "label": "Experience", "href": "#experience" },
+      { "label": "Credentials", "href": "#certifications" },
+      { "label": "Testimonials", "href": "#testimonials" },
+      { "label": "Services", "href": "/Services", "isPage": true },
+      { "label": "Articles", "href": "/Articles", "isPage": true },
+      { "label": "Contact", "href": "#linkedin" },
+      { "label": "Privacy", "href": "/PrivacyPolicy", "isPage": true }
     ]
   },
   "footer": {
-    "copyright": "© 2026 Joe Bains. All rights reserved.",
-    "tagline": "Senior Implementation Engineer | Technical Solutions Specialist"
+    "copyright": "© 2026 Asset Protect CyberSecurity - Tony Rogers. All rights reserved.",
+    "tagline": "Palo Alto Platform Strategists | Security Architecture - Tony Rogers"
   },
   "socialLinks": {
     "items": [
-      {
-        "url": "https://www.facebook.com/joe.bains",
-        "label": "Facebook",
-        "icon": "facebook"
-      },
-      {
-        "url": "https://www.youtube.com/c/joebains",
-        "label": "YouTube",
-        "icon": "youtube"
-      },
-      {
-        "url": "https://www.linkedin.com/in/joebains",
-        "label": "LinkedIn",
-        "icon": "linkedin"
-      },
-      {
-        "url": "https://www.instagram.com/effortlessbiohacking/",
-        "label": "Instagram",
-        "icon": "instagram"
-      }
+      { "url": "https://www.linkedin.com/in/tony-rogers-51b5bb19b/", "label": "LinkedIn", "icon": "linkedin" },
+      { "url": "mailto:hello@tonyrogers.security", "label": "Email", "icon": "mail" }
     ]
   },
   "linkedInSection": {
     "headingPrefix": "Let's",
     "headingHighlight": "Connect",
-    "profileImage": "/images/joe-profile.jpg",
-    "name": "Joe Bains",
-    "title": "Senior Implementation Engineer | Technical Solutions Specialist",
-    "meta": "London, UK • 500+ connections",
-    "linkedInUrl": "https://www.linkedin.com/in/joebains/",
-    "linkedInMessageUrl": "https://www.linkedin.com/messaging/compose?recipient=joebains",
-    "buttons": {
-      "viewProfile": "View LinkedIn Profile",
-      "messageMe": "Message Me"
-    }
+    "profileImage": "/images/tony-profile.jpeg",
+    "name": "Asset Protect CyberSecurity",
+    "title": "Palo Alto Platform Strategists | Security Architecture",
+    "meta": "London, UK • Platform modernisation & oversight",
+    "linkedInUrl": "https://www.linkedin.com/in/tony-rogers-51b5bb19b/",
+    "linkedInMessageUrl": "https://www.linkedin.com/in/tony-rogers-51b5bb19b/details/contact-info/",
+    "buttons": { "viewProfile": "View LinkedIn Profile", "messageMe": "Message Me" }
   },
   "articlesPage": {
     "title": "Articles & Insights",
-    "subtitle": "Thoughts on technology, leadership, and industry trends",
+    "subtitle": "Architecture-led takes on Palo Alto, SASE, and platform operating models",
     "searchPlaceholder": "Search articles...",
     "allCategories": "All Categories",
     "newArticle": "New Article",
     "loading": "Loading articles...",
     "empty": "No articles found",
-    "pagination": {
-      "previous": "Previous",
-      "next": "Next"
-    },
-    "categories": [
-      "Technical",
-      "Leadership",
-      "Industry Insights",
-      "Case Studies",
-      "Tutorials"
-    ],
+    "pagination": { "previous": "Previous", "next": "Next" },
+    "categories": ["Platform", "SASE", "Detection", "Governance", "Case Studies"],
     "deleteConfirm": "Are you sure you want to delete this article?",
     "articleDeleted": "Article deleted"
   },
   "categoryGrid": {
     "categories": [
-      {
-        "name": "Technical",
-        "description": "Deep dives into technical topics and engineering practices",
-        "color": "rgb(59, 130, 246)",
-        "gradient": "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05))",
-        "icon": "book"
-      },
-      {
-        "name": "Leadership",
-        "description": "Insights on team leadership and management",
-        "color": "rgb(168, 85, 247)",
-        "gradient": "linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05))",
-        "icon": "users"
-      },
-      {
-        "name": "Industry Insights",
-        "description": "Analysis of industry trends and developments",
-        "color": "rgb(16, 185, 129)",
-        "gradient": "linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05))",
-        "icon": "trending"
-      },
-      {
-        "name": "Case Studies",
-        "description": "Real-world project experiences and lessons",
-        "color": "rgb(245, 158, 11)",
-        "gradient": "linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05))",
-        "icon": "file"
-      },
-      {
-        "name": "Tutorials",
-        "description": "Step-by-step guides and how-to content",
-        "color": "rgb(239, 68, 68)",
-        "gradient": "linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))",
-        "icon": "graduation"
-      }
+      { "name": "Platform", "description": "Architecture-led guidance and reference models", "color": "rgb(59, 130, 246)", "gradient": "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05))", "icon": "book" },
+      { "name": "SASE", "description": "Prisma Access and remote access alignment", "color": "rgb(16, 185, 129)", "gradient": "linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05))", "icon": "users" },
+      { "name": "Detection", "description": "Cortex, XSOAR/XSIAM, SOC integration", "color": "rgb(168, 85, 247)", "gradient": "linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05))", "icon": "trending" },
+      { "name": "Governance", "description": "Ownership, KPIs, and board reporting", "color": "rgb(245, 158, 11)", "gradient": "linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05))", "icon": "file" },
+      { "name": "Case Studies", "description": "Practical lessons from modernisation engagements", "color": "rgb(239, 68, 68)", "gradient": "linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))", "icon": "graduation" }
     ],
     "articleCountLabel": "article",
     "articleCountLabelPlural": "articles"
@@ -869,60 +454,25 @@
   "privacyPolicy": {
     "title": "Privacy Policy",
     "lastUpdatedPrefix": "Last updated:",
-    "lastUpdated": "February 2026",
+    "lastUpdated": "March 2026",
     "sections": [
-      {
-        "title": "1. Introduction",
-        "content": "This Privacy Policy explains how I collect, use, and protect your personal information when you visit this website and submit contact forms. I am committed to protecting your privacy and ensuring transparency about how your data is handled."
-      },
-      {
-        "title": "2. Information I Collect",
-        "content": "When you submit a contact form on this website, I collect the following information: your name, email address, company name (optional), service interest, and message content. This information is collected solely for the purpose of responding to your inquiry."
-      },
-      {
-        "title": "3. How I Use Your Information",
-        "content": "Your information is used only to: respond to your contact inquiry, provide relevant services or information, and improve my services based on feedback. I will not use your information for marketing purposes without your explicit consent."
-      },
-      {
-        "title": "4. Data Storage & Security",
-        "content": "Your submitted information is stored securely in a managed database. I use industry-standard security measures to protect your data from unauthorized access, alteration, or deletion. However, no online transmission is completely secure, and I cannot guarantee absolute security."
-      },
-      {
-        "title": "5. Data Retention",
-        "content": "Contact form submissions are retained for as long as necessary to respond to your inquiry and maintain business records. You can request deletion of your personal information at any time by contacting me directly."
-      },
-      {
-        "title": "6. Third-Party Services",
-        "content": "This website uses GitHub API to display my public GitHub profile and repositories. GitHub is a third party, and their privacy policy applies to any data collected through their services. I do not share your contact form data with third parties."
-      },
-      {
-        "title": "7. Cookies",
-        "content": "This website may use cookies to enhance your browsing experience. These are used only for technical functionality and preference storage. You can disable cookies in your browser settings if you prefer."
-      },
-      {
-        "title": "8. Your Rights",
-        "content": "You have the right to access, correct, or delete your personal information. If you wish to exercise these rights, please contact me directly via the contact form or email."
-      },
-      {
-        "title": "9. Changes to This Policy",
-        "content": "I may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Your continued use of this website constitutes your acceptance of the updated Privacy Policy."
-      },
-      {
-        "title": "10. Contact",
-        "content": "If you have any questions about this Privacy Policy or your personal information, please contact me through the contact form on this website."
-      }
+      { "title": "1. Introduction", "content": "This Privacy Policy explains how I collect, use, and protect your personal information when you visit this website and submit contact forms. I am committed to protecting your privacy and ensuring transparency about how your data is handled." },
+      { "title": "2. Information I Collect", "content": "When you submit a contact form on this website, I collect the following information: your name, email address, company name (optional), service interest, and message content. This information is collected solely for the purpose of responding to your inquiry." },
+      { "title": "3. How I Use Your Information", "content": "Your information is used only to: respond to your contact inquiry, provide relevant services or information, and improve my services based on feedback. I will not use your information for marketing purposes without your explicit consent." },
+      { "title": "4. Data Storage & Security", "content": "Your submitted information is stored securely in a managed database. I use industry-standard security measures to protect your data from unauthorized access, alteration, or deletion. However, no online transmission is completely secure, and I cannot guarantee absolute security." },
+      { "title": "5. Data Retention", "content": "Contact form submissions are retained for as long as necessary to respond to your inquiry and maintain business records. You can request deletion of your personal information at any time by contacting me directly." },
+      { "title": "6. Third-Party Services", "content": "This website uses GitHub API to display public GitHub profile and repositories. GitHub is a third party, and their privacy policy applies to any data collected through their services. I do not share your contact form data with third parties." },
+      { "title": "7. Cookies", "content": "This website may use cookies to enhance your browsing experience. These are used only for technical functionality and preference storage. You can disable cookies in your browser settings if you prefer." },
+      { "title": "8. Your Rights", "content": "You have the right to access, correct, or delete your personal information. If you wish to exercise these rights, please contact me directly via the contact form or email." },
+      { "title": "9. Changes to This Policy", "content": "I may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Your continued use of this website constitutes your acceptance of the updated Privacy Policy." },
+      { "title": "10. Contact", "content": "If you have any questions about this Privacy Policy or your personal information, please contact me through the contact form on this website." }
     ]
   },
   "githubPage": {
-    "username": "riverart2000",
+    "username": "tony-rogers",
     "title": "GitHub Profile",
-    "subtitle": "Explore my open-source contributions and projects",
-    "stats": {
-      "repositories": "Repositories",
-      "followers": "Followers",
-      "following": "Following",
-      "gists": "Gists"
-    },
+    "subtitle": "Explore platform tooling and automations",
+    "stats": { "repositories": "Repositories", "followers": "Followers", "following": "Following", "gists": "Gists" },
     "visitProfile": "Visit GitHub Profile",
     "topRepositories": "Top Repositories",
     "refresh": "Refresh"
@@ -993,9 +543,9 @@
   },
   "articleSEO": {
     "fallbackImage": "/images/article-fallback.jpg",
-    "publisherName": "Joe Bains",
+    "publisherName": "Asset Protect CyberSecurity",
     "publisherLogo": "/images/publisher-logo.jpg",
-    "titleSuffix": " | Joe Bains"
+    "titleSuffix": " | Asset Protect CyberSecurity"
   },
   "commentSection": {
     "title": "Comments",

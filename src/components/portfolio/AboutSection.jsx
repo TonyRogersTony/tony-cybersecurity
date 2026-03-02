@@ -9,14 +9,14 @@ export default function AboutSection() {
   const { about } = content;
   
   const iconMap = {
-    "Technical Excellence": Briefcase,
-    "Global Experience": Globe,
-    "Communication": Award
+    "Platform-first Architecture": Briefcase,
+    "Executive-ready Outcomes": Award,
+    "Regulated Experience": Globe,
   };
 
-  const highlights = about.highlights.map(h => ({
+  const highlights = about.highlights.map((h) => ({
     ...h,
-    icon: iconMap[h.title]
+    icon: iconMap[h.title] || Briefcase,
   }));
 
   return (

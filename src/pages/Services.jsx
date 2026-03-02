@@ -2,56 +2,44 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CloudUpload, Bot, Route, Wrench, CheckCircle2 } from 'lucide-react';
+import { Shield, Workflow, Radar, CheckCircle2 } from 'lucide-react';
 
 const services = [
   {
-    icon: CloudUpload,
-    title: 'Cloud Migration & Implementation',
-    tagline: 'Move your systems to the cloud securely, with zero (or minimal) downtime – and predictable costs.',
+    icon: Shield,
+    title: 'Platform Modernisation Assessment',
+    tagline: '2–3 week executive-grade review of your Palo Alto estate to surface architectural, operational, and commercial truth.',
     bullets: [
-      'Zero-downtime migrations to AWS, Azure, or Google Cloud (lift-and-shift, replatform, or refactor).',
-      'Full assessment, planning, execution, and post-migration optimisation.',
-      'Cut infrastructure costs by 30–50% while improving scalability and security.',
-      'Tailored for London SMEs: UK data sovereignty, hybrid setups, and legacy system handling.',
+      'RAG-rated findings across NGFW, Prisma Access, Cortex, XSIAM, and Panorama/Strata Cloud Manager.',
+      'Tool overlap, licence utilisation, and cost inefficiency analysis to prep renewals.',
+      'Target-state architecture blueprint with a 90–180 day modernisation roadmap.',
+      'Board-ready report with commercial optimisation summary and clear next steps.',
     ],
-    proof: 'Delivered complex AWS migrations for healthcare and telecom clients – now helping smaller teams achieve the same reliability.',
+    proof: 'Typical investment: £5k–£9k (UK) | €6k–€11k (EU).',
   },
   {
-    icon: Bot,
-    title: 'AI Automation & Adoption',
-    tagline: 'Implement simple, no-code AI tools to automate repetitive tasks and save 10–20 hours/week.',
+    icon: Workflow,
+    title: 'Modernisation Programme',
+    tagline: 'Execute the roadmap and turn design into operating reality with senior-led delivery.',
     bullets: [
-      'Easy wins: AI chatbots, automated invoicing/expenses, content generation, and workflow automation.',
-      'Tools like ChatGPT integrations, Zapier/Make.com, Gemini, and Perplexity with UK-focused compliance in mind.',
-      'Quick setup in days, not months, with practical team training included.',
-      'ROI-first approach: start small, measure savings, scale what works.',
+      'NGFW → SASE uplift and Prisma Access optimisation with identity-aligned controls.',
+      'Cortex XDR rollout or tuning plus XSOAR/XSIAM onboarding and playbook alignment.',
+      'SOC integration rationalisation to cut noise and sharpen response.',
+      'Milestone-based governance with clear exit criteria and product specialists only when required.',
     ],
-    proof: 'Recent AI certifications plus hands-on delivery helping London agencies automate admin and marketing for faster growth.',
+    proof: 'Typical programme value: £20k–£75k+ depending on scope.',
   },
   {
-    icon: Route,
-    title: 'Digital Transformation Advisory & Roadmapping',
-    tagline: 'Get a realistic, step-by-step plan to modernise operations without corporate bloat.',
+    icon: Radar,
+    title: 'Ongoing Product Oversight',
+    tagline: 'Retained advisory to keep the platform aligned, tuned, and commercially optimised.',
     bullets: [
-      'Current-state audits, pain-point analysis, and phased modernisation roadmaps.',
-      'System integration, DevOps setup, and process automation with practical delivery standards.',
-      'Bridge legacy systems to secure modern architectures without business disruption.',
-      'Built for London SMEs: budget-aware execution, fast wins, and compliance-aware planning.',
+      'Lifecycle and roadmap alignment across NGFW, Prisma, Cortex, and Strata Cloud Manager.',
+      'Quarterly posture reviews, SOC tuning oversight, and identity-aware policy hygiene.',
+      'Audit, cyber insurance, and renewal guidance grounded in measurable posture.',
+      'Executive cadence without running your SOC; escalation path when deeper product owners are needed.',
     ],
-    proof: '15+ years streamlining deployments across telecom and healthcare, now focused on helping growing businesses avoid common pitfalls.',
-  },
-  {
-    icon: Wrench,
-    title: 'Technical Project Rescue & Advisory',
-    tagline: 'Fix stalled implementations and optimise existing systems with senior technical support.',
-    bullets: [
-      'Troubleshooting and root-cause remediation for failing or delayed projects.',
-      'Performance tuning and security hardening for existing platforms.',
-      'Interim senior support during critical migrations and upgrades.',
-      'Independent second opinions before high-risk technical decisions.',
-    ],
-    proof: 'Hands-on rescue support for complex delivery environments where reliability and speed both matter.',
+    proof: 'Typical retainer: £2.5k–£6k per month.',
   },
 ];
 
@@ -62,10 +50,10 @@ export default function Services() {
       <div className="container mx-auto px-6 max-w-5xl">
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
-            Helping London SMEs Modernise Tech Without the Headache
+            Palo Alto Security Platform Modernisation
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            Practical cloud migrations, AI automation, and digital transformation delivered with enterprise-grade reliability and SME-friendly simplicity. From someone who’s done it at O2, Vodafone, and beyond.
+            Structured assessments, targeted programmes, and retained oversight to turn fragmented Palo Alto deployments into an integrated, low-noise, commercially-optimised security platform.
           </p>
         </header>
 
@@ -109,12 +97,12 @@ export default function Services() {
 
         <section>
           <Card className="p-8" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)' }}>
-            <h2 className="text-3xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Why Choose Me?</h2>
+            <h2 className="text-3xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Why Asset Protect CyberSecurity</h2>
             <ul className="space-y-3 mb-6">
-              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Big-enterprise experience (O2, Vodafone, National Grid-level projects) applied to SME budgets and timelines.</span></li>
-              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Approachable, no-jargon delivery style with practical, plain-English guidance.</span></li>
-              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>London-based with responsive support and in-person collaboration when needed.</span></li>
-              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Proven outcomes across cloud, automation, and technical delivery transformation.</span></li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Platform-first approach across NGFW, Prisma Access, Cortex, XSOAR/XSIAM, and Strata Cloud Manager.</span></li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Executive-grade outputs: board-ready reporting, clear roadmaps, and commercial optimisation you can defend.</span></li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Senior-led delivery only; specialist product owners engaged when needed—no junior churn.</span></li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-1" style={{ color: 'var(--accent-primary)' }} /><span style={{ color: 'var(--text-secondary)' }}>Regulated sector experience with an identity-aligned, Zero Trust-as-operating-model mindset.</span></li>
             </ul>
 
             <Button
@@ -122,7 +110,7 @@ export default function Services() {
               className="text-white"
               style={{ background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))' }}
             >
-              Let’s discuss your challenges — no pressure, just honest advice.
+              Start with an assessment
             </Button>
           </Card>
         </section>

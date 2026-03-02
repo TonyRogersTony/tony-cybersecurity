@@ -44,26 +44,27 @@ const buildCalendlyRedirectUrl = (baseUrl, name, email) => {
 };
 
 const businessTypeOptions = [
-  'Small business / startup (1–10 people)',
-  'Medium-sized business (11–50 people)',
-  'Growing team (51–100+)',
+  'CISO / Security Leadership',
+  'Head of Infrastructure / Network',
+  'IT Director / Technology Leadership',
+  'Regulated sector (finance, energy, public sector, legal)',
   'Other (please specify)',
 ];
 
 const interestsOptions = [
-  'Cloud migration / moving to AWS/Azure/Google Cloud',
-  'AI automation (e.g., chatbots, workflows, admin savings)',
-  'Digital transformation / overall tech roadmap',
-  'Fixing a stalled project or legacy systems',
-  'Other technical implementation help',
+  'Platform Modernisation Assessment (2–3 weeks)',
+  'Modernisation Programme (NGFW → SASE, Prisma, Cortex, XSOAR/XSIAM)',
+  'Ongoing Product Oversight (retained advisory)',
+  'Licence / renewal optimisation',
+  'SOC noise reduction & tuning',
+  'Something else (describe below)',
 ];
 
 const budgetOptions = [
-  'Under £500',
-  '£500–£2,000',
-  '£2,000–£5,000',
-  'Over £5,000',
-  'Prefer not to say / Not sure yet',
+  'Assessment: £5k–£10k',
+  'Programme: £20k–£750k+',
+  'Retainer: £2.5k–£6k per month',
+  'Not sure yet / Discuss in call',
 ];
 
 const sourceOptions = ['LinkedIn', 'Google search', 'Referral / word of mouth', 'Other'];
@@ -226,9 +227,9 @@ export default function DiscoverySurveyFab() {
           style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
         >
           <DialogHeader>
-            <DialogTitle style={{ color: 'var(--text-primary)' }}>Discovery Survey</DialogTitle>
+            <DialogTitle style={{ color: 'var(--text-primary)' }}>Palo Alto Modernisation Discovery</DialogTitle>
             <DialogDescription style={{ color: 'var(--text-tertiary)' }}>
-              Answer a few quick questions so I can suggest the most practical next steps.
+              Tell us where you are with NGFW, Prisma Access, Cortex, and XSOAR/XSIAM so we can propose the right assessment or programme.
             </DialogDescription>
           </DialogHeader>
 
@@ -283,7 +284,7 @@ export default function DiscoverySurveyFab() {
 
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                Which area are you most interested in right now? *
+                Which engagement fits best right now? *
               </label>
               <p className="text-xs mb-3" style={{ color: 'var(--text-tertiary)' }}>Select all that apply</p>
               <div className="space-y-2">
@@ -310,13 +311,13 @@ export default function DiscoverySurveyFab() {
                 style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
               />
               <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>
-                E.g. "We&apos;re outgrowing our old servers and need cloud help" or "Want to automate invoicing to save time" or "Looking for quick AI wins without big costs"
+                E.g. "Need a platform assessment before renewal", "SOC noise too high", "Prisma Access not delivering", or "Need identity-aligned policies across NGFW/Prisma".
               </p>
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                Rough monthly IT/tech budget range (if comfortable sharing)
+                Indicative budget range (optional)
               </label>
               <Select value={formData.budgetRange} onValueChange={(value) => setField('budgetRange', value)}>
                 <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
@@ -328,11 +329,11 @@ export default function DiscoverySurveyFab() {
                   ))}
                 </SelectContent>
               </Select>
-              <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>This is optional and helps me suggest realistic options</p>
+              <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>Optional — helps us recommend the right assessment, programme, or retainer tier.</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>How did you find me?</label>
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>How did you find us?</label>
               <Select value={formData.foundYou} onValueChange={(value) => setField('foundYou', value)}>
                 <SelectTrigger style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
                   <SelectValue placeholder="Select one option" />
@@ -359,7 +360,7 @@ export default function DiscoverySurveyFab() {
                     Submitting...
                   </>
                 ) : (
-                  'Submit & Book Discovery Call'
+                  'Submit & Book Modernisation Call'
                 )}
               </Button>
             </div>

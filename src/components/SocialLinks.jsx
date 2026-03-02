@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Youtube, Linkedin, Instagram } from 'lucide-react';
+import { Facebook, Youtube, Linkedin, Instagram, Mail } from 'lucide-react';
 import { content } from './content';
 
 const SocialLinks = () => {
@@ -8,6 +8,7 @@ const SocialLinks = () => {
     youtube: Youtube,
     linkedin: Linkedin,
     instagram: Instagram,
+    mail: Mail,
   };
 
   const socials = content.socialLinks.items.map((item) => ({
