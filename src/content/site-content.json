@@ -24,8 +24,8 @@
         "description": "Senior-led delivery for FTSE/regulatory environments with platform-first outcomes."
       },
       "certifications": {
-        "title": "Certifications | Security Credentials",
-        "description": "Palo Alto, security architecture, and cloud security."
+        "title": "Certifications & Training | Security Credentials",
+        "description": "Palo Alto, security architecture, cloud security, and executive training."
       },
       "testimonials": {
         "title": "Client Proof | Executive References",
@@ -291,6 +291,23 @@
         "institution": "B.Sc. Computer Science",
         "field": "Network & Security Focus",
         "period": "2000–2003"
+      },
+      "training": {
+        "title": "Training & Leadership",
+        "items": [
+          {
+            "title": "Technical Training",
+            "description": "Deliver workshops on Palo Alto platform architecture, SASE strategy, and SOC integration."
+          },
+          {
+            "title": "Executive Communication",
+            "description": "Board and ELT presentations translating technical findings into business decisions."
+          },
+          {
+            "title": "Operating Model Design",
+            "description": "Governance design for ownership, RACI, and measurable KPIs across security operations."
+          }
+        ]
       }
     }
   },

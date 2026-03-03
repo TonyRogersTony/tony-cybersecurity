@@ -78,7 +78,7 @@ export default function SEO({ section }) {
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           "name": `${seo.author} Technical Consulting`,
-          "description": "Technical consulting services specializing in cloud migrations, system integrations, and Linux administration",
+          "description": "Technical consulting and training services specializing in cloud migrations, system integrations, and Linux administration",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "London",
@@ -89,6 +89,7 @@ export default function SEO({ section }) {
             "Technical Consulting",
             "Cloud Migration",
             "System Integration",
+            "Linux Training",
             "DevOps Consulting"
           ]
         })}
