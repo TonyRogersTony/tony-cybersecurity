@@ -24,7 +24,7 @@
         "description": "Senior-led delivery for FTSE/regulatory environments with platform-first outcomes."
       },
       "certifications": {
-        "title": "Security Credentials Training",
+        "title": "Security Credentials",
         "description": "Executive training and leadership insights within security architecture."
       },
       "testimonials": {
@@ -273,7 +273,7 @@
     }
   },
   "certifications": {
-    "title": "Security Credentials Training",
+    "title": "Security Credentials",
     "titleHighlight": "Training",
     "sections": {
       "training": {
