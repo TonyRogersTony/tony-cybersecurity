@@ -24,8 +24,8 @@
         "description": "Senior-led delivery for FTSE/regulatory environments with platform-first outcomes."
       },
       "certifications": {
-        "title": "Certifications & Training | Security Credentials",
-        "description": "Palo Alto, security architecture, cloud security, and executive training."
+        "title": "Training & Leadership | Security Credentials",
+        "description": "Executive training and leadership insights within security architecture."
       },
       "testimonials": {
         "title": "Client Proof | Executive References",
@@ -273,25 +273,9 @@
     }
   },
   "certifications": {
-    "title": "Credentials &",
+    "title": "Training & Leadership | Security Credentials",
     "titleHighlight": "Training",
     "sections": {
-      "certifications": {
-        "title": "Professional Certifications",
-        "items": [
-          { "name": "Palo Alto Networks Certified Network Security Engineer (PCNSE)", "issuer": "Palo Alto Networks", "year": "2025" },
-          { "name": "CISSP", "issuer": "(ISC)²", "year": "2024" },
-          { "name": "Prisma SASE Accreditations", "issuer": "Palo Alto Networks", "year": "2024" },
-          { "name": "AWS Security Specialty", "issuer": "Amazon Web Services", "year": "2023" },
-          { "name": "ITIL Service Management", "issuer": "AXELOS", "year": "2022" }
-        ]
-      },
-      "education": {
-        "title": "Education",
-        "institution": "B.Sc. Computer Science",
-        "field": "Network & Security Focus",
-        "period": "2000–2003"
-      },
       "training": {
         "title": "Training & Leadership",
         "items": [
